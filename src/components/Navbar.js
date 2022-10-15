@@ -10,13 +10,13 @@ const Navbar = () => {
 
     <div className="parent">
       <nav className="navbar">
-        <img src={logodark} alt='logo' width ='100px'></img>
+        <Link to='/'><img src={logodark} alt='logo' width ='100px'/></Link>
         <ul>
           <li><Link className='navLink' to='/'>Home</Link></li>
           <li>|</li>
-          <li><Link className='navLink' to='/toolkit'>Solar Toolkit</Link></li>
-          <li>|</li>
           <li><Link className='navLink' to='/info'>Information</Link></li>
+          <li>|</li>
+          <li><Link className='navLink' to='/toolkit'>Solar Toolkit</Link></li>
           <li>|</li>
           <li><Link className='navLink' to='/about'>About Us</Link></li>
         </ul>
