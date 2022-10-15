@@ -10,15 +10,15 @@ body{
     
 }
 .navbar{
-    background-color: var(--color4);
+    background-color: var(--color1);
     width: 100%;
-    box-shadow: 1px 2px 20px var(--color4);
-    color: var(--color1);
+    box-shadow: 1px 2px 20px var(--color2);
+    color: var(--color2);
     font-family: 'Rubik', sans-serif;
     font-weight: 100;
     transform: uppercase;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     
 }
 .navbar ul{
@@ -37,11 +37,16 @@ body{
 }
 .navLink {
     text-decoration: none;
-    color: var(--color1);
+    color: var(--color2);
     font-size: 20px;
+    text-transform: uppercase;
 }
 .navLink:hover {
-    color: var(--color2);
+    color: var(--color3);
     cursor: pointer;
     border-radius: 5px;
+}
+
+.navbar img {
+    margin: 20px 0 0 80px;
 }
