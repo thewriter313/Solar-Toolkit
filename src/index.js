@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/layout";
-import About from './pages/about'
-import Home from "./pages/home";
-import Toolkit from './pages/toolkit'
-import Info from './pages/info'
+import About from './pages/about/about'
+import Home from "./pages/home/home";
+import Toolkit from './pages/toolkit/toolkit'
+import Info from './pages/info/info'
 
 export default function App() {
   return (
