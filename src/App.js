@@ -1,15 +1,15 @@
-import React from "react";
-import {Outlet} from "react-router-dom";
-import Navbar from "./components/Navbar";
+// import React from "react";
+// import {Outlet} from "react-router-dom";
+// import Navbar from "./components/Navbar";
 
-function App() {
-  return (
-    <div>
-      <Navbar />
-      <Outlet />
-    </div>
+// function App() {
+//   return (
+//     <>
+//       <Navbar />
+//       <Outlet />
+//     </>
     
-  );
-}
+//   );
+// }
 
-export default App;
+// export default App;
