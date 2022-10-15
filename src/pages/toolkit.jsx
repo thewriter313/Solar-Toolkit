@@ -3,7 +3,7 @@ import React from 'react'
 const toolkit = () => {
   return (
     <div>
-      <p>bro toolkit</p>
+      <p>bro toolkit bro</p>
     </div>
   )
 }
