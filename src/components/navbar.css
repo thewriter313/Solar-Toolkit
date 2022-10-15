@@ -4,6 +4,9 @@ body{
 .parent{
     display: flex;
     justify-content: center;
+    top: 0;
+    left: 0;
+    position: sticky;
     
 }
 .navbar{
@@ -13,8 +16,7 @@ body{
     color: var(--color1);
     font-family: 'Rubik', sans-serif;
     font-weight: 100;
-    position: fixed;
-    text-transform: uppercase;
+    transform: uppercase;
     display: flex;
     justify-content: flex-end;
     
