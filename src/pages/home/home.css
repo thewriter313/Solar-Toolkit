@@ -1,8 +1,6 @@
 html, body {
-    height: 2000px;
     margin: 0;
-    background-color: var(--color2);
-  }
+}
 h1{
     margin: 0;
 }
@@ -33,25 +31,27 @@ h1{
 }
 .infobox{
     display: flex;
-    justify-content: space-between;
-    align-items:center;
+    justify-content:center;
+    align-self: center;
+    padding: 80px 0;
     color: var(--color2);
-    background-color: var(--color2);
-    
+    background-image: url('../../Assets/panels2.png');
+    background-repeat: repeat;
+    background-size: cover;;    
 
 }
 .infoleft{
     width: 40%;
-    height: 400px;
-    background-color: var(--color1);
-    border-radius: 0 20px 20px 0;
-    padding: 30px;
-    margin-top: 50px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.716);;
+    fill-opacity: 10%;
+    padding: 50px;
     display: flex;
+    align-self: center;
     flex-direction: column;
 }
 .infoleft h1{
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     color: var(--color3);
     text-transform: capitalize;
 }
@@ -62,20 +62,59 @@ h1{
     font-family: 'Dosis', sans-serif;
     font-weight: 400;
 }
-.infobtn{
+.infolink{
+    align-self: flex-end;
+}
+.toolkit {
+    display: flex;
+    justify-content: space-between;
+    height: 60vh;
+    background-image: url('../../Assets/grids.jpg');
+    background-repeat: repeat;
+    padding: 20px 0 0 20px ;
+    
+}
+.toolkitright{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: right;
+    width: 40%;
+    border-radius: 0 20px 20px 0;
+    padding: 30px;
+    margin-right: 50px;
+}
+.toolkit h1{
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--color3);
+    text-transform: capitalize;
+}
+.toolkit p{
+    line-height: 30px;
+    text-align: justify;
+    font-size: 25px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
+}
+.btn{
     background-color: var(--color1) !important;
     border: 1px var(--color3) solid;
     border-radius: 100px;
     padding: 10px 15px;
     font-family: 'Dosis', sans-serif;
     font-size: 20px;
-    align-self: flex-end;
+    box-shadow: 5px 5px 5px #888888;
+    width: 200px;
+    transition: .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.infobtn:hover{
+.btn:hover{
     background-color: var(--color3)!important;
-    color: var(--color2);
-    border: 0;
+    color: var(--color1);
+    transition: .5s;
+    transition: .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(1.1) ;
+    transform-origin: top;
 }
-.infolink{
-    align-self: flex-end;
+.toolkitlink{
+    align-self: flex-start;
 }

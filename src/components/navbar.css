@@ -50,4 +50,10 @@ body{
 
 .navbar img {
     margin: 10px 0 10px 80px;
+    transition: .3s cubic-bezier(1,1,1,1);
+}
+.navbar img:hover{
+    transition: .3s cubic-bezier(1,1,1,1);
+    transform: scale(1.05);
+    transform-origin: center;
 }
