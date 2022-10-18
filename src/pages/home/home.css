@@ -98,7 +98,7 @@ h1{
 }
 .btn{
     background-color: var(--color1) !important;
-    border: 1px var(--color3) solid;
+    border: 0px var(--color3) solid;
     border-radius: 100px;
     padding: 10px 15px;
     font-family: 'Dosis', sans-serif;

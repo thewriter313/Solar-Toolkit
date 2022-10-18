@@ -1,0 +1,43 @@
+h1{
+   text-transform: capitalize; 
+}
+p{
+    text-align: justify;
+}
+.head{
+    padding: 20px 10% 20px 10%;
+}
+
+.container{
+    padding: 20px 0 20px 0;
+    margin: 0 10% 0 10%;
+    border-top: 1px solid var(--color2);
+}
+.container h2{
+    color: black;
+    text-transform: capitalize;
+}
+.container-collapsed{
+    padding: 20px 0 20px 0;
+    margin: 0 10% 0 10%;
+    border-top: 1px solid var(--color2);
+    max-height: 50px;
+
+}
+.container-head{
+    display: flex;
+    justify-content: space-between;
+}
+.cards{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
+.acc-wrapper{
+    margin-top: 10px;
+    padding: 0 15% 0 15%;
+}
+.FAQ{
+    font-size: 25px;
+    padding: 10px 10px;
+}

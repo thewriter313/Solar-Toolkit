@@ -3,7 +3,7 @@ import './navbar.css'
 import { Link } from 'react-router-dom'
 import '../App.css'
 import logodark from '../Assets/logodark.png'
-import logolight from '../Assets/logolight.png'
+
 
 const Navbar = () => {
   return (

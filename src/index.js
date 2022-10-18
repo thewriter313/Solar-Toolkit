@@ -5,7 +5,7 @@ import Layout from "./pages/layout";
 import About from './pages/about/about'
 import Home from "./pages/home/home";
 import Toolkit from './pages/toolkit/toolkit'
-import Info from './pages/info/info'
+import Info from './pages/info/Info'
 
 export default function App() {
   return (
