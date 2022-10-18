@@ -1,0 +1,44 @@
+.card-container{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    box-shadow: 1px 1px 10px black;
+    align-items: center;
+    width: 20%;
+}
+
+
+
+.image-container{
+    background-color: var(--color3);
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    width: 100%;
+}
+
+.image-container img{
+    height: 300px;
+}
+
+.card-title{
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.card-text{
+    padding:15px 15px 0 15px;
+    text-align:center;
+    
+}
+
+.points{
+    padding-left: 30px;
+    text-align: left;
+}
+.points ul{
+    list-style:circle;
+}
+
