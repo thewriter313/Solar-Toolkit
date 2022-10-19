@@ -1,0 +1,35 @@
+.aboutuspage h1{
+    display: flex;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+    padding: 40px;
+}
+.aboutuspage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    width: 100%;   
+}
+.aboutuspage div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px;
+}
+.aboutuspage h2{
+    color: var(--color2);
+    margin: 0;
+    padding: 30px;
+}
+.dark{
+    background-color: #EEEEEE;
+}
+.aboutuspage p{
+    margin: 0;
+    padding: 20px;
+}
