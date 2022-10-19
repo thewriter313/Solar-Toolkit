@@ -3,7 +3,7 @@ import './about.css'
 import '../../App.css'
 import green from '../../Assets/goinggreen.png'
 import TeamCard from '../../components/teamcard.jsx'
-import teamData from '../../Data/teamData.js'
+import teamData from '../../Data/TeamData'
 
 const about = () => {
   return (
