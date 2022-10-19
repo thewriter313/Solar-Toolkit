@@ -26,11 +26,11 @@ const footer = () => {
         </div>
         <div className='contact'>
             <h2>Contact</h2>
-            <p style={{lineHeight:'20px'}}><strong>Address: </strong>University of Nairobi, University Way, Nairobi</p>
+            <p><strong>Address: </strong>University of Nairobi, University Way, Nairobi</p>
             <ul>
-                <li><a href="https://www.twitter.com"></a><BsTwitter/></li>
-                <li><a href="https://www.facebook.com"></a><BsFacebook/></li>
-                <li><a href="https://www.instagram.com"></a><BsInstagram/></li>
+                <li><a href="https://www.twitter.com"><BsTwitter/></a></li>
+                <li><a href="https://www.facebook.com"><BsFacebook/></a></li>
+                <li><a href="https://www.instagram.com"><BsInstagram/></a></li>
             </ul>
 
         </div>

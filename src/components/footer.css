@@ -1,10 +1,10 @@
-*{
-    font-family: 'Rubik', sans-serif;
-}
+
 footer{
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
     color: var(--color1);
+    font-family: 'Rubik', sans-serif;
+
 }
 h2{
     color: var(--color1);
@@ -20,21 +20,23 @@ h4 {
     justify-content: space-around;
     align-items: flex-start;
     width: 100%;
-    padding: 50px 0 50px 0;
+    padding: 70px 0 70px 0;
 }
 .about{
     width: 20%;
 }
 .about p{
     text-align: left;
+    line-height: 30px;
 }
 ul{
     list-style: none;
-    line-height: 30px;
+    line-height: 40px;
     padding: 0px;
 }
 .menu li{
     border-bottom: 1px solid #666666;
+    
 }
 .footerlink{
     list-style: none;
@@ -69,7 +71,7 @@ ul{
     border-radius: 5px;
     text-transform: uppercase;
     font-size: 15px;
-    
+    margin-top: 20px;
 }
 .about button:hover{
     background-color: var(--color3);
@@ -86,7 +88,10 @@ ul{
     display: flex;
     justify-content: space-evenly;
 }
-.contact li:hover{
+.contact a{
+    color: var(--color1);
+}
+.contact li a:hover{
     color: var(--color3);
     transition: .3s;
 
@@ -96,4 +101,5 @@ ul{
 }
 .contact p{
     text-align: center;
+    line-height: 30px;
 }
