@@ -6,7 +6,7 @@ footer{
     font-family: 'Rubik', sans-serif;
 
 }
-h2{
+footer h2{
     color: var(--color1);
     margin-top: 0px;
 }
@@ -29,7 +29,7 @@ h4 {
     text-align: left;
     line-height: 30px;
 }
-ul{
+footer ul{
     list-style: none;
     line-height: 40px;
     padding: 0px;
@@ -67,7 +67,7 @@ ul{
     color: var(--color1);
     padding: 20px 30px;
     border: 1px solid #BBB;
-    transition: .3s;
+    transition: .3s linear;
     border-radius: 5px;
     text-transform: uppercase;
     font-size: 15px;
@@ -75,7 +75,9 @@ ul{
 }
 .about button:hover{
     background-color: var(--color3);
-    transition: .3s;
+    color: var(--color2);
+    border: 1px solid var(--color2);
+    transition: .3s linear ;
 }
 .contact{
     width: 10%;

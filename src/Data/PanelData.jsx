@@ -2,7 +2,7 @@ import monopanel from '../Assets/monocrystalline.png'
 import polypanel from '../Assets/polycrystalline.png'
 import thinpanel from '../Assets/thinfilm.png'
 
-const panelData = [
+const PanelData = [
     {title: 'Monocrystalline',
      image: monopanel,
      text: 'are the most space-efficient and longest-lasting type since they use pure silicon. However, the use of pure silicon makes it the most expensive type',
@@ -35,4 +35,4 @@ const panelData = [
     }
 ]
 
-export default panelData;
+export default PanelData;

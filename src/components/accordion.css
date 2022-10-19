@@ -6,6 +6,7 @@
 .accordion h2{
     margin: 0 0;
     padding: 0;
+    font-weight: 400;
     text-align: left;
     
 }
@@ -22,28 +23,29 @@
 
 }
 .answer{
-   
+    display: none;
     max-height: 0;
     overflow: hidden;
     border-radius: 0 0 10px 10px;
-    transition: .3s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: .5s cubic-bezier(0,1,0,1);
     transform-origin: top center;
     
 }
 
 .show{
+    display: block;
     max-height: fit-content;
     padding: 20px 20px;
     line-height: 20px;
     margin: 0 5px;
     background-color: #eee;
     border-radius: 0 0 10px 10px;
-    transition: .3s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: .5s cubic-bezier(0,1,0,1);
     transform-origin: top center;
 }
 .rotate{
     transform: rotate(90deg);
-    transition: .3s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: .5s cubic-bezier(0,1,0,1);
 }
 
 .rotateafter{

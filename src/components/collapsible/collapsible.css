@@ -1,0 +1,23 @@
+.collapsible-head{
+    color: var(--color2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-top: 1px solid var(--color2);
+    padding: 5px 0;
+    font-size: 14px;
+
+}
+
+.collapsible .collapsible-content{
+    max-height: 0px;
+    overflow: hidden;
+    padding: 10px;
+    transition: 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.collapsible .collapsible-content.active{
+    max-height: fit-content;
+    transition: 0.3s cubic-bezier(0.23, 1, 0.320,);
+}

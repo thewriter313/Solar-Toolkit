@@ -1,41 +1,38 @@
+
+.info{
+    font-family: 'Rubik',sans-serif;
+    line-height: 25px;
+    padding: 0 10%;
+    padding-bottom: 40px;
+}
 h1{
    text-transform: capitalize; 
 }
 p{
     text-align: justify;
+    
 }
 .head{
-    padding: 20px 10% 20px 10%;
+    padding: 20px 0;
 }
 
 .container{
-    padding: 20px 0 20px 0;
-    margin: 0 10% 0 10%;
     border-top: 1px solid var(--color2);
 }
 .container h2{
     color: black;
     text-transform: capitalize;
+    margin: 0;
 }
-.container-collapsed{
-    padding: 20px 0 20px 0;
-    margin: 0 10% 0 10%;
-    border-top: 1px solid var(--color2);
-    max-height: 50px;
 
-}
-.container-head{
-    display: flex;
-    justify-content: space-between;
-}
 .cards{
     display: flex;
     justify-content: space-evenly;
-    padding-bottom: 20px;
+    padding: 20px 0;
 }
 .acc-wrapper{
     margin-top: 10px;
-    padding: 0 15% 0 15%;
+    padding: 0 15% 20px 15%;
 }
 .FAQ{
     font-size: 25px;
