@@ -6,11 +6,14 @@ h1{
 }
 .intro{
     top: 0; right: 0; bottom: 0; left: 0;
-    height: 90vh;
+    height: 86vh;
     background-color: var(--color1);
     display: flex;;
     align-items: center;
-    justify-content:flex-start;
+    justify-content:flex-end;
+    background-image: url('../../Assets/panel.png');
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .panel {
     margin-left: 5%;
@@ -18,7 +21,7 @@ h1{
 
 }
 .typewriter {
-        font-family: 'Courier Prime', sans-serif;
+        font-family: 'Space Grotesk', sans-serif;
         font-weight:100px;
         font-size:45px;
         margin:0 50px 0 2%;
@@ -34,7 +37,7 @@ h1{
     flex-direction: column;
     justify-content: space-evenly;
     color: var(--color2);
-    width: 100%;
+    width: 55%;
 }
 .slogan {
     font-family: 'Space Grotesk', sans-serif;
@@ -54,7 +57,7 @@ h1{
     align-self: center;
     padding: 80px 0;
     color: var(--color2);
-    background-image: url('../../Assets/panels2.png');
+    background-image: url('../../Assets/panels.png');
     background-repeat: repeat;
     background-size: cover;;    
 

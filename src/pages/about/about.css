@@ -1,28 +1,27 @@
-.aboutuspage h1{
-    display: flex;
-    justify-content: center;
-    font-family: 'Rubik', sans-serif;
-    text-transform: uppercase;
-    padding: 40px;
+.aboutuspage{
+    font-family: 'Gotham Book', sans-serif;
+}
+.aboutuspage .goinggreen{
+    height: 86vh;
 }
 .aboutuspage{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 30px;
     width: 100%;   
 }
-.aboutuspage div{
+.wide{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 40px;
+    padding: 40px 0;
 }
-.aboutuspage h2{
+.aboutuspage h1{
     color: var(--color2);
+    text-transform: uppercase;
     margin: 0;
     padding: 30px;
 }
@@ -30,6 +29,26 @@
     background-color: #EEEEEE;
 }
 .aboutuspage p{
+    width: 50%;
     margin: 0;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+}
+.teamcards{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+    width: 80%;
+}
+.values ul{
+    display: flex;
+    list-style: none;
+    padding: 20px;
+}
+.values li{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-evenly;
     padding: 20px;
 }
