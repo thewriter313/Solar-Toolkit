@@ -35,10 +35,11 @@
 }
 
 .points{
-    padding-left: 30px;
+    padding-left: 10%;
     text-align: left;
 }
 .points ul{
     list-style:circle;
+    padding: 0;
 }
 
