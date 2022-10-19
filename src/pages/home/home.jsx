@@ -1,17 +1,16 @@
 import React from 'react'
 import './home.css'
 import '../../App.css'
-import panel from '../../Assets/panel2.png'
 import Typewriter from 'typewriter-effect';
 import { Link } from "react-router-dom";
 import toolkitpic from '../../Assets/toolkitpic.png'
+// import {GiAtom} from 'react-icons/gi'
 
 const home = () => { 
 
   return (
     <body>
       <div className='intro' >
-        <img className='panel' src={panel} alt='atom'/>
         <div className='type-slogan'>
           <div className='typewriter'>
             <Typewriter
@@ -20,17 +19,22 @@ const home = () => {
             }} 
             onInit={(typewriter) => {
               typewriter
-              .typeString("<span style='color:var(--color3);'>Welcome to a Solar Photovoltaic System Design and Installation Toolkit!</span>")
+              .changeCursor('>')
+              .typeString("<span style='color:var(--color3);'>Welcome to </span>")
+              .typeString("<span style='color:var(--color2);'>Hel</span>")
+              .typeString("<span style='color:var(--color3);'>EOS Solar Photovoltaic System Design and Installation Toolkit! </span>")
+
+              .pauseFor(1000)
+              .changeCursor('<')
               .pauseFor(1000)
               .deleteAll()
-              .typeString("<span style='color:red;'>Developed by students of the University of Nairobi</span>")
+              .changeCursor('>')
+              .typeString("<span style='color:red;'>Developed by students from the University of Nairobi</span>")
+              .pauseFor(1000)
+              .changeCursor('<')
               .pauseFor(1000)
               .start();
             }}/>
-          </div>
-          <div className='slogan'>
-            <h3><strong>&#8220;</strong>Warm your home,</h3>
-            <h3 style={{textAlign:'right'}}>not your planet!<strong>&#8221;</strong></h3>
           </div>
         </div>
        
