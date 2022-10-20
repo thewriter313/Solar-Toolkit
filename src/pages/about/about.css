@@ -1,47 +1,50 @@
-.aboutuspage{
-    font-family: 'Gotham Book', sans-serif;
+.aboutuspage {
+  font-family: "Gotham Book", sans-serif;
 }
-.aboutuspage .goinggreen{
-    height: 86vh;
+.aboutuspage .goinggreen {
+  height: 86vh;
 }
-.aboutuspage{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;   
+.aboutuspage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
-.wide{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 40px 0;
+.wide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0;
 }
-.aboutuspage h1{
-    color: var(--color2);
-    text-transform: uppercase;
-    margin: 0;
-    padding: 30px;
-    font-weight: 100;
-    font-size: 40px;
+.aboutuspage h1 {
+  color: var(--color2);
+  text-transform: uppercase;
+  margin: 0;
+  padding: 30px;
+  font-weight: 100;
+  font-size: 40px;
 }
-.dark{
-    background-color: #EEEEEE;
+.dark {
+  background-color: #eeeeee;
 }
-.aboutuspage p{
-    width: 50%;
-    margin: 0;
-    text-align: center;
-    font-size: 20px;
-    padding: 20px;
-    line-height: 30px;
-    box-sizing: border-box;
+.aboutuspage p {
+  width: 40%;
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  line-height: 30px;
+  box-sizing: border-box;
 }
-.teamcards{
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 20px;
-    width: 80%;
+.teamcards {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+  width: 80%;
+}
+.aboutform {
+  width: 40%;
 }
