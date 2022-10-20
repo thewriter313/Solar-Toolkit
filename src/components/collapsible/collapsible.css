@@ -4,20 +4,21 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    border-top: 1px solid var(--color2);
+    border-top: 1px solid #eee;
     padding: 5px 0;
     font-size: 14px;
 
 }
 
-.collapsible .collapsible-content{
-    max-height: 0px;
+.collapsible-body .content-parent{
+    height: 0;
     overflow: hidden;
-    padding: 10px;
-    transition: 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: ease-in-out 0.5s;
 }
 
-.collapsible .collapsible-content.active{
-    max-height: fit-content;
-    transition: 0.3s cubic-bezier(0.23, 1, 0.320,);
+.content-parent .scroll{
+    overflow: scroll;
+}
+.content-parent .auto{
+    overflow: auto;
 }
