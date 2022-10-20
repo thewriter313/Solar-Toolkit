@@ -39,17 +39,6 @@ h1{
     color: var(--color2);
     width: 55%;
 }
-.slogan {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 35px;
-    padding: 0 100px;
-}
-.slogan strong{
-    font-size: 100px;
-}
-.slogan h3 {
-    margin: 0;
-}
 
 .infobox{
     display: flex;

@@ -12,7 +12,7 @@ const footer = () => {
       <div className='topfooter'>
         <div className='about'>
             <h2>ABOUT Hel<span style={{color: 'var(--color3)'}}>EOS</span></h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, repudiandae.</p>
+            <p>Hel<span style={{color: 'var(--color3)'}}>EOS</span> is here to help you with all your solar needs. Get to know the team behind the toolkit.</p>
             <Link to='/about'><button>Read More</button></Link>
         </div>
         <div className='menu'>

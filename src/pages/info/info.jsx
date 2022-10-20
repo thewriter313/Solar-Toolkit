@@ -42,6 +42,7 @@ const Info = () => {
         
       </Collapsible>
       <Collapsible label='Inverter' >
+
       <p>The main function of a charge controller in a PV system is to regulate the voltage and current from
             PV Solar panels into a rechargeable battery. The main objective of the charge controller is to
             maintain the battery at the highest possible state of charge by preventing overcharging by the PV
@@ -49,6 +50,7 @@ const Info = () => {
             A charge controller also reverses the current at night to draw charge from the battery and meet the
             load demand while the Solar Panels are not harvesting Solar energy </p>
       </Collapsible>
+      
       <Collapsible label='Battery' >
       <p>The main function of a charge controller in a PV system is to regulate the voltage and current from
             PV Solar panels into a rechargeable battery. The main objective of the charge controller is to
@@ -65,7 +67,9 @@ const Info = () => {
             load demand while the Solar Panels are not harvesting Solar energy </p>
             
       </Collapsible>
+      
       <Collapsible label='Charge Controller'>
+
       <p>The main function of a charge controller in a PV system is to regulate the voltage and current from
             PV Solar panels into a rechargeable battery. The main objective of the charge controller is to
             maintain the battery at the highest possible state of charge by preventing overcharging by the PV
@@ -73,7 +77,9 @@ const Info = () => {
             A charge controller also reverses the current at night to draw charge from the battery and meet the
             load demand while the Solar Panels are not harvesting Solar energy </p>
       </Collapsible>
+      
       <Collapsible label='Protection devices' >
+
       <p>The main function of a charge controller in a PV system is to regulate the voltage and current from
             PV Solar panels into a rechargeable battery. The main objective of the charge controller is to
             maintain the battery at the highest possible state of charge by preventing overcharging by the PV
