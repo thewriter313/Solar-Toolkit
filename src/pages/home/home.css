@@ -134,3 +134,10 @@ h1{
 .toolkitlink{
     align-self: flex-start;
 }
+.infobtns{
+    display: flex;
+    justify-content: space-around;
+}
+.infobtn{
+    width: auto;
+}

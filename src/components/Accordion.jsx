@@ -1,25 +1,23 @@
 import {React,useState} from 'react'
 import './accordion.css'
-import {MdOutlineArrowForwardIos} from 'react-icons/md';
+// import {MdOutlineArrowForwardIos} from 'react-icons/md';
 
 const Accordion = ({question,answer,i}) => {
+    const [open, setOPen] = useState(true);
 
-    const [selected,setSelected] =useState(null)
 
-    const toggle =(i)  => {
-        if (selected === i) {
-            return setSelected(null)
-        }
-        setSelected(i)
-    }  
+    const toggle = () => {
+        setOPen(!open);
+      };
+     
   return (
     
         <div className='accordion'>
-            <div className='question' onClick={()=> toggle(i)}>
+            <div className='question' onClick={toggle}>
                 <h2>{question}</h2>
-                <div className={selected === i ? 'rotate':'rotateafter'}><MdOutlineArrowForwardIos/></div>
+                {/* <div className={open? 'rotate':'rotateafter'}><MdOutlineArrowForwardIos/></div> */}
             </div>
-            <div className={selected === i ? 'answer show':' answer'}>{answer}</div>
+            <div className=' answer show'>{answer}</div>
         </div>
     
   )
