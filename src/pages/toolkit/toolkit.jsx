@@ -37,8 +37,9 @@ const Toolkit = () => {
             inactiveTextColor: "#000",
             completedBgColor: "#00bf8c",
             completedTextColor: "#fff",
-            size: "2.5em",
-            labelFontSize: "1rem",
+            size: "2.8em",
+            labelFontSize: "1.5rem",
+            fontWeight: "bold",
           }}
           connectorStyleConfig={{
             disabledColor: "#888",
