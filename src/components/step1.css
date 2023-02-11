@@ -1,27 +1,67 @@
 .container{
+    margin: 0;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     font-family: 'Rubik', sans-serif;
-    font-size: 1em;
+    font-size: 16px;
+}
+.table-container{
+    min-height: 300px;
 }
 .table{
     border-collapse: collapse;
     margin: 0;
-    min-width: 400px;
+    min-width: fit-content;
+    
 }
 .table thead tr{
     margin:0 10px;
-    text-align: left;
+    text-align: center;
     background-color: var(--color3);
-    padding: 0 20px;
+    border: 0;
+    border-radius: 5px 0 0 0;
 }
 
 .table th, table td{
-    padding: 10px 15px;
-    min-width: 90px;
+    padding: 12px 15px;
+    min-width: fit-content;
+    text-align: center;
 }
 
-.add-button{
+.table .delete{
+    background-color: rgb(231, 62, 62);
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: inherit;
+    color: var(--color1);
+}
+
+.table tbody input{
+    height: 20px;
+    width: 400px;
+    font-family: inherit;
+    border-radius: 10px;
+    border: 1px solid var(--color5);
+    padding: 10px;
+    font-size: 1em;
+}
+
+.table tbody input[type="number"]{
+    width: 100px;
+    text-align: center;
+}
+
+.table tbody input:focus{
+    outline: none;;
+    border: 1px solid var(--color3) !important;
+}
+.output{
+    font-size: 18px;
+    font-weight: bold;
+}
+.add button{
     padding: 10px;
     background-color: var(--color2);
     color: var(--color1);
@@ -29,57 +69,20 @@
     border-radius: 5px;
     width: 200 px;
     Height: 50px;
-    margin: 10px;
+    margin: 15px;
     font-family: 'Rubik',sans-serif;
     font-size: medium;
-    transition: .3s linear ;
     margin-bottom: 50px;
 }
 
-.add-button:hover{
-    background-color: var(--color3);
-    color: var(--color1);
-    transition: .3s linear ;
-}
-
-.input-box1{
-    height: 20px;
-    width: 400px;
-    border-radius: 10px;
-    border: 1px solid;
-    padding: 10px;
-    font-size: 1em;
-}
-
-.input-box2{
-    height: 20px;
-    width: 50px;
-    border-radius: 10px;
-    border: 0.5px solid;
-    padding: 10px;
-    font-size: 18px;
-    text-align: left;;
-}
-
-.input-box3{
-    height: 20px;
-    width: 50px;
-    border: 0px;
-    padding: 10px;
-    font-size: 18px;
-    text-align: center;;
-}
-
-.table-row{
-    margin: 30px;
-}
-
-.table-column{
-    align-items: center;
-    justify-content: center;
+.add button:hover{
+    background-color: rgb(51, 51, 51);
+    
 }
 
 .sum{
+    padding-top: 20px;
+    border-top: 2px solid var(--color2);
     display: flex;
     justify-content: flex-end;
     margin: 20px 0;

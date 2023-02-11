@@ -4,14 +4,24 @@
     align-self: center;
     align-items: center;
     margin: 0 5%;
+    font-family: 'Rubik' sans-serif;
 }
 
 .stepper{
     width: 100%;
+    font-family: 'dosis';
+    font-size: 18px;
 }
 
+.stepper_step{
+    font-family: 'dosis';
+    font-weight: bold;
+}
+
+
 .step-container{
-    width: 60%;
+    width: 70%;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .button-class{
