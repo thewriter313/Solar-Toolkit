@@ -1,0 +1,136 @@
+.qnContainer {
+  font-family: "Rubik", sans-serif;
+  font-size: 1em;
+  padding: 20px;
+}
+.qnContainer h2 {
+  text-align: center;
+}
+.qnContainer .section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px 0;
+}
+.left {
+  width: 100%;
+}
+.right {
+  width: 100%;
+}
+.qnContainer input {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid var(--color5);
+  width: 10%;
+}
+.qnContainer input:focus {
+  outline: none;
+  border: 1px solid var(--color3) !important;
+}
+
+.qnContainer select {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid var(--color5);
+  width: fit-content;
+}
+.qnContainer select:focus {
+  outline: none;
+  border: 1px solid var(--color3) !important;
+}
+.units {
+  font-size: 0.9em;
+  margin: 0;
+  padding-top: 5px;
+  padding-left: 7px;
+}
+.info {
+  padding: 0;
+}
+.qnContainer .line {
+  border-top: 2px solid var(--color2);
+  padding-top: 40px;
+}
+.submitbtn {
+  padding: 10px;
+  background-color: var(--color2);
+  color: var(--color1);
+  border: 0cm;
+  border-radius: 5px;
+  width: 200 px;
+  height: 50px;
+  margin: 10px;
+  font-family: "Rubik", sans-serif;
+  font-size: medium;
+  transition: 0.3s linear;
+  margin-bottom: 50px;
+}
+.submitbtn:hover {
+  background-color: var(--color3);
+  color: var(--color1);
+  transition: 0.3s linear;
+}
+
+/* .designcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 1em;
+    padding: 20px;
+    width: auto;
+}
+.desgincontainer table{
+  display: flex;
+  justify-content: center;
+}
+.designcontainer div {
+  padding: 20px;
+}
+.desgincontainer label {
+  text-align: left;
+}
+.designcontainer input {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid var(--color5);
+}
+.designcontainer input:focus{
+  outline: none;
+  border: 1px solid var(--color3) !important;
+}
+.designcontainer select {
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid var(--color5);
+}
+.designcontainer select:focus{
+  border: 1px solid var(--color3) !important;
+}
+.submitbtn {
+  padding: 10px;
+  background-color: var(--color2);
+  color: var(--color1);
+  border: 0cm;
+  border-radius: 5px;
+  width: 200 px;
+  height: 50px;
+  margin: 10px;
+  font-family: "Rubik", sans-serif;
+  font-size: medium;
+  transition: 0.3s linear;
+  margin-bottom: 50px;
+}
+.submitbtn:hover {
+  background-color: var(--color3);
+  color: var(--color1);
+  transition: 0.3s linear;
+} */

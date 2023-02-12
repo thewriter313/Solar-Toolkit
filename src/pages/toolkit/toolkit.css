@@ -9,12 +9,12 @@
 
 .stepper{
     width: 100%;
-    font-family: 'dosis';
+    font-family: 'dosis' !important;
     font-size: 18px;
 }
 
 .stepper_step{
-    font-family: 'dosis';
+    font-family: 'dosis' !important;
     font-weight: bold;
 }
 
