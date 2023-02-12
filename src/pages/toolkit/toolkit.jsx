@@ -63,7 +63,7 @@ const Toolkit = () => {
               );
             case 2:
               return (
-                <div >
+                <div style={{width:'70%'}}>
                   <Step2 />
                   <div className="button-class">
                     <button className="button" onClick={handleBack}>
