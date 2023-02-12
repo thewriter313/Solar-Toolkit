@@ -12,6 +12,9 @@
 .qnContainer h2 {
   text-align: center;
 }
+.qnContainer h1 {
+  text-align: center;
+}
 .qnContainer .section {
   display: flex;
   justify-content: space-around;
@@ -23,8 +26,6 @@
 }
 .right {
   width: 100%;
-  display: flex;
-  align-items: center;
 }
 .qnContainer input {
   border-radius: 10px;
@@ -79,6 +80,6 @@
   color: var(--color1);
   transition: 0.3s linear;
 }
-.info {
+.qninfo {
   padding: 0 !important;
 }
