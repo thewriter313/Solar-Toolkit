@@ -7,7 +7,6 @@ import Step2 from "../../components/step2";
 import Step3 from "../../components/step3";
 import Step4 from "../../components/step4";
 
-
 const Toolkit = () => {
   const [step, setStep] = useState(1);
 
@@ -38,7 +37,7 @@ const Toolkit = () => {
             completedBgColor: "#00bf8c",
             completedTextColor: "#fff",
             size: "2.8em",
-            labelFontSize: "1.5rem",
+            labelFontSize: "1.7em",
             fontWeight: "bold",
           }}
           connectorStyleConfig={{
@@ -48,52 +47,63 @@ const Toolkit = () => {
           className={"stepper"}
           stepClassName={"stepper_step"}
         />
-        
-          {(() => {
-            switch (step) {
-              case 1:
-                return (
-                  <div className="step-container">
-                    <Step1 />
-                   <div className="button-class">
-                    <button className="button" onClick={handleNext}>Next</button>
-                   </div>
+
+        {(() => {
+          switch (step) {
+            case 1:
+              return (
+                <div>
+                  <Step1 />
+                  <div className="button-class">
+                    <button className="button" onClick={handleNext}>
+                      Next
+                    </button>
                   </div>
-                );
-              case 2:
-                return (
-                  <div className="step-container">
+                </div>
+              );
+            case 2:
+              return (
+                <div >
                   <Step2 />
-                 <div className="button-class">
-                 <button className="button" onClick={handleBack}>Back</button>
-                  <button className="button" onClick={handleNext}>Next</button>
-                 </div>
-                </div>
-              );
-              case 3:
-                return (
-                  <div className="step-container">
-                    <Step3 />
-                   <div className="button-class">
-                   <button className="button" onClick={handleBack}>Back</button>
-                    <button className="button" onClick={handleNext}>Next</button>
-                   </div>
+                  <div className="button-class">
+                    <button className="button" onClick={handleBack}>
+                      Back
+                    </button>
+                    <button className="button" onClick={handleNext}>
+                      Next
+                    </button>
                   </div>
-                );
-              case 4:
-                return (
-                  <div className="step-container">
-                  <Step4 />
-                 <div className="button-class">
-                 <button className="button" onClick={handleBack}>Finish</button>
-                 </div>
                 </div>
               );
-              default:
-                return <div />;
-            }
-          })()}
-        
+            case 3:
+              return (
+                <div>
+                  <Step3 />
+                  <div className="button-class">
+                    <button className="button" onClick={handleBack}>
+                      Back
+                    </button>
+                    <button className="button" onClick={handleNext}>
+                      Next
+                    </button>
+                  </div>
+                </div>
+              );
+            case 4:
+              return (
+                <div>
+                  <Step4 />
+                  <div className="button-class">
+                    <button className="button" onClick={handleBack}>
+                      Finish
+                    </button>
+                  </div>
+                </div>
+              );
+            default:
+              return <div />;
+          }
+        })()}
       </div>
       <GoToTop />
     </div>

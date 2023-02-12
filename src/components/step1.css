@@ -1,26 +1,55 @@
 .container{
     margin: 0;
-    margin-top: 50px;
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
     font-family: 'Rubik', sans-serif;
-    font-size: 16px;
+    font-size: 1em;
 }
-.table-container{
-    min-height: 300px;
+.preset{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 1em;
 }
+.preset-card{
+    background-color: var(--color2);
+    color: var(--color1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1em;
+    cursor:pointer;
+    border-radius: 0.5em;
+}
+
+.preset-card h1{
+    font-size: 1em;
+    font-weight: 500;
+    font-family: 'Dosis';
+    padding: 1.2em;
+}
+
+.preset .on{
+    background-color: var(--color3);
+    color: var(--color2);
+}
+.preset .on h1{
+    font-weight: bold;
+}
+
 .table{
     border-collapse: collapse;
     margin: 0;
-    min-width: fit-content;
-    
+    min-width: fit-content; 
 }
+
+.table thead{
+    border-bottom: 2px solid var(--color2);
+}
+
 .table thead tr{
-    margin:0 10px;
     text-align: center;
-    background-color: var(--color3);
-    border: 0;
-    border-radius: 5px 0 0 0;
+    margin-bottom: 10px;
 }
 
 .table th, table td{
@@ -29,37 +58,52 @@
     text-align: center;
 }
 
-.table .delete{
-    background-color: rgb(231, 62, 62);
-    border: 0;
-    border-radius: 5px;
-    padding: 10px;
-    font-family: inherit;
-    color: var(--color1);
+.table th:hover{
+    cursor: pointer;
+    
 }
 
 .table tbody input{
-    height: 20px;
-    width: 400px;
     font-family: inherit;
+    font-size: 0.8em;
     border-radius: 10px;
     border: 1px solid var(--color5);
-    padding: 10px;
+    padding: 0.5em;
     font-size: 1em;
+    font-stretch: condensed;
+}
+
+.table tbody input[type="text"]{
+    text-align: left;;
+    width: 12em;
 }
 
 .table tbody input[type="number"]{
-    width: 100px;
     text-align: center;
+    max-width: 5em;
 }
 
 .table tbody input:focus{
-    outline: none;;
+    outline: none;
     border: 1px solid var(--color3) !important;
 }
 .output{
-    font-size: 18px;
+    font-size: 1em;
     font-weight: bold;
+}
+
+.table tbody td button {
+    background-color: rgb(231, 62, 62);
+    border: 0;
+    border-radius: 5px;
+    padding: 0.8em;
+    font-family: inherit;
+    color: var(--color1);
+    cursor: pointer;
+}
+.table tbody td button:disabled{
+    background-color: rgb(231, 142, 142);
+    cursor: default;
 }
 .add button{
     padding: 10px;
@@ -81,14 +125,22 @@
 }
 
 .sum{
-    padding-top: 20px;
+    padding-top: 0.3em;
     border-top: 2px solid var(--color2);
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: flex-end;
-    margin: 20px 0;
+    margin: 0.3em 0;
 }
 
-.sum h1{
+.sum p{
     font-size: 20px;
+    font-weight: bold;
     color: var(--color3);
+    margin: 10px;
+}
+
+.sum strong{
+    color: var(--color2);
 }
