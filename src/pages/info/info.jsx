@@ -15,7 +15,8 @@ const Info = () => {
         <p>
           Sizing your house when contemplating switching to solar power can be a daunting task. All the technical 'gibberish' can discourage many suitors from miving away from the grid. Not to worry though, as we provide an expansive and simple guide together with our toolkit to help you understand exactly what you are getting without having a technical background.<br/>
           <br />
-          The basic components of a solar PV are: <br/>
+          The basic components of a solar PV are:
+          </p>
           <ol>
             <li>Solar PV panels</li> 
             <li>Inverter</li>
@@ -24,7 +25,7 @@ const Info = () => {
             <li>Wiring</li> 
             <li>Protective devices</li>
           </ol> 
-        </p>
+        
       </div>
       <Collapsible label="Solar PV Panels">
         <p>
@@ -43,8 +44,9 @@ const Info = () => {
           according to the Maximum Power Output (Watts).
         </p>
         <div className="cards">
-          {PanelData.map((data) => (
+          {PanelData.map((data,i) => (
             <Card
+              key={i}
               title={data.title}
               imageUrl={data.image}
               text={data.text}
@@ -56,6 +58,7 @@ const Info = () => {
           <div className="FAQ"> FAQs </div>
           {FaqData.map((data, i) => (
             <Accordion
+              key={i}
               question={data.question}
               answer={data.answer}
               i={i}
