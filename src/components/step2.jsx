@@ -6,7 +6,7 @@ const Step2 = () => {
   const [inputs, setInputs] = useState({
     doa: 3,
     bvolt: "12",
-    btype:"Lead Acid",
+    btype: "Lead Acid",
     phrs: 5.5,
     wpanel: 50,
   });
@@ -24,12 +24,14 @@ const Step2 = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`${inputs.doa}, ${inputs.bvolt}, ${inputs.btype}, ${inputs.phrs}, ${inputs.wpanel}`);
+    alert(
+      `${inputs.doa}, ${inputs.bvolt}, ${inputs.btype}, ${inputs.phrs}, ${inputs.wpanel}`
+    );
   };
 
   return (
-    <div className="qnContainer">
-      <form onSubmit={handleSubmit}>
+    <form className="qnform" onSubmit={handleSubmit}>
+      <div className="qnContainer">
         <h2>
           <span style={{ color: "var(--color3)" }}>Step 1: </span>Battery Bank
           Size
@@ -180,74 +182,12 @@ const Step2 = () => {
             </div>
           </div>
         </div>
-        <button type="submit" className="submitbtn">Submit</button>
-      </form>
-    </div>
+        <button type="submit" className="submitbtn">
+          Submit
+        </button>
+      </div>
+    </form>
   );
-
-  // <div className="designcontainer">
-  //   <form onSubmit={handleSubmit}>
-  //     <table>
-  //       <tr>
-  //         <td>
-  //           <label>Peak Sun Hours</label>
-  //         </td>
-  //         <td>
-  //           <input
-  //             type="number"
-  //             min="0"
-  //             name="phrs"
-  //             value={inputs.phrs}
-  //             onChange={handleChange}
-  //           />
-  //         </td>
-  //         <td>Hours</td>
-  //         {/* <td>One peak sun hour is when the sun's intensity reaches an average of 1,000 watts of photovoltaic power per square meter. The avareage peak sun hours in Kenya are 5.5 hours</td> */}
-  //       </tr>
-  //       <tr>
-  //         <td>
-  //           <label>Battery Voltage</label>
-  //         </td>
-  //         <td>
-  //           <select
-  //             type="number"
-  //             name="bvolt"
-  //             value={inputs.bvolt}
-  //             onChange={handleChange}
-  //           >
-  //             <option value="-">-</option>
-  //             <option value="12">12</option>
-  //             <option value="24">24</option>
-  //           </select>
-  //         </td>
-  //         <td>Volts</td>
-  //         {/* <td>The battery voltage is the voltage of a single battery in the battery pack. 12 Volts and 24 Volts batteries are readily available in Kenya.</td> */}
-
-  //       </tr>
-  //       <tr>
-  //         <td>
-  //           <label>Days of Autonomy</label>
-  //         </td>
-  //         <td>
-  //           <input
-  //             type="number"
-  //             min="2"
-  //             name="doa"
-  //             value={inputs.doa}
-  //             onChange={handleChange}
-  //           />
-  //         </td>
-
-  //         <td>Days</td>
-  //         {/* <td>Days of Autonomy are the number of days that the battery can supply the site's loads without any support from generation sources. The default value is kept at 3 days but can be changed depending on your requirements.</td> */}
-  //       </tr>
-
-  //       {/* <button className="submitbtn" type="submit">
-  //         Submit
-  //       </button> */}
-  //     </table>
-  //   </form>
-  // </div>
 };
 
 export default Step2;
