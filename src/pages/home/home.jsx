@@ -5,7 +5,7 @@ import Typewriter from "typewriter-effect";
 import { Link } from "react-router-dom";
 import toolkitpic from "../../Assets/toolkitpic.png";
 import GoToTop from "../../components/GoToTop";
-// import {GiAtom} from 'react-icons/gi'
+
 
 
 const home = () => {
