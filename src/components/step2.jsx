@@ -5,10 +5,10 @@ import "../App.css";
 const Step2 = () => {
   const [inputs, setInputs] = useState({
     doa: 3,
-    bvolt: "12",
+    bvolt: 12,
     btype: "Lead Acid",
     phrs: 5.5,
-    wpanel: 50
+    wpanel: 50,
   });
 
   const handleChange = (event) => {
@@ -70,9 +70,7 @@ const Step2 = () => {
               value={inputs.bvolt}
               onChange={handleChange}
             >
-              <option value="12">
-                12
-              </option>
+              <option value="12">12</option>
               <option value="24">24</option>
             </select>
             <p className="units">Volts</p>
@@ -97,9 +95,7 @@ const Step2 = () => {
               value={inputs.btype}
               onChange={handleChange}
             >
-              <option value="lead">
-                Lead Acid
-              </option>
+              <option value="lead">Lead Acid</option>
               <option value="lithium">Lithium Ion</option>
             </select>
           </div>
