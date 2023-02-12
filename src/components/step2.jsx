@@ -8,7 +8,7 @@ const Step2 = () => {
     bvolt: "12",
     btype: "Lead Acid",
     phrs: 5.5,
-    wpanel: 50,
+    wpanel: 50
   });
 
   const handleChange = (event) => {
