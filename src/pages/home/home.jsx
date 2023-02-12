@@ -12,7 +12,7 @@ const home = () => {
 
   
   return (
-    <body>
+    <div>
       <div className="intro">
         <div className="type-slogan">
           <div className="typewriter">
@@ -83,7 +83,7 @@ const home = () => {
         </div>
       </div>
       <GoToTop/>
-    </body>
+    </div>
   );
 };
 
