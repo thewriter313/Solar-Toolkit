@@ -3,25 +3,20 @@
    flex-direction: column;
     align-self: center;
     align-items: center;
+    justify-content: center;
     margin: 0 5%;
     font-family: 'Rubik' sans-serif;
 }
 
 .stepper{
     width: 100%;
-    font-family: 'dosis';
-    font-size: 18px;
+    font-family: 'dosis' !important;
+    font-size: 0.8em;
 }
 
 .stepper_step{
-    font-family: 'dosis';
+    font-family: 'dosis' !important;
     font-weight: bold;
-}
-
-
-.step-container{
-    width: 70%;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .button-class{
