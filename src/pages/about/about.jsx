@@ -33,8 +33,9 @@ const about = () => {
       <div className="team dark wide">
         <h1>Our Team</h1>
         <div className="teamcards">
-          {teamData.map((data) => (
+          {teamData.map((data,i) => (
             <TeamCard
+              key={i}
               image={data.image}
               title={data.title}
               name={data.name}

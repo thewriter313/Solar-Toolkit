@@ -52,7 +52,7 @@ const Toolkit = () => {
           switch (step) {
             case 1:
               return (
-                <div>
+                <div style={{width:'70%'}}>
                   <Step1 />
                   <div className="button-class">
                     <button className="button" onClick={handleNext}>
@@ -77,7 +77,7 @@ const Toolkit = () => {
               );
             case 3:
               return (
-                <div>
+                <div style={{width:'70%'}}>
                   <Step3 />
                   <div className="button-class">
                     <button className="button" onClick={handleBack}>
@@ -91,7 +91,7 @@ const Toolkit = () => {
               );
             case 4:
               return (
-                <div>
+                <div style={{width:'70%'}}>
                   <Step4 />
                   <div className="button-class">
                     <button className="button" onClick={handleBack}>
