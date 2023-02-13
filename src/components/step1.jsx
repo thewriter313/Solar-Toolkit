@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState} from "react";
 import GoToTop from "./GoToTop";
 import "./step1.css";
 import Preset from "./preset";
@@ -6,7 +6,7 @@ import large from '../Assets/large.png';
 import small from '../Assets/small.png';
 import rural from '../Assets/rural.png';
 
-const Step1 = () => {
+const Step1 = ({formData,formCalculations}) => {
   const [items, setItems] = useState([
     { appliance: "", power: 0, hours: 0, amount: 1, total: 0 },
   ]);
@@ -101,6 +101,12 @@ const Step1 = () => {
 
   //Total items 
   const totalItems = items.reduce((sum, item) => sum + item.amount, 0);
+
+  const calculations= [{quantity:'tItems', value:{totalItems}}, {quantity:'tPower', value:{totalPower}},{quantity:'tEnergy', value:{totalEnergy}}];
+
+  formCalculations.items =calculations;
+
+  formData.items = items;
 
   return (
     <div className="container">
