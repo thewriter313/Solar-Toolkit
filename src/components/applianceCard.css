@@ -1,0 +1,35 @@
+.appliance-card{
+    display: flex !important;
+    flex-direction: column;
+    border: 1px solid var(--color5);
+    border-radius: 0.5em;
+    padding: 1em 1em;
+    margin: 1em;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'dosis';
+    font-size: large;
+    transition: 0.1s linear;
+    min-width: 10em;
+}
+
+.appliance-card button{
+    width: 5em;
+    border: none;
+    background-color: var(--color1);
+    transition: 0.1s linear;
+}
+
+.active{
+    background-color: var(--color2);
+    color: var(--color1);
+    transform: scale(1.05);
+    transition: 0.1s linear;
+}
+
+.active button{
+    background-color: var(--color2);
+    color: var(--color1);
+    transition: 0.1s linear;
+}
