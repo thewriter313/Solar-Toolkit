@@ -18,9 +18,11 @@ const Toolkit = () => {
     setStep(step - 1);
   };
 
- const [formData,setFormData]=useState({});
+ const [specialAppliances]=useState({});
 
- const [formCalculations,setFormCalculations]=useState({quantity:'',value:0});
+ const [typicalAppliances]=useState({});
+
+ const [inputCalculations]=useState({quantity:'',value:0});
 
   return (
     <div>
@@ -57,7 +59,7 @@ const Toolkit = () => {
             case 1:
               return (
                 <div style={{width:'70%'}}>
-                  <Step1 formData={formData} formCalculations={formCalculations} />
+                  <Step1 specialAppliances={specialAppliances}  typicalAppliances={typicalAppliances} inputCalculations={inputCalculations} />
                   <div className="button-class">
                     <button className="button" onClick={handleNext}>
                       Next
@@ -96,7 +98,7 @@ const Toolkit = () => {
             case 4:
               return (
                 <div style={{width:'70%'}}>
-                  <Step4 formData={formData} formCalculations={formCalculations}/>
+                  <Step4 specialAppliances={specialAppliances}  typicalAppliances={typicalAppliances} inputCalculations={inputCalculations} />
                   <div className="button-class">
                     <button className="button" onClick={handleBack}>
                       Finish

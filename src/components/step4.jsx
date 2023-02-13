@@ -1,25 +1,28 @@
 import { React, useState, useEffect } from "react";
 
-const Step4 = (formData) => {
-  console.log(formData);
+const Step4 = (props) => {
+  console.log(props);
 
-  const [data, setData] = useState([]);
+  const [dataTypical, setDataTypical] = useState([]);
+  const [dataSpecial, setDataSpecial] = useState([]);
   const [calcData, setCalcData] = useState([]);
 
   useEffect(() => {
-    setData(formData.formData.items);
-    setCalcData(formData.formCalculations.items);
-  }, [formData.formData.items,formData.formCalculations.items]);
-  console.log(data);
+    setDataTypical(props.typicalAppliances.items);
+    setDataSpecial(props.specialAppliances.items);
+    setCalcData(props.inputCalculations.items);
+  }, [props.typicalAppliances.items,props.specialAppliances.items,props.inputCalculations.items]);
+  console.log(dataTypical);
   console.log(calcData);
+  console.log(dataSpecial);
 
   return (
     <div>
-      {data.map((data, index) => (
-        <li key={index}>{data.appliance}</li>
+      {dataTypical.map((data, index) => (
+        <li key={index}>{data.name},{data.amount}</li>
       ))}
       {calcData.map((data, index) => (
-        <li key={index}>{data.quantity}</li>
+        <li key={index}>{data.quantity},{data.value}</li>
       ))}
     </div>
   );
