@@ -120,8 +120,6 @@ const Toolkit = () => {
               return (
                 <div style={{ width: "70%" }}>
                   <Step4
-                    formData={formData}
-                    formCalculations={formCalculations}
                     contactDetails={contactDetails}
                     qnDetails={qnDetails}
                   />

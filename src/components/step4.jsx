@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import React from "react";
 
 const Step4 = ({ formData, qnDetails, contactDetails }) => {
 
@@ -12,7 +12,7 @@ const Step4 = ({ formData, qnDetails, contactDetails }) => {
         <p>Days of Autonomy: {qnDetails.doa}</p>
         <p>Cost or Reliable: {qnDetails.cost}</p>
       </div>
-      </div>
+      </div>)}
 
   //console.log(props);
 
