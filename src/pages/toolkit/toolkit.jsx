@@ -18,11 +18,24 @@ const Toolkit = () => {
     setStep(step - 1);
   };
 
+  const [contactDetails, setContactDetails] = useState({
+    fullname: "",
+    address: "",
+    email: "",
+    pnumber: "",
+  });
+
+  const [qnDetails, setqnDetails] = useState({
+    doa:0,
+    cost:0,
+  });
+
  const [specialAppliances]=useState({});
 
  const [typicalAppliances]=useState({});
 
  const [inputCalculations]=useState({quantity:'',value:0});
+
 
   return (
     <div>
@@ -69,13 +82,17 @@ const Toolkit = () => {
               );
             case 2:
               return (
-                <div style={{width:'70%'}}>
-                  <Step2 />
+                <div style={{ width: "70%" }}>
+                  <Step2
+                    setStep={setStep}
+                    qnDetails={qnDetails}
+                    setqnDetails={setqnDetails}
+                  />
                   <div className="button-class">
                     <button className="button" onClick={handleBack}>
                       Back
                     </button>
-                    <button className="button" onClick={handleNext}>
+                    <button className="button" type="submit" form="step2form">
                       Next
                     </button>
                   </div>
@@ -83,13 +100,17 @@ const Toolkit = () => {
               );
             case 3:
               return (
-                <div style={{width:'70%'}}>
-                  <Step3 />
+                <div style={{ width: "70%" }}>
+                  <Step3
+                    setStep={setStep}
+                    contactDetails={contactDetails}
+                    setContactDetails={setContactDetails}
+                  />
                   <div className="button-class">
                     <button className="button" onClick={handleBack}>
                       Back
                     </button>
-                    <button className="button" onClick={handleNext}>
+                    <button className="button" type="submit" form="step3form">
                       Next
                     </button>
                   </div>
@@ -97,8 +118,13 @@ const Toolkit = () => {
               );
             case 4:
               return (
-                <div style={{width:'70%'}}>
-                  <Step4 specialAppliances={specialAppliances}  typicalAppliances={typicalAppliances} inputCalculations={inputCalculations} />
+                <div style={{ width: "70%" }}>
+                  <Step4
+                    formData={formData}
+                    formCalculations={formCalculations}
+                    contactDetails={contactDetails}
+                    qnDetails={qnDetails}
+                  />
                   <div className="button-class">
                     <button className="button" onClick={handleBack}>
                       Finish
