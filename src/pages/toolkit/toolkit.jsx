@@ -18,13 +18,6 @@ const Toolkit = () => {
     setStep(step - 1);
   };
 
-  const [formData, setFormData] = useState({});
-
-  const [formCalculations, setFormCalculations] = useState({
-    quantity: "",
-    value: 0,
-  });
-
   const [contactDetails, setContactDetails] = useState({
     fullname: "",
     address: "",
@@ -36,6 +29,13 @@ const Toolkit = () => {
     doa:0,
     cost:0,
   });
+
+ const [specialAppliances]=useState({});
+
+ const [typicalAppliances]=useState({});
+
+ const [inputCalculations]=useState({quantity:'',value:0});
+
 
   return (
     <div>
@@ -71,11 +71,8 @@ const Toolkit = () => {
           switch (step) {
             case 1:
               return (
-                <div style={{ width: "70%" }}>
-                  <Step1
-                    formData={formData}
-                    formCalculations={formCalculations}
-                  />
+                <div style={{width:'70%'}}>
+                  <Step1 specialAppliances={specialAppliances}  typicalAppliances={typicalAppliances} inputCalculations={inputCalculations} />
                   <div className="button-class">
                     <button className="button" onClick={handleNext}>
                       Next
