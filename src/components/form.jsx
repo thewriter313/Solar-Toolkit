@@ -23,22 +23,21 @@ const Form = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(values)
+    console.log(values);
     setValues({
-        name:'',
-        email:'',
-        message:'',
-    })
+      name: "",
+      email: "",
+      message: "",
+    });
     setSubmitted(true);
   };
 
   return (
-    <form className="contactform" onSubmit={ handleSubmit }>
+    <form className="contactform" onSubmit={handleSubmit}>
       <div className="passfail">
-        {submitted ?
-          <p className="pass">
-            Your message has been recieved. Thank you.
-          </p> : null}
+        {submitted ? (
+          <p className="pass">Your message has been recieved. Thank you.</p>
+        ) : null}
       </div>
       <div className="formarea">
         <label>Name:</label>
