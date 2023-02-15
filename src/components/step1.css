@@ -1,141 +1,139 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1em;
-    margin: 3em 0 1em 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Rubik", sans-serif;
+  font-size: 1em;
+  margin: 3em 0 1em 0;
 }
 
-.section-1{
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid var(--color5);
-    min-height: 100px;
-    padding: 1em 0;
+.section-1 {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--color5);
+  min-height: 100px;
+  padding: 1em 0;
 }
 
-.appliances{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+.appliances {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.preset{
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 1em;
+.preset {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 1em;
 }
-.preset-card{
-    background-color: var(--color1);
-    color: var(--color2);
-    border: 1px solid var(--color5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1em 1em;
-    cursor:pointer;
-    border-radius: 0.5em;
-}
-
-.preset-card h1{
-    font-size: 1em;
-    font-weight: 800;
-    font-family: 'Dosis';
-    padding: 1.2em;
+.preset-card {
+  background-color: var(--color1);
+  color: var(--color2);
+  border: 1px solid var(--color5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 1em;
+  cursor: pointer;
+  border-radius: 0.5em;
 }
 
-.preset .on{
-    background-color: var(--color2);
-    color: var(--color1);
-    border: none;
-    transform: scale(1.05);
-    transition: 0.1s linear;
-}
-.preset .on h1{
-    font-weight: bold;
+.preset-card h1 {
+  font-size: 1em;
+  font-weight: 800;
+  font-family: "Dosis";
+  padding: 1.2em;
 }
 
-.table{
-    border-collapse: collapse;
-    width: 100%;
-    min-width: fit-content; 
+.preset .on {
+  background-color: var(--color2);
+  color: var(--color1);
+  border: none;
+  transform: scale(1.05);
+  transition: 0.1s linear;
+}
+.preset .on h1 {
+  font-weight: bold;
 }
 
-.table thead tr{
-    text-align: center;
-    margin-bottom: 10px;
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: fit-content;
 }
 
-.table th, table td{
-    padding: 12px 15px;
-    min-width: fit-content;
-    text-align: center;
+.table thead tr {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.table th:hover{
-    cursor: pointer;
-    
+.table th,
+table td {
+  padding: 12px 15px;
+  min-width: fit-content;
+  text-align: center;
 }
 
-.table tbody input{
-    font-family: inherit;
-    font-size: 0.8em;
-    border-radius: 10px;
-    border: 1px solid var(--color5);
-    padding: 0.5em;
-    font-size: 1em;
-    font-stretch: condensed;
+.table th:hover {
+  cursor: pointer;
 }
 
-.table tbody input[type="text"]{
-    text-align: left;;
-    width: 20em;
+.table tbody input {
+  font-family: inherit;
+  font-size: 0.8em;
+  border-radius: 10px;
+  border: 1px solid var(--color5);
+  padding: 0.5em;
+  font-size: 1em;
+  font-stretch: condensed;
 }
 
-.table tbody input[type="number"]{
-    text-align: center;
-    max-width: 5em;
+.table tbody input[type="text"] {
+  text-align: left;
+  width: 20em;
 }
 
-.table tbody input:focus{
-    outline: none;
-    border: 1px solid var(--color3) !important;
+.table tbody input[type="number"] {
+  text-align: center;
+  max-width: 5em;
 }
-.output{
-    font-size: 1em;
-    font-weight: bold;
+
+.table tbody input:focus {
+  outline: none;
+  border: 1px solid var(--color3) !important;
+}
+.output {
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .table tbody td button {
-    background-color: rgb(231, 62, 62);
-    border: 0;
-    border-radius: 5px;
-    padding: 0.8em;
-    font-family: inherit;
-    color: var(--color1);
-    cursor: pointer;
+  background-color: rgb(231, 62, 62);
+  border: 0;
+  border-radius: 5px;
+  padding: 0.8em;
+  font-family: inherit;
+  color: var(--color1);
+  cursor: pointer;
 }
-.table tbody td button:disabled{
-    background-color: rgb(231, 142, 142);
-    cursor: default;
+.table tbody td button:disabled {
+  background-color: rgb(231, 142, 142);
+  cursor: default;
 }
-.add button{
-    padding: 10px;
-    background-color: var(--color2);
-    color: var(--color1);
-    border: 0cm;
-    border-radius: 5px;
-    width: 200 px;
-    Height: 50px;
-    margin: 15px;
-    font-family: 'Rubik',sans-serif;
-    font-size: medium;
-    margin-bottom: 50px;
-}
-
-.add button:hover{
-    background-color: rgb(51, 51, 51);
-    
+.add button {
+  padding: 10px;
+  background-color: var(--color2);
+  color: var(--color1);
+  border: 0cm;
+  border-radius: 5px;
+  width: 200 px;
+  height: 50px;
+  margin: 15px;
+  font-family: "Rubik", sans-serif;
+  font-size: medium;
+  margin-bottom: 50px;
 }
 
+.add button:hover {
+  background-color: rgb(51, 51, 51);
+}

@@ -36,12 +36,20 @@
     font-size: medium;
     transition: .3s linear ;
     margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .button:hover{
     background-color: var(--color2);
     color: var(--color1);
     transition: .3s linear ;
+}
+
+.button:disabled{
+    background-color: var(--color5);
+    color: grey;
 }
 
 
