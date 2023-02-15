@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import GoToTop from "./GoToTop";
 import "./step1.css";
 import Preset from "./preset";
@@ -6,81 +6,69 @@ import large from "../Assets/large.png";
 import small from "../Assets/small.png";
 import rural from "../Assets/rural.png";
 import ApplianceCard from "./ApplianceCard";
-import bulb from "../Assets/bulb.png"; 
+import bulb from "../Assets/bulb.png";
 import oldTV from "../Assets/oldTV.png";
 import phoneImg from "../Assets/phoneImg.png";
-import microwaveimg from "../Assets/microwaveimg.png"
-import fridgeimg from "../Assets/fridgeimg.png" ;
+import microwaveimg from "../Assets/microwaveimg.png";
+import fridgeimg from "../Assets/fridgeimg.png";
 import laptopImg from "../Assets/laptopImg.png";
+import { Tooltip } from "react-tippy";
+import { IoIosInformationCircleOutline } from "react-icons/io";
 
-
-const Step1 = ({ specialAppliances, typicalAppliances, inputCalculations }) => {
-  const [items, setItems] = useState([
-    { appliance: "", power: 0, hours: 0, amount: 0, total: 0 },
-  ]);
-
-  //Stock appliances
-  const [lightbulb, setLightbulb] = useState(0);
-  const [tv, setTv] = useState(0);
-  const [fridge, setFridge] = useState(0);
-  const [phone, setPhone] = useState(0);
-  const [microwave, setMicrowave] = useState(0);
-  const [laptop, setLaptop] = useState(0);
-
-  const appliances = [
-    { name: "Lightbulb", power: 13, hours: 5, amount: lightbulb,img: bulb },
-    { name: "TV", power: 150, hours: 8, amount: tv,img: oldTV },
-    { name: "Fridge", power: 350, hours: 24, amount: fridge,img: fridgeimg },
-    { name: "Phone", power: 6, hours: 2, amount: phone, img:phoneImg},
-    { name: "Microwave", power: 1000, hours: 0.1, amount: microwave,img: microwaveimg },
-    { name: "Laptop", power: 50, hours: 10, amount: laptop,img: laptopImg },
-    
-  ];
-
+const Step1 = ({
+  items,
+  setItems,
+  appliances,
+  setAppliances,
+  preset1,
+  preset2,
+  preset3,
+  setPreset1,
+  setPreset2,
+  setPreset3,
+}) => {
   //increasing amount on click
-  const incrementAmount = (name) => {
-    if (name === "Lightbulb") setLightbulb(lightbulb + 1);
-    if (name === "TV") setTv(tv + 1);
-    if (name === "Fridge") setFridge(fridge + 1);
-    if (name === "Phone") setPhone(phone + 1);
-    if (name === "Microwave") setMicrowave(microwave + 1);
-    if (name === "Laptop") setLaptop(laptop + 1);
+  const incrementAmount = (id) => {
+    setAppliances((appliances) =>
+      appliances.map((appliance) =>
+        appliance.id === id
+          ? { ...appliance, amount: appliance.amount + 1 }
+          : appliance
+      )
+    );
   };
 
   //decreasing amount on click
-  const decrementAmount = (name) => {
-    if (name === "Lightbulb") setLightbulb(lightbulb - 1);
-    if (name === "TV") setTv(tv - 1);
-    if (name === "Fridge") setFridge(fridge - 1);
-    if (name === "Phone") setPhone(phone - 1);
-    if (name === "Microwave") setMicrowave(microwave - 1);
-    if (name === "Laptop") setLaptop(laptop - 1);
+  const decrementAmount = (id) => {
+    setAppliances((appliances) =>
+      appliances.map((appliance) =>
+        appliance.id === id
+          ? { ...appliance, amount: appliance.amount - 1 }
+          : appliance
+      )
+    );
   };
 
-  const [preset1, setPreset1] = useState(false);
-  const [preset2, setPreset2] = useState(false);
-  const [preset3, setPreset3] = useState(false);
-
+  //handdle changes in table
   const handleChange = (event, index) => {
     const { name, value } = event.target;
     const list = [...items];
 
     // Validation check to ensure cost and amount are not negative
-    if (name === "power" || name === "hours" || name==="amount") {
+    if (name === "power" || name === "hours" || name === "amount") {
       if (value < 0) return;
     }
 
-   
     list[index][name] = value;
-    list[index].total =
+    list[index].energy =
       list[index].power * list[index].hours * list[index].amount;
     setItems(list);
-    console.log(items);
   };
 
+  //adding an appliance in table
   const handleAdd = () => {
     // Validation check to not allow the addition of another item if a row is empty
-    if (!items[items.length - 1].total) return;
+    if (items.length !== 0 && !items[items.length - 1].energy) return;
     setItems([
       ...items,
       { appliance: "", power: 0, hours: 0, amount: 0, total: 0 },
@@ -90,25 +78,77 @@ const Step1 = ({ specialAppliances, typicalAppliances, inputCalculations }) => {
   // Function to add 5 preset items to the table
   const handlePreset = (X) => {
     if (X === 0) {
-      setLightbulb(3);
-      setTv(1);
-      setFridge(1);
-      setPhone(2);
-      setMicrowave(1);
-      setLaptop(2);
-
+      setAppliances([
+        { id: 1, name: "Lightbulb", power: 13, hours: 5, amount: 3, img: bulb },
+        { id: 2, name: "TV", power: 150, hours: 8, amount: 1, img: oldTV },
+        {
+          id: 3,
+          name: "Fridge",
+          power: 350,
+          hours: 24,
+          amount: 1,
+          img: fridgeimg,
+        },
+        { id: 4, name: "Phone", power: 6, hours: 2, amount: 2, img: phoneImg },
+        {
+          id: 5,
+          name: "Microwave",
+          power: 1000,
+          hours: 0.1,
+          amount: 1,
+          img: microwaveimg,
+        },
+        {
+          id: 6,
+          name: "Laptop",
+          power: 50,
+          hours: 10,
+          amount: 1,
+          img: laptopImg,
+        },
+      ]);
       setPreset1(true);
       setPreset2(false);
       setPreset3(false);
     }
 
     if (X === 1) {
-      setLightbulb(10);
-      setTv(2);
-      setFridge(2);
-      setPhone(4);
-      setMicrowave(1);
-      setLaptop(3);
+      setAppliances([
+        {
+          id: 1,
+          name: "Lightbulb",
+          power: 13,
+          hours: 5,
+          amount: 10,
+          img: bulb,
+        },
+        { id: 2, name: "TV", power: 150, hours: 8, amount: 2, img: oldTV },
+        {
+          id: 3,
+          name: "Fridge",
+          power: 350,
+          hours: 24,
+          amount: 1,
+          img: fridgeimg,
+        },
+        { id: 4, name: "Phone", power: 6, hours: 2, amount: 4, img: phoneImg },
+        {
+          id: 5,
+          name: "Microwave",
+          power: 1000,
+          hours: 0.1,
+          amount: 1,
+          img: microwaveimg,
+        },
+        {
+          id: 6,
+          name: "Laptop",
+          power: 50,
+          hours: 10,
+          amount: 3,
+          img: laptopImg,
+        },
+      ]);
 
       setPreset1(false);
       setPreset2(true);
@@ -116,13 +156,35 @@ const Step1 = ({ specialAppliances, typicalAppliances, inputCalculations }) => {
     }
 
     if (X === 2) {
-      setLightbulb(3);
-      setTv(0);
-      setFridge(0);
-      setPhone(1);
-      setMicrowave(0);
-      setLaptop(0);
-
+      setAppliances([
+        { id: 1, name: "Lightbulb", power: 13, hours: 5, amount: 3, img: bulb },
+        { id: 2, name: "TV", power: 150, hours: 8, amount: 0, img: oldTV },
+        {
+          id: 3,
+          name: "Fridge",
+          power: 350,
+          hours: 24,
+          amount: 0,
+          img: fridgeimg,
+        },
+        { id: 4, name: "Phone", power: 6, hours: 2, amount: 1, img: phoneImg },
+        {
+          id: 5,
+          name: "Microwave",
+          power: 1000,
+          hours: 0.1,
+          amount: 0,
+          img: microwaveimg,
+        },
+        {
+          id: 6,
+          name: "Laptop",
+          power: 50,
+          hours: 10,
+          amount: 0,
+          img: laptopImg,
+        },
+      ]);
 
       setPreset1(false);
       setPreset2(false);
@@ -132,38 +194,27 @@ const Step1 = ({ specialAppliances, typicalAppliances, inputCalculations }) => {
 
   //Delete an appliance
   const onDelete = (appliance) => {
-    if (items.length - 1 === 0) return;
     const newItems = items.filter((I) => I.appliance !== appliance);
     setItems(newItems);
   };
 
-  // Total Energy
-  const totalEnergy = items.reduce((sum, item) => sum + item.total, 0)+(appliances.reduce((sum, item) => sum + item.power*item.amount*item.hours,0));
-
-  // Total Power
-  const totalPower = items.reduce((sum, item) => sum + item.power*item.amount, 0)+(appliances.reduce((sum, item) => sum + item.power*item.amount,0));
-
-  //Total items
-  const totalItems = items.reduce((sum, item) => sum + parseInt(item.amount) ,0)+(appliances.reduce((sum, appliance) => sum + appliance.amount,0));
-  console.log(totalItems);
-
-  //passing calculations to parent
-  const calculations = [
-    { quantity: "tItems", value: totalItems  },
-    { quantity: "tPower", value: totalPower },
-    { quantity: "tEnergy", value: totalEnergy },
-  ];
-
-  inputCalculations.items = calculations;
-
-  specialAppliances.items = items;
-
-  typicalAppliances.items = appliances;
-
   return (
     <div className="container">
       <div className="section-1">
-        <h3>What would you say is the size of your house?</h3>
+        <h3>
+          What would you say is the size of your house?{" "}
+          <Tooltip
+            arrow="true"
+            position="right"
+            html={
+              <p style={{ fontFamily: "rubik", margin: "0.1em" }}>
+                Pick an option that is closest to your house
+              </p>
+            }
+          >
+            <IoIosInformationCircleOutline />
+          </Tooltip>
+        </h3>
         <div className="preset">
           <div onClick={() => handlePreset(0)}>
             <Preset
@@ -199,13 +250,26 @@ const Step1 = ({ specialAppliances, typicalAppliances, inputCalculations }) => {
               img={data.img}
               decrement={decrementAmount}
               increment={incrementAmount}
-
+              data={data}
             />
           ))}
         </div>
       </div>
       <div className="section-1">
-        <h3>Are there any other appliances you wish to include?</h3>
+        <h3>
+          Are there any other appliances you wish to include?{" "}
+          <Tooltip
+            arrow="true"
+            position="right"
+            html={
+              <p style={{ fontFamily: "rubik", margin: "0.1em" }}>
+                Only add appliances not shown in the section above.
+              </p>
+            }
+          >
+            <IoIosInformationCircleOutline />
+          </Tooltip>
+        </h3>
         <div>
           <table className="table">
             <thead>
@@ -249,7 +313,7 @@ const Step1 = ({ specialAppliances, typicalAppliances, inputCalculations }) => {
                     />
                   </td>
                   <td>
-                  <input
+                    <input
                       type="number"
                       name="amount"
                       value={item.amount}
@@ -259,10 +323,7 @@ const Step1 = ({ specialAppliances, typicalAppliances, inputCalculations }) => {
                   </td>
                   <td className="output">{item.total}</td>
                   <td>
-                    <button
-                      disabled={!item.appliance}
-                      onClick={() => onDelete(item.appliance)}
-                    >
+                    <button onClick={() => onDelete(item.appliance)}>
                       Delete
                     </button>
                   </td>
@@ -274,9 +335,6 @@ const Step1 = ({ specialAppliances, typicalAppliances, inputCalculations }) => {
         <div className="add">
           <button onClick={handleAdd}>Add Appliance</button>
         </div>
-        {/* <div>
-          <p>energy {totalEnergy}, items {totalItems},power {totalPower}</p>
-        </div> */}
       </div>
       <GoToTop />
     </div>

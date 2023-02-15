@@ -19,6 +19,8 @@ const Navbar = () => {
           <li><Link className='navLink' to='/toolkit'>Solar Toolkit</Link></li>
           <li>|</li>
           <li><Link className='navLink' to='/about'>About Us</Link></li>
+          <li>|</li>
+          <li><Link className='navLink' to='/catalogue'>Catalogue</Link></li>
         </ul>
       </nav>
     </div>
