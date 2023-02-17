@@ -23,14 +23,7 @@ const Toolkit = () => {
     { id: 2, name: "TV", power: 150, hours: 8, amount: 0, img: oldTV },
     { id: 3, name: "Fridge", power: 350, hours: 24, amount: 0, img: fridgeimg },
     { id: 4, name: "Phone", power: 6, hours: 2, amount: 0, img: phoneImg },
-    {
-      id: 5,
-      name: "Microwave",
-      power: 1000,
-      hours: 0.1,
-      amount: 0,
-      img: microwaveimg,
-    },
+    {id: 5, name: "Microwave", power: 1000, hours: 0.1, amount: 0, img: microwaveimg,},
     { id: 6, name: "Laptop", power: 50, hours: 10, amount: 0, img: laptopImg },
   ]);
 
@@ -100,6 +93,7 @@ const Toolkit = () => {
                     setPreset2={setPreset2}
                     preset3={preset3}
                     setPreset3={setPreset3}
+                    
                   />
                   <div className="button-class">
                     <button disabled ={totalItems === 0} className="button" onClick={()=>setStep(2)}>

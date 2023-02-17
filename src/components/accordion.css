@@ -12,7 +12,7 @@
 }
 .question{
     padding: 10px 20px;
-    background-color: var(--color3);
+    background-color:none;
     border-radius: 5px;
     display: flex;
     font-size: 13px;
@@ -23,31 +23,12 @@
 
 }
 .answer{
-    display: none;
-    max-height: 0;
-    overflow: hidden;
-    border-radius: 0 0 10px 10px;
-    transition: .5s cubic-bezier(0,1,0,1);
-    transform-origin: top center;
-    
-}
-
-.show{
     display: block;
     max-height: fit-content;
     padding: 20px 20px;
     line-height: 20px;
     margin: 0 5px;
     background-color: #eee;
-    border-radius: 0 0 10px 10px;
-    transition: .5s cubic-bezier(0,1,0,1);
-    transform-origin: top center;
-}
-.rotate{
-    transform: rotate(90deg);
-    transition: .5s cubic-bezier(0,1,0,1);
-}
-
-.rotateafter{
-    transition: .3s cubic-bezier(0.23, 1, 0.320, 1);  
+    border-radius:10px;
+      
 }

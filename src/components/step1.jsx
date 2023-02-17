@@ -67,9 +67,7 @@ const Step1 = ({
 
   //adding an appliance in table
   const handleAdd = () => {
-    // Validation check to not allow the addition of another item if a row is empty
-    if (items.length !== 0 && !items[items.length - 1].energy) return;
-    setItems([
+     setItems([
       ...items,
       { appliance: "", power: 0, hours: 0, amount: 0, total: 0 },
     ]);
@@ -199,7 +197,7 @@ const Step1 = ({
   };
 
   return (
-    <div className="container">
+    <div className="container-step1">
       <div className="section-1">
         <h3>
           What would you say is the size of your house?{" "}
@@ -321,7 +319,7 @@ const Step1 = ({
                       disabled={!item.appliance}
                     />
                   </td>
-                  <td className="output">{item.total}</td>
+                  <td className="output">{item.energy}</td>
                   <td>
                     <button onClick={() => onDelete(item.appliance)}>
                       Delete
@@ -333,7 +331,7 @@ const Step1 = ({
           </table>
         </div>
         <div className="add">
-          <button onClick={handleAdd}>Add Appliance</button>
+          <button onClick={handleAdd} disabled={(items.length !== 0 && !items[items.length - 1].energy)}>Add Appliance</button>
         </div>
       </div>
       <GoToTop />
