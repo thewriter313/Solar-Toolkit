@@ -38,8 +38,8 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
           ))}
          
         </p>
-        <p>Total energy= {totalEnergy}</p>
-          <p>Total Power = {totalPower}</p>
+        <p>Total energy= {totalEnergy} Wh</p>
+          <p>Total Power = {totalPower} W</p>
           <p>Toatl items ={totalItems}</p>
       </div>
     </div>

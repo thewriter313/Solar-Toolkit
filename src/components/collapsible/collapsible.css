@@ -22,3 +22,12 @@
 .content-parent .auto{
     overflow: auto;
 }
+
+.rotate{
+    transform: rotate(90deg);
+    transition: .5s cubic-bezier(0,1,0,1);
+}
+
+.rotateafter{
+    transition: .5s cubic-bezier(0.23, 1, 0.320, 1);  
+}
