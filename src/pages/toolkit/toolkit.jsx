@@ -34,11 +34,19 @@ const Toolkit = () => {
     address: "",
     email: "",
     pnumber: "",
+    rate:null,
   });
 
   const [qnDetails, setqnDetails] = useState({
-    doa: 0,
-    cost: 0,
+
+    doa:3,
+    cost:0,
+    grid:"OffGrid",
+    shade:"slight",
+    expand:"expandable",
+    space:null,
+    batteryspace: "nobatteryspace",
+    appeal:"yesappeal",
   });
 
   const totalItems = items.reduce((sum, item) => sum + parseInt(item.amount) ,0)+(appliances.reduce((sum, item) => sum + parseInt(item.amount),0));
