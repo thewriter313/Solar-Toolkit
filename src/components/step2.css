@@ -15,7 +15,7 @@
 .qnrow {
   margin: 10px 20px;
   padding: 20px;
-  height: 300px;
+  height: 250px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -26,9 +26,19 @@
   font-size: 2em;
   padding: 20px;
 }
-.qnrow input {
+.qnrow input[type="range"] {
   width: 60%;
   margin: 20px;
+}
+.qnrow select,
+.qnrow input[type="number"],
+.qnrow input[type="text"] {
+  outline: none;
+  padding: 10px;
+  margin: 20px;
+  border: 1px solid var(--color5);
+  border-radius: 10px;
+  width: fit-content;
 }
 .qnleft {
   width: 100%;
@@ -41,7 +51,6 @@
   padding: 20px;
   margin: 0;
 }
-
 .qnright {
   display: flex;
   align-items: center;
@@ -49,10 +58,12 @@
   width: 100%;
 }
 
-.sky {
+.qnrightContainer {
   padding-right: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .sun {
   width: 125px;
@@ -67,13 +78,8 @@
   width: 200px;
   opacity: 90%;
 }
-.cost {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .clock {
-  width: 150px;
+  width: 130px;
   z-index: 1;
 }
 .rightcoins {
@@ -88,7 +94,9 @@
   transform: translateX(50px);
   z-index: 0;
 }
-
+.optionImage {
+  width: 350px;
+}
 .slidecontainer {
   display: flex;
   align-items: center;
@@ -97,7 +105,7 @@
   appearance: none;
   height: 10px;
   border-radius: 5px;
-  background: var(--color1);
+  background: var(--color5);
   outline: none;
   opacity: 0.7;
   -webkit-transition: 0.2s;
@@ -111,14 +119,10 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--color3);
+  background: var(--color2);
   cursor: pointer;
 }
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #04aa6d;
-  cursor: pointer;
+.slider::-webkit-slider-thumb:hover {
+  background: var(--color3);
+  transition: 0.5s ease-in-out;
 }

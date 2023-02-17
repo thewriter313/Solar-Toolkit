@@ -23,11 +23,18 @@ const Toolkit = () => {
     address: "",
     email: "",
     pnumber: "",
+    rate:null,
   });
 
   const [qnDetails, setqnDetails] = useState({
-    doa:0,
+    doa:3,
     cost:0,
+    grid:"OffGrid",
+    shade:"slight",
+    expand:"expandable",
+    space:null,
+    batteryspace: "nobatteryspace",
+    appeal:"yesappeal",
   });
 
  const [specialAppliances]=useState({});

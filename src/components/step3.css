@@ -1,56 +1,77 @@
 .step3contactform {
-    margin: 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rubik", sans-serif;
 }
-.contactcontainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 30px;
-    font-family: "Rubik", sans-serif;
-    justify-self: center;
-  }
-  .contactcontainer form {
-    box-shadow: 5px 5px 15px #ddd;
-    border-radius: 0 0 10px 10px;
-  }
-  .contactcontainer .contacthead {
-    padding: 20px;
-    margin: 0px;
-    background-color: var(--color2);
-    border-radius: 10px 10px 0 0;
-    color: var(--color1);
-    text-align: center;
-  }
-  .contactrow {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 10px 30px 30px 30px;
-  }
-  .contactfield {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    margin: 10px 5px;
-  }
-  .contactfield label {
-    font-size: 1em;
-  }
-  .contactfield input {
-    border: none;
-    border-bottom: 1px solid var(--color2);
-    padding: 10px 10px 5px 2px;
-    font-size: 1em;
-    width: 100%;
-  }
-  .contactfield input:hover {
-    border-bottom: 1px solid var(--color3);
-  }
-  .contactfield input:focus {
-    outline: none;
-    border-bottom: 1px solid var(--color3);
-  }
-  .code {
-    font-weight: 600;
-  }
-  
+.step3contactform h1,
+h2 {
+  font-family: "dosis", sans-serif;
+  text-transform: uppercase;
+}
+.step3contactform h3 {
+  height: 10px;
+}
+.contactHead {
+  margin-top: 20px;
+}
+.contactBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+}
+.contactBody form {
+  flex: 0.6;
+}
+.contactImage {
+  flex: 1;
+}
+.contactImage img {
+  width: 500px;
+}
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-around;
+  padding: 20px;
+}
+.contactField {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 10px 0;
+}
+.contactField label {
+  font-size: 1.3em;
+  padding: 10px;
+}
+.contactField input[type="text"],
+.contactField input[type="email"],
+.contactField input[type="tel"] {
+  border: 1px solid var(--color2);
+  border-radius: 10px;
+  padding: 10px 10px;
+  font-size: 1em;
+  width: 100%;
+}
+.contactField input[type="text"]:focus,
+.contactField input[type="email"]:focus,
+.contactField input[type="tel"]:focus {
+  outline: none;
+  border: 1px solid var(--color3);
+}
+.raterange {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.rate {
+  width: 100%;
+  margin-right: 10px;
+}
