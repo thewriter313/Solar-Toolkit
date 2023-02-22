@@ -1,0 +1,85 @@
+.resultCardContainer {
+    font-family: "Rubik", sans-serif;
+    margin: 5px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.resultCardContainer h2 {
+    margin: 0;
+}
+.flex {
+    display: flex;
+}
+.flexcolumn {
+    flex-direction: column;
+}
+.flexrow {
+    flex-direction: row;
+}
+.resultCardHead {
+    justify-content: space-between;
+    align-items: center;
+    font-family: "dosis", sans-serif;
+    padding: 20px;
+}
+.arrowDown {
+    transform: rotate(90deg);
+    transition: all 0.5s ease;
+}
+.arrowRight {
+    transition: all 0.5s ease;
+}
+.resultCardBody {
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0 20px;
+}
+.bodyOpen {
+    max-height: 300px;
+    border-top: 1px solid var(--color5);
+}
+.resultCardImage {
+    align-items: center;
+    margin: 20px;
+    width: 400px;
+}
+.resultCardImage img {
+    padding: 20px;
+    flex: 10%;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}
+.resultCardText {
+    flex-wrap: wrap;
+    flex: 90%;
+}
+.resultCardValue {
+    margin-right: 20px;
+    flex: 1 0 40%;
+    align-items: center;
+
+}
+.resultCardValue select {
+    outline: none;
+    padding-right: 5px;
+    margin-right: 5px;
+    background-color: #F2F2F2;
+    border: 0px solid var(--color5);
+    border-radius: 10px;
+    width: fit-content;
+    font: 16px "Rubik", sans-serif;
+  }
+.resultCardValue p {
+    min-width: 100px;
+    text-align: start;
+}
+.resultCardProperty {
+    color: #999;
+    margin-right: 10px;
+}
