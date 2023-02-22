@@ -12,44 +12,51 @@ import phoneImg from "../../Assets/phoneImg.png";
 import microwaveimg from "../../Assets/microwaveimg.png";
 import fridgeimg from "../../Assets/fridgeimg.png";
 import laptopImg from "../../Assets/laptopImg.png";
-import { IoIosArrowBack,IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Toolkit = () => {
   const [step, setStep] = useState(1);
-
 
   const [appliances, setAppliances] = useState([
     { id: 1, name: "Lightbulb", power: 13, hours: 5, amount: 0, img: bulb },
     { id: 2, name: "TV", power: 150, hours: 8, amount: 0, img: oldTV },
     { id: 3, name: "Fridge", power: 350, hours: 24, amount: 0, img: fridgeimg },
     { id: 4, name: "Phone", power: 6, hours: 2, amount: 0, img: phoneImg },
-    {id: 5, name: "Microwave", power: 1000, hours: 0.1, amount: 0, img: microwaveimg,},
+    {
+      id: 5,
+      name: "Microwave",
+      power: 1000,
+      hours: 0.1,
+      amount: 0,
+      img: microwaveimg,
+    },
     { id: 6, name: "Laptop", power: 50, hours: 10, amount: 0, img: laptopImg },
   ]);
 
-  const [items, setItems] = useState([ ]);
+  const [items, setItems] = useState([]);
 
   const [contactDetails, setContactDetails] = useState({
     fullname: "",
     address: "",
     email: "",
     pnumber: "",
-    rate:null,
+    rate: null,
   });
 
   const [qnDetails, setqnDetails] = useState({
-
-    doa:3,
-    cost:0,
-    grid:"OffGrid",
-    shade:"slight",
-    expand:"expandable",
-    space:null,
+    doa: 3,
+    cost: 0,
+    grid: "OffGrid",
+    shade: "yesshade",
+    expand: "likely",
+    space: "0",
     batteryspace: "nobatteryspace",
-    appeal:"yesappeal",
+    appeal: "yesappeal",
   });
 
-  const totalItems = items.reduce((sum, item) => sum + parseInt(item.amount) ,0)+(appliances.reduce((sum, item) => sum + parseInt(item.amount),0));
+  const totalItems =
+    items.reduce((sum, item) => sum + parseInt(item.amount), 0) +
+    appliances.reduce((sum, item) => sum + parseInt(item.amount), 0);
 
   const [preset1, setPreset1] = useState(false);
   const [preset2, setPreset2] = useState(false);
@@ -101,11 +108,14 @@ const Toolkit = () => {
                     setPreset2={setPreset2}
                     preset3={preset3}
                     setPreset3={setPreset3}
-                    
                   />
                   <div className="button-class">
-                    <button disabled ={totalItems === 0} className="button" onClick={()=>setStep(2)}>
-                      Next <IoIosArrowForward/>
+                    <button
+                      disabled={totalItems === 0}
+                      className="button"
+                      onClick={() => setStep(2)}
+                    >
+                      Next <IoIosArrowForward />
                     </button>
                   </div>
                 </div>
@@ -119,11 +129,11 @@ const Toolkit = () => {
                     setqnDetails={setqnDetails}
                   />
                   <div className="button-class">
-                    <button className="button" onClick={()=>setStep(1)}>
-                      Back <IoIosArrowBack/>
+                    <button className="button" onClick={() => setStep(1)}>
+                      <IoIosArrowBack /> Back
                     </button>
                     <button className="button" type="submit" form="step2form">
-                      Next <IoIosArrowForward/>
+                      Next <IoIosArrowForward />
                     </button>
                   </div>
                 </div>
@@ -137,11 +147,11 @@ const Toolkit = () => {
                     setContactDetails={setContactDetails}
                   />
                   <div className="button-class">
-                    <button className="button" onClick={()=>setStep(2)}>
-                      Back
+                    <button className="button" onClick={() => setStep(2)}>
+                      <IoIosArrowBack /> Back
                     </button>
                     <button className="button" type="submit" form="step3form">
-                      Next
+                      Next <IoIosArrowForward />
                     </button>
                   </div>
                 </div>
@@ -156,7 +166,7 @@ const Toolkit = () => {
                     qnDetails={qnDetails}
                   />
                   <div className="button-class">
-                    <button className="button" onClick={()=>setStep(3)}>
+                    <button className="button" onClick={() => setStep(3)}>
                       Finish
                     </button>
                   </div>

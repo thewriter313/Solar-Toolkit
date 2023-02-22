@@ -66,7 +66,7 @@ const Step3 = ({ setStep, contactDetails, setContactDetails }) => {
                 type="tel"
                 name="pnumber"
                 placeholder="+254712345678"
-                pattern="[+254]{4}[0-9]{9}"
+                pattern="\+254\d{9}"
                 value={contactDetails.pnumber}
                 onChange={handleChange}
                 required
