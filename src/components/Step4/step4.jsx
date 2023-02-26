@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./step4.css";
-import GoToTop from "../components/GoToTop";
+import GoToTop from "../GoToTop";
 import Resultcard from "./Resultcard";
-import battery from "../Assets/battery.png";
-import Thinfilm from "../Assets/thinfilm.png";
-import Polycrystalline from "../Assets/polycrystalline.png";
-import inverter from "../Assets/Inverter.png";
-import chargeController from "../Assets/ChargeController2.png";
+import battery from "../../Assets/battery.png";
+import Thinfilm from "../../Assets/thinfilm.png";
+import Polycrystalline from "../../Assets/polycrystalline.png";
+import inverter from "../../Assets/Inverter.png";
+import chargeController from "../../Assets/ChargeController2.png";
 
 const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
     // Total Energy
@@ -33,10 +33,6 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
     const totalItems =
         items.reduce((sum, item) => sum + parseInt(item.amount), 0) +
         appliances.reduce((sum, item) => sum + parseInt(item.amount), 0);
-
-    // console.log(totalEnergy);
-    // console.log(totalPower);
-    // console.log(totalItems);
 
     const panelImage =
         qnDetails.appeal === "yesappeal" ? Thinfilm : Polycrystalline;
