@@ -2,10 +2,10 @@ import { React, useState } from "react";
 import GoToTop from "../../components/GoToTop";
 import { Stepper } from "react-form-stepper";
 import "./toolkit.css";
-import Step1 from "../../components/step1";
-import Step2 from "../../components/step2";
-import Step3 from "../../components/step3";
-import Step4 from "../../components/step4";
+import Step1 from "../../components/Step1/step1";
+import Step2 from "../../components/Step2/step2";
+import Step3 from "../../components/Step3/step3";
+import Step4 from "../../components/Step4/step4";
 import bulb from "../../Assets/bulb.png";
 import oldTV from "../../Assets/oldTV.png";
 import phoneImg from "../../Assets/phoneImg.png";
@@ -40,7 +40,7 @@ const Toolkit = () => {
     address: "",
     email: "",
     pnumber: "",
-    rate: null,
+    rate: '',
   });
 
   const [qnDetails, setqnDetails] = useState({

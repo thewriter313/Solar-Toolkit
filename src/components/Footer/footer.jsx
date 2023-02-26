@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './footer.css'
-import '../App.css'
-import logolight from '../Assets/logolight.png'
+import logolight from '../../Assets/logolight.png'
 import {BsTwitter, BsFacebook, BsInstagram} from 'react-icons/bs'
 
 

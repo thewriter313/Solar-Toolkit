@@ -1,27 +1,25 @@
 import React from "react";
 import "./step2.css";
-import GoToTop from "../components/GoToTop";
-import Clouds from "../Assets/clouds.png";
-import CloudsInv from "../Assets/cloudsInv.png";
-import Sun from "../Assets/sun.png";
-import Coins from "../Assets/coins.png";
-import CoinsInv from "../Assets/coinsInv.png";
-import Clock from "../Assets/clock.png";
-import GridTied from "../Assets/Grid-tied.png";
-import OffGrid from "../Assets/Offgrid-System.png";
-import PlainHouse from "../Assets/House.png";
-import HouseTree from "../Assets/HousewithTrees.png";
-import Expand from "../Assets/Expand.png";
-import nonExpand from "../Assets/Unexpand.png";
-import Large from "../Assets/large.png";
-import Medium from "../Assets/rural.png";
-import Small from "../Assets/small.png";
-import Battery from "../Assets/Battery.jpg";
-import ThinFilm from "../Assets/thinfilm.png";
-import Polycrystalline from "../Assets/polycrystalline.png";
+import GoToTop from "../GoToTop";
+import Clouds from "../../Assets/clouds.png";
+import CloudsInv from "../../Assets/cloudsInv.png";
+import Sun from "../../Assets/sun.png";
+import Coins from "../../Assets/coins.png";
+import CoinsInv from "../../Assets/coinsInv.png";
+import Clock from "../../Assets/clock.png";
+import GridTied from "../../Assets/Grid-tied.png";
+import OffGrid from "../../Assets/Offgrid-System.png";
+import PlainHouse from "../../Assets/House.png";
+import HouseTree from "../../Assets/HousewithTrees.png";
+import Expand from "../../Assets/Expand.png";
+import nonExpand from "../../Assets/Unexpand.png";
+import Large from "../../Assets/large.png";
+import Medium from "../../Assets/rural.png";
+import Small from "../../Assets/small.png";
+import Battery from "../../Assets/Battery.jpg";
+import ThinFilm from "../../Assets/thinfilm.png";
+import Polycrystalline from "../../Assets/polycrystalline.png";
 
-// const qndoaColors = ["#87CEEB", "#62BFE4", "#2EAADC", "#1E85AE"];
-// const qnCostColors = ["#FE8454", "#FEA885", "#88A27C", "#738F66"];
 const qnCostOptions = ["Cheapest", "Cheap", "Reliable", "Very Reliable"];
 
 const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
@@ -41,8 +39,7 @@ const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
             <form
                 id="step2form"
                 className="qnform"
-                onSubmit={() => setStep(3)}
-                F>
+                onSubmit={() => setStep(3)}>
                 {/* 1st Row */}
                 <div
                     // style={{

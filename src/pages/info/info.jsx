@@ -1,7 +1,7 @@
 import { React } from "react";
 import "./info.css";
 import FaqData from "../../Data/FaqData";
-import Accordion from "../../components/Accordion";
+import Accordion from "../../components/Accordion/Accordion";
 import Collapsible from "../../components/collapsible/Collapsible";
 import GoToTop from "../../components/GoToTop";
 

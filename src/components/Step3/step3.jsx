@@ -1,8 +1,8 @@
 import React from "react";
 // import ContactForm from "./contactform";
 import "./step3.css";
-import GoToTop from "./GoToTop";
-import Mail from "../Assets/EmailSent.png";
+import GoToTop from "../GoToTop";
+import Mail from "../../Assets/EmailSent.png";
 
 const Step3 = ({ setStep, contactDetails, setContactDetails }) => {
   const handleChange = (e) => {
