@@ -1,6 +1,6 @@
 import React from "react";
-// import ReactDOM from "react-dom";
-import { createRoot } from 'react-dom/client';
+import ReactDOM from "react-dom/client";
+// import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/layout";
 import About from './pages/about/about'
@@ -27,5 +27,5 @@ export default function App() {
 
 // ReactDOM.render(<App />, document.getElementById("root"));
 const container = document.getElementById('root');
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
+const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(<App/>);
