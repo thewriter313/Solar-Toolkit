@@ -102,8 +102,10 @@ const Resultcard = ({
                                         onChange={handleChange}>
                                         <option value={50}>50</option>
                                         <option value={100}>100</option>
+                                        <option value={120}>120</option>
                                         <option value={150}>150</option>
                                         <option value={200}>200</option>
+                                        <option value={285}>285</option>
                                     </select>
                                     <p>Watts</p>
                                 </>

@@ -62,19 +62,32 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
     });
     // Property Values
     const GE = 1.3 * totalEnergy;
-    const PSH = 6;
-    const DOD = 0.4;
+    const PSH = 4.2;
+    const DOD = 0.5;
     const GP = 1.5 * totalPower;
-    const systemVoltage = propertyValues.batteryVoltageValue;
+
+    // Get from Inverter Manual
+    const systemVoltage = 24;
+    const batterySeries = Math.ceil(systemVoltage / propertyValues.batteryVoltageValue);
+    // const systemVoltage = propertyValues.batteryVoltageValue;
     const singlePanelWatt = propertyValues.panelWattage;
     const batteryCapacity = 200;
+    const batteryParallel = (Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100) / batteryCapacity;
     const panelWattage = Math.ceil(GE / PSH / 100) * 100;
     const panelNumbers = Math.ceil(panelWattage / singlePanelWatt);
+
+
+    // For number of panels in series
+    const panelSeries = chargeControllerType === "Pulse Width Modulation (PWM)" ? Math.ceil(systemVoltage / 8) : Math.floor(systemVoltage / 10 );
+    const panelParallel = Math.ceil(panelNumbers / panelSeries);
+    const panelNumbersUpdated = panelSeries * panelParallel;
     const inverterWattage = Math.ceil(GP / 100) * 100;
     const totalbatterySize = Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100;
-    const batteryNumbers = Math.ceil(totalbatterySize / batteryCapacity);
+    const batteryNumbers = batteryParallel * batterySeries;
+
+    // const batteryNumbers = Math.ceil(totalbatterySize / batteryCapacity);
     const batterySize = Math.ceil(totalbatterySize / batteryNumbers / 10) * 10;
-    const chargeControllerSize = Math.ceil(GP / systemVoltage / 100) * 100;
+    const chargeControllerSize = Math.ceil(GP / systemVoltage / 10) * 10;
 
     const ResultCardData = [
         {
@@ -85,7 +98,7 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
             power: "Power",
             powerValue: singlePanelWatt,
             quantity: "Quantity",
-            quantityValue: panelNumbers,
+            quantityValue:  panelNumbersUpdated,
             price: "Price",
         },
         {
@@ -106,6 +119,8 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
             title: "Inverter",
             type: "Type",
             typeValue: inverterType,
+            voltage: "Voltage",
+            voltageValue: systemVoltage,
             power: "Power",
             powerValue: inverterWattage,
             price: "Price",
