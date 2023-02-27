@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from "react";
 import "./info.css";
 import FaqData from "../../Data/FaqData";
 import Accordion from "../../components/Accordion/Accordion";

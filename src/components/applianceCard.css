@@ -21,14 +21,14 @@
     transition: 0.1s linear;
 }
 
-.active{
+.on{
     background-color: var(--color2);
     color: var(--color1);
     transform: scale(1.05);
     transition: 0.1s linear;
 }
 
-.active button{
+.on button{
     background-color: var(--color2);
     color: var(--color1);
     transition: 0.1s linear;
