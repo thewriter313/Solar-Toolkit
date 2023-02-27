@@ -18,7 +18,7 @@ const Collapsible = (props) => {
 
   return (
     <div className="collapsible-body">
-        <div  onClick={toggle} className='collapsible-head'>
+        <div  onClick={toggle} className='flexrow collapsible-head'>
         <h2>{props.label}</h2>
         <div className={open === true ? 'rotate':'rotateafter'}><MdOutlineArrowForwardIos/></div>
         </div>

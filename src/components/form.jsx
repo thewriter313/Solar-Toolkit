@@ -34,7 +34,7 @@ const Form = () => {
 
   return (
     <form className="contactform" onSubmit={handleSubmit}>
-      <div className="passfail">
+      <div className="flexcolumn">
         {submitted ? (
           <p className="pass">Your message has been recieved. Thank you.</p>
         ) : null}

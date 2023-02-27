@@ -7,8 +7,8 @@ import logodark from '../../Assets/logodark.png'
 const Navbar = () => {
   return (
 
-    <div className="parent">
-      <nav className="navbar">
+    <div className="flexrow nav-container">
+      <nav className="flexrow navbar">
         <Link to='/'><img src={logodark} alt='logo' width ='100px'/></Link>
         <ul>
           <li><Link className='navLink' to='/'>Home</Link></li>

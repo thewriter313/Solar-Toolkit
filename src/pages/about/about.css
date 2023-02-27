@@ -2,18 +2,14 @@
   font-family: "Gotham Book", sans-serif;
 }
 .aboutuspage .goinggreen {
-  height: 86vh;
+  height: 88vh;
 }
 .aboutuspage {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 .wide {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;

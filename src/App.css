@@ -5,6 +5,60 @@
   --color4: #00bf8c35;
   --color5: #25252535;
   --color6: #3d9ecb;
-  --fontp: 'Gotham Book', sans-serif;
+  --fontprimary: 'Rubik';
+  --fontsecondary: 'Gotham Book', sans-serif;
+  --fonttertiary: 'Dosis';
+  --fontbtn: 'montserrat', sans-serif;
 
+}
+body{
+  margin: 0;
+}
+p, li, tr, select, input, textarea, strong {
+  font-family: var(--fontprimary);
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--fontsecondary);}
+li {
+  line-height: 1.8em;
+}
+label {
+  font-family: var(--fonttertiary);
+}
+strong {
+  font-weight: 400;
+}
+.btn1{
+  background-color: var(--color2);
+  font-weight: 600;
+  font-family: 'montserrat', sans-serif;
+  letter-spacing: 3px;
+  color: var(--color1);
+  padding: 20px 25px;
+  transition: .3s linear;
+  border-radius: 5px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin-top: 20px;
+}
+.btn1:hover{
+  background-color: var(--color3);
+  color: var(--color2);
+  transition: .3s linear;
+}
+.btn1:disabled {
+  background-color: var(--color5);
+  color: grey;
+}
+.flexrow {
+  display: flex;
+  flex-direction: row;
+}
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
 }

@@ -138,13 +138,13 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
         },
     ];
     return (
-        <div className="step4equipment flex">
-            <div className="step4container flex">
-                <div className="summary flex flexcolumn">
+        <div className="flexrow step4equipment">
+            <div className="flexrow step4container">
+                <div className="flexcolumn summary">
                     <h2>
                         <span style={{ color: "var(--color3)" }}>Summary</span>
                     </h2>
-                    <div className="summaryBox flex">
+                    <div className="flexrow summaryBox">
                         <div className="summaryTitle">
                             <h3>Total Number of Items</h3>
                         </div>
@@ -152,7 +152,7 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
                             <h4>{totalItems} items</h4>
                         </div>
                     </div>
-                    <div className="summaryBox flex">
+                    <div className="flexrow summaryBox">
                         <div className="summaryTitle">
                             <h3>Total Energy Demand</h3>
                         </div>
@@ -160,7 +160,7 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
                             <h4>{totalEnergy} Watt Hours</h4>
                         </div>
                     </div>
-                    <div className="summaryBox flex">
+                    <div className="flexrow summaryBox">
                         <div className="summaryTitle">
                             <h3>Peak Load</h3>
                         </div>

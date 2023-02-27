@@ -13,9 +13,9 @@ const home = () => {
   
   return (
     <div>
-      <div className="intro">
-        <div className="type-slogan">
-          <div className="typewriter">
+      <div className="flexrow intro">
+        <div className="flexrow type-slogan">
+          <div className="flexrow typewriter">
             <Typewriter
               options={{
                 loop: true,
@@ -51,8 +51,8 @@ const home = () => {
           </div>
         </div>
       </div>
-      <div className="infobox">
-        <div className="infoleft">
+      <div className="flexrow infobox">
+        <div className="flexcolumn infoleft">
           <h1>What equipment is required?</h1>
           <p>
             <strong>Overhelmed by all the technical jargon? Fear not!</strong>{" "}
@@ -62,23 +62,23 @@ const home = () => {
             electrical loads, wiring, and system protection.
           </p>
           <Link className="infolink" to="/info">
-            <button className="btn">Learn More</button>
+            <button className="btn1">Learn More</button>
           </Link>
         </div>
       </div>
 
-      <div className="toolkit">
+      <div className="flexrow toolkit">
         <img src={toolkitpic} alt="toolkitpic" />
-        <div className="toolkitright">
+        <div className="flexcolumn toolkitright">
           <h1>Easy to use Toolkit</h1>
           <p>
             Our toolkit design employs engineering principles together with the
             solar industry standards to provide an easy user friendly platform
             to aid design and installation of a solar PV system. All you need to
-            know is the number of appliances in your home. Try it yourself!.
+            know is the number of appliances in your home. Try it yourself!
           </p>
-          <Link className="toolkitlink" to="/toolkit">
-            <button className="btn">Start</button>
+          <Link to="/toolkit">
+            <button className="btn1">Start</button>
           </Link>
         </div>
       </div>

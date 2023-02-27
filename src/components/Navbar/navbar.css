@@ -1,8 +1,4 @@
-body{
-    margin: 0;
-}
-.parent{
-    display: flex;
+.nav-container{
     justify-content: center;
     top: 0;
     left: 0;
@@ -17,7 +13,6 @@ body{
     font-family: 'Rubik', sans-serif;
     font-weight: 100;
     transform: uppercase;
-    display: flex;
     justify-content: space-between;
     
 }
@@ -38,7 +33,6 @@ body{
 .navLink {
     text-decoration: none;
     color: var(--color2);
-    font-size: 20px;
     text-transform: uppercase;
 }
 .navLink:hover {

@@ -64,7 +64,7 @@ const Toolkit = () => {
 
   return (
     <div>
-      <div className="toolkit-container">
+      <div className="flexcolumn toolkit-container">
         <Stepper
           steps={[
             { label: "Load Sizing" },
@@ -83,10 +83,6 @@ const Toolkit = () => {
             size: "2.8em",
             labelFontSize: "1.7em",
             fontWeight: "bold",
-          }}
-          connectorStyleConfig={{
-            disabledColor: "#888",
-            activeColor: "#00bf8c",
           }}
           className={"stepper"}
           stepClassName={"stepper_step"}
@@ -109,10 +105,10 @@ const Toolkit = () => {
                     preset3={preset3}
                     setPreset3={setPreset3}
                   />
-                  <div className="button-class">
+                  <div className="flexrow button-class">
                     <button
                       disabled={totalItems === 0}
-                      className="button"
+                      className="btn1"
                       onClick={() => setStep(2)}
                     >
                       Next <IoIosArrowForward />
@@ -128,11 +124,11 @@ const Toolkit = () => {
                     qnDetails={qnDetails}
                     setqnDetails={setqnDetails}
                   />
-                  <div className="button-class">
-                    <button className="button" onClick={() => setStep(1)}>
+                  <div className="flexrow button-class">
+                    <button className="btn1" onClick={() => setStep(1)}>
                       <IoIosArrowBack /> Back
                     </button>
-                    <button className="button" type="submit" form="step2form">
+                    <button className="btn1" onClick={() => setStep(3)}>
                       Next <IoIosArrowForward />
                     </button>
                   </div>
@@ -146,11 +142,11 @@ const Toolkit = () => {
                     contactDetails={contactDetails}
                     setContactDetails={setContactDetails}
                   />
-                  <div className="button-class">
-                    <button className="button" onClick={() => setStep(2)}>
+                  <div className="flexrow button-class">
+                    <button className="btn1" onClick={() => setStep(2)}>
                       <IoIosArrowBack /> Back
                     </button>
-                    <button className="button" type="submit" form="step3form">
+                    <button className="btn1" onClick={() => setStep(4)}>
                       Next <IoIosArrowForward />
                     </button>
                   </div>
@@ -165,8 +161,8 @@ const Toolkit = () => {
                     contactDetails={contactDetails}
                     qnDetails={qnDetails}
                   />
-                  <div className="button-class">
-                    <button className="button" onClick={() => setStep(3)}>
+                  <div className="flexrow button-class">
+                    <button className="btn1" onClick={() => setStep(3)}>
                       Finish
                     </button>
                   </div>

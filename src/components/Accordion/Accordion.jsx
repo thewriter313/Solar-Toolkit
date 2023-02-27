@@ -12,7 +12,7 @@ const Accordion = ({question,answer}) => {
   return (
     
         <div className='accordion'>
-            <div className='question' onClick={toggle}>
+            <div className='flexrow question' onClick={toggle}>
                 <h2>{question}</h2>
             </div>
             <div className=' answer'>{answer}</div>

@@ -53,7 +53,6 @@ const Info = () => {
           <li>Thin Film</li>
         </ol>
         <div className="acc-wrapper">
-          <div className="FAQ"> FAQs </div>
           {FaqData.map((data, i) => (
             <Accordion
               key={i}
