@@ -1,3 +1,5 @@
+import React from "react";
+
 const FaqData = [
   {
     question: "What is the Difference between AC and DC solar Arrays?",

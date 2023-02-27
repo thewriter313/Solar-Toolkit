@@ -2,7 +2,7 @@ import React from "react";
 import "./about.css";
 import "../../App.css";
 import green from "../../Assets/goinggreen.png";
-import TeamCard from "../../components/Teamcard.jsx";
+import TeamCard from "../../components/teamcard.jsx";
 import teamData from "../../Data/TeamData";
 import Form from "../../components/form.jsx";
 import GoToTop from "../../components/GoToTop";

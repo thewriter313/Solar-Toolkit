@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from "react";
 import "./applianceCard.css";
 import {
   IoIosArrowUp,
@@ -11,7 +11,7 @@ import { Tooltip } from "react-tippy";
 const ApplianceCard = (props) => {
   return (
     <div 
-      className={props.amount > 0 ? "appliance-card active" : "appliance-card"}
+      className={props.amount > 0 ? "appliance-card on" : "appliance-card"}
     >
       <div style={{ position: "absolute", translate: "4.5em -6.5em" }}>
         <Tooltip 

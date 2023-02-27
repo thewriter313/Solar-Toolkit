@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from "react";
 import GoToTop from "../GoToTop";
 import "./step1.css";
 import Preset from "../preset";
