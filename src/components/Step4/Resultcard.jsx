@@ -33,8 +33,8 @@ const Resultcard = ({
         });
     };
     return (
-        <div className="resultCardContainer flex flexcolumn">
-            <div className="resultCardHead flex" onClick={toggleCard}>
+        <div className="flexcolumn resultCardContainer">
+            <div className="flexrow resultCardHead" onClick={toggleCard}>
                 <h2>{title}</h2>
                 <i className={isOpen ? "arrowDown" : "arrowRight"}>
                     <MdOutlineArrowForwardIos />
@@ -44,21 +44,21 @@ const Resultcard = ({
             <div
                 className={
                     isOpen
-                        ? "resultCardBody flex bodyOpen"
-                        : "resultCardBody flex"
+                        ? "flexrow resultCardBody bodyOpen"
+                        : "flexrow resultCardBody"
                 }>
-                <div className="resultCardImage flex">
+                <div className="flexrow resultCardImage">
                     <img src={image} alt="eqmuipmentImage" />
                 </div>
-                <div className="resultCardText flex">
+                <div className="flexrow resultCardText">
                     {type && (
-                        <div className="resultCardValue flex">
+                        <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{type} </p>
                             <p>{typeValue}</p>
                         </div>
                     )}
                     {voltage && (
-                        <div className="resultCardValue flex">
+                        <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{voltage} </p>
                             {title === "Battery" ? (
                                 <>
@@ -80,19 +80,19 @@ const Resultcard = ({
                         </div>
                     )}
                     {capacity && (
-                        <div className="resultCardValue flex">
+                        <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{capacity} </p>
                             <p>{capacityValue} Ah</p>
                         </div>
                     )}
                     {quantity && (
-                        <div className="resultCardValue flex">
+                        <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{quantity} </p>
                             <p>{quantityValue} pcs</p>
                         </div>
                     )}
                     {power && (
-                        <div className="resultCardValue flex">
+                        <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{power} </p>
                             {title === "Solar Panel" ? (
                                 <>
@@ -115,13 +115,13 @@ const Resultcard = ({
                         </div>
                     )}
                     {amps && (
-                        <div className="resultCardValue flex">
+                        <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{amps} </p>
                             <p>{ampsValue} A</p>
                         </div>
                     )}
                     {price && (
-                        <div className="resultCardValue flex">
+                        <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{price} </p>
                             <p>KES. 20,000</p>
                         </div>

@@ -1,12 +1,10 @@
 .collapsible-head{
     color: var(--color2);
-    display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     border-top: 1px solid #eee;
     padding: 5px 0;
-    font-size: 14px;
 
 }
 

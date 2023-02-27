@@ -7,12 +7,12 @@ import {BsTwitter, BsFacebook, BsInstagram} from 'react-icons/bs'
 
 const footer = () => {
   return (
-    <footer>
-      <div className='topfooter'>
+    <footer className='flexcolumn'>
+      <div className='flexrow topfooter'>
         <div className='about'>
             <h2>ABOUT Hel<span style={{color: 'var(--color3)'}}>EOS</span></h2>
             <p>Hel<span style={{color: 'var(--color3)'}}>EOS</span> is here to help you with all your solar needs. Get to know the team behind the toolkit.</p>
-            <Link to='/about'><button>Read More</button></Link>
+            <Link to='/about'><button className='btn1'>Read More</button></Link>
         </div>
         <div className='menu'>
             <h2>MAIN MENU</h2>
@@ -23,7 +23,7 @@ const footer = () => {
                 <Link to='/about' className='footerlink'><li>About Us</li></Link>
             </ul>
         </div>
-        <div className='contact'>
+        <div className='flexcolumn contact'>
             <h2>Contact</h2>
             <p><strong>Address: </strong>University of Nairobi, University Way, Nairobi</p>
             <ul>
@@ -38,7 +38,7 @@ const footer = () => {
         </div>
       </div>
 
-      <div className='bottomfooter'>
+      <div className='flexrow bottomfooter'>
         <p>© Copyright 2022 Hel<span style={{color: 'var(--color3)'}}>EOS</span></p>
       </div>
     </footer>

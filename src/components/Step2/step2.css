@@ -1,31 +1,22 @@
 .qnContainer {
-  font-family: "Rubik", sans-serif;
-  font-size: 1em;
   padding: 20px;
 }
-.qnform {
-  display: flex;
-  flex-direction: column;
-}
-
 .qnContainer h1 {
   font-family: "dosis", sans-serif;
   text-align: center;
   margin-bottom: 20px;
 }
 .qnrow {
-  margin: 10px 20px;
-  padding: 20px;
   height: 250px;
   width: 100%;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   border-radius: 20px;
+  margin: 40px 0;
 }
 .qnrow label {
   font-size: 2em;
   padding: 20px;
+  color: var(--color3);
 }
 .qnrow input[type="range"] {
   width: 60%;
@@ -35,35 +26,38 @@
 .qnrow input[type="number"],
 .qnrow input[type="text"] {
   outline: none;
-  padding: 10px;
+  padding: 10px 30px 10px 10px;
   margin: 20px;
   border: 1px solid var(--color5);
   border-radius: 10px;
   width: fit-content;
 }
+.qnrow input[type="number"] {
+  width: 10%;
+}
 .qnleft {
   width: 100%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding: 20px;
 }
 .qnleft p {
   padding: 20px;
   margin: 0;
 }
 .qnright {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
+.qnleftContainer {
+  padding-right: 20px;
+  align-items: center;
+  width: 100%;
+}
 .qnrightContainer {
   padding-right: 20px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
 }
 .sun {
@@ -80,7 +74,7 @@
   opacity: 90%;
 }
 .clock {
-  width: 130px;
+  width: 160px;
   z-index: 1;
 }
 .rightcoins {
@@ -96,10 +90,10 @@
   z-index: 0;
 }
 .optionImage {
-  width: 350px;
+  max-width: 350px;
+  max-height: 300px;
 }
 .slidecontainer {
-  display: flex;
   align-items: center;
 }
 .slider {
@@ -111,8 +105,6 @@
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
-  display: flex;
-  flex-direction: row;
 }
 
 .slider::-webkit-slider-thumb {

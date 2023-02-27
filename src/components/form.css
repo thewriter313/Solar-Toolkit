@@ -1,6 +1,5 @@
 .contactform label{
-    font-size: 20px;
-    font-weight: 100;
+    font-size: 1.3em;
 }
 .input{
     font-family: 'Gotham Book', sans-serif;
@@ -44,11 +43,6 @@
     background-color: var(--color3);
     color: var(--color2);
     transition: .3s linear ;
-}
-
-.passfail{
-    display: flex;
-    flex-direction: column;
 }
 .pass{
     text-align: center;

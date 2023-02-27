@@ -2,16 +2,16 @@ import React from "react";
 import "./about.css";
 import "../../App.css";
 import green from "../../Assets/goinggreen.png";
-import TeamCard from "../../components/teamcard.jsx";
+import TeamCard from "../../components/Teamcard";
 import teamData from "../../Data/TeamData";
-import Form from "../../components/form.jsx";
+import Form from "../../components/Form";
 import GoToTop from "../../components/GoToTop";
 
 const about = () => {
   return (
-    <div className="aboutuspage">
+    <div className="flexcolumn aboutuspage">
       <img className="goinggreen" src={green} alt="going green" />
-      <div className="mission dark wide">
+      <div className="mission dark flexcolumn wide">
         <h1>Who We Are</h1>
         <p>
           Hi, fellow curious Kenyan. Glad you are here. We are HelEOS, a student
@@ -21,7 +21,7 @@ const about = () => {
           planet.
         </p>
       </div>
-      <div className="story wide">
+      <div className="story flexcolumn wide">
         <h1>Our Story</h1>
         <p>
           Inspired by the ever enlarging danger of climate change and global
@@ -30,7 +30,7 @@ const about = () => {
           that sizes solar powered homes which was previously unexplored.
         </p>
       </div>
-      <div className="team dark wide">
+      <div className="team dark flexcolumn wide">
         <h1>Our Team</h1>
         <div className="teamcards">
           {teamData.map((data,i) => (
@@ -44,7 +44,7 @@ const about = () => {
           ))}
         </div>
       </div>
-      <div className="joinus wide">
+      <div className="joinus flexcolumn wide">
         <h1>Contact Us</h1>
         <div className="aboutform">
           <Form />
