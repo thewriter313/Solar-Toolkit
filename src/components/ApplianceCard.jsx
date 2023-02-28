@@ -11,9 +11,9 @@ import { Tooltip } from "react-tippy";
 const ApplianceCard = (props) => {
   return (
     <div 
-      className={props.amount > 0 ? "appliance-card on" : "appliance-card"}
+      className={props.amount > 0 ? "flexcolumn appliance-card on" : "flexcolumn appliance-card"}
     >
-      <div style={{ position: "absolute", translate: "4.5em -6.5em" }}>
+      <div style={{ position: "absolute", translate: "4.5em -8em" }}>
         <Tooltip 
           title="Ratings"
           arrow="true"
@@ -51,6 +51,7 @@ const ApplianceCard = (props) => {
           padding: "0.5em",
           fontWeight: "500",
           margin: "0",
+          fontFamily: "dosis",
         }}
       >
         {props.amount}

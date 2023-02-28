@@ -1,18 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./home.css";
 import "../../App.css";
 import Typewriter from "typewriter-effect";
 import { Link } from "react-router-dom";
 import toolkitpic from "../../Assets/toolkitpic.png";
 import GoToTop from "../../components/GoToTop";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 
+const Home = () => {
 
-const home = () => {
+  useEffect(() => {
+    Aos.init({duration: 500});
+  },[]);
 
-  
   return (
-    <div>
+    <div className="home-container">
       <div className="flexrow intro">
         <div className="flexrow type-slogan">
           <div className="flexrow typewriter">
@@ -52,7 +56,7 @@ const home = () => {
         </div>
       </div>
       <div className="flexrow infobox">
-        <div className="flexcolumn infoleft">
+        <div data-aos="fade-up" className="flexcolumn infoleft">
           <h1>What equipment is required?</h1>
           <p>
             <strong>Overhelmed by all the technical jargon? Fear not!</strong>{" "}
@@ -65,11 +69,12 @@ const home = () => {
             <button className="btn1">Learn More</button>
           </Link>
         </div>
+        <img data-aos="fade-left" src={toolkitpic} alt="toolkitpic" height={"500px"}/>
       </div>
 
-      <div className="flexrow toolkit">
-        <img src={toolkitpic} alt="toolkitpic" />
-        <div className="flexcolumn toolkitright">
+      <div className="flexrow infobox">
+        <img data-aos="fade-right" src={toolkitpic} alt="toolkitpic" height={"500px"}/>
+        <div data-aos="fade-up"className="flexcolumn inforight">
           <h1>Easy to use Toolkit</h1>
           <p>
             Our toolkit design employs engineering principles together with the
@@ -87,4 +92,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;
