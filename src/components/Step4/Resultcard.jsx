@@ -41,16 +41,11 @@ const Resultcard = ({
                 </i>
             </div>
 
-            <div
-                className={
-                    isOpen
-                        ? "flexrow resultCardBody bodyOpen"
-                        : "flexrow resultCardBody"
-                }>
+            <div className={ isOpen ? "flexrow resultCardBody bodyOpen" : "flexrow resultCardBody" }>
                 <div className="flexrow resultCardImage">
                     <img src={image} alt="eqmuipmentImage" />
                 </div>
-                <div className="flexrow resultCardText">
+                <div className="flexcolumn resultCardText">
                     {type && (
                         <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{type} </p>

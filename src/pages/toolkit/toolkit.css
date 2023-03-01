@@ -20,5 +20,7 @@
     padding-bottom: 20px;    
 }
 .button-class button{
+    display: flex;
     margin: 20px 10px;
+    align-items: center;
 }
