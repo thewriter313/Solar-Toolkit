@@ -4,7 +4,6 @@
     left: 0;
     position: sticky;
     z-index: 2;
-    
 }
 .navbar{
     background-color: var(--color1);
