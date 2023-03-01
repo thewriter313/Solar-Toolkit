@@ -1,26 +1,23 @@
 .home-container{
-   scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+    scroll-padding: 0;
+}
+
+.intro-wrapper{
+    height: 100vh;
+    align-items: center;
 }
 
 .intro{
+    width: 100%;
     height: 88vh;
-    background-color: var(--color1);
     align-items: center;
-    justify-content:flex-end;
-    background-image: url('../../Assets/panel.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-.panel {
-    margin-left: 5%;
-    height: 800px;
-
+    justify-content: center;
+    position: absolute;
 }
 .typewriter {
         font-family: 'Chakra Petch', sans-serif;
-        font-weight:100px;
-        font-size:45px;
-        margin:0 50px 0 2%;
+        font-size: 60px;
         text-align: left;;
         align-items:left;
         height: 200px;
