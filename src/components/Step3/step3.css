@@ -59,11 +59,7 @@
   align-items: center;
   justify-content: space-around;
 }
-.raterange h3 {
-  margin: 0;
-  height: 60px;
-}
 .rate {
   width: 100%;
-  margin-right: 10px;
+  margin-right: 20px;
 }

@@ -68,21 +68,28 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
 
     // Get from Inverter Manual
     const systemVoltage = 24;
-    const batterySeries = Math.ceil(systemVoltage / propertyValues.batteryVoltageValue);
+    const batterySeries = Math.ceil(
+        systemVoltage / propertyValues.batteryVoltageValue
+    );
     // const systemVoltage = propertyValues.batteryVoltageValue;
     const singlePanelWatt = propertyValues.panelWattage;
     const batteryCapacity = 200;
-    const batteryParallel = (Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100) / batteryCapacity;
+    const batteryParallel =
+        (Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100) /
+        batteryCapacity;
     const panelWattage = Math.ceil(GE / PSH / 100) * 100;
     const panelNumbers = Math.ceil(panelWattage / singlePanelWatt);
 
-
     // For number of panels in series
-    const panelSeries = chargeControllerType === "Pulse Width Modulation (PWM)" ? Math.ceil(systemVoltage / 8) : Math.floor(systemVoltage / 10 );
+    const panelSeries =
+        chargeControllerType === "Pulse Width Modulation (PWM)"
+            ? Math.ceil(systemVoltage / 8)
+            : Math.floor(systemVoltage / 10);
     const panelParallel = Math.ceil(panelNumbers / panelSeries);
     const panelNumbersUpdated = panelSeries * panelParallel;
     const inverterWattage = Math.ceil(GP / 100) * 100;
-    const totalbatterySize = Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100;
+    const totalbatterySize =
+        Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100;
     const batteryNumbers = batteryParallel * batterySeries;
 
     // const batteryNumbers = Math.ceil(totalbatterySize / batteryCapacity);
@@ -98,7 +105,7 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
             power: "Power",
             powerValue: singlePanelWatt,
             quantity: "Quantity",
-            quantityValue:  panelNumbersUpdated,
+            quantityValue: panelNumbersUpdated,
             price: "Price",
         },
         {
@@ -139,63 +146,50 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
     ];
     return (
         <div className="flexrow step4equipment">
-            <div className="flexrow step4container">
+            <div className="flexcolumn step4container">
                 <div className="flexcolumn summary">
                     <h2>
                         <span style={{ color: "var(--color3)" }}>Summary</span>
                     </h2>
-                    <div className="flexrow summaryBox">
-                        <div className="summaryTitle">
+                    <div className="flexrow summaryContainer">
+                        <div className="flexcolumn summaryBox">
                             <h3>Total Number of Items</h3>
-                        </div>
-                        <div className="summaryValue">
                             <h4>{totalItems} items</h4>
                         </div>
-                    </div>
-                    <div className="flexrow summaryBox">
-                        <div className="summaryTitle">
+                        <div className="flexcolumn summaryBox">
                             <h3>Total Energy Demand</h3>
-                        </div>
-                        <div className="summaryValue">
                             <h4>{totalEnergy} Watt Hours</h4>
                         </div>
-                    </div>
-                    <div className="flexrow summaryBox">
-                        <div className="summaryTitle">
+                        <div className="flexcolumn summaryBox">
                             <h3>Peak Load</h3>
-                        </div>
-                        <div className="summaryValue">
                             <h4>{totalPower} Watts</h4>
                         </div>
                     </div>
                 </div>
                 <div className="computedResults">
-                <h2>
-                    Computed{" "}
-                    <span style={{ color: "var(--color3)" }}>Results</span>
-                </h2>
-                {ResultCardData.map((data, i) => (
-                    <Resultcard
-                        key={i}
-                        title={data.title}
-                        image={data.image}
-                        type={data.type}
-                        typeValue={data.typeValue}
-                        voltage={data.voltage}
-                        voltageValue={data.voltageValue}
-                        capacity={data.capacity}
-                        capacityValue={data.capacityValue}
-                        quantity={data.quantity}
-                        quantityValue={data.quantityValue}
-                        price={data.price}
-                        power={data.power}
-                        powerValue={data.powerValue}
-                        amps={data.amps}
-                        ampsValue={data.ampsValue}
-                        propertyValues={propertyValues}
-                        setpropertyValues={setpropertyValues}
-                    />
-                ))}
+                    <h2>Computed<span style={{ color: "var(--color3)" }}> Results</span></h2>
+                    {ResultCardData.map((data, i) => (
+                        <Resultcard
+                            key={i}
+                            title={data.title}
+                            image={data.image}
+                            type={data.type}
+                            typeValue={data.typeValue}
+                            voltage={data.voltage}
+                            voltageValue={data.voltageValue}
+                            capacity={data.capacity}
+                            capacityValue={data.capacityValue}
+                            quantity={data.quantity}
+                            quantityValue={data.quantityValue}
+                            price={data.price}
+                            power={data.power}
+                            powerValue={data.powerValue}
+                            amps={data.amps}
+                            ampsValue={data.ampsValue}
+                            propertyValues={propertyValues}
+                            setpropertyValues={setpropertyValues}
+                        />
+                    ))}
                 </div>
             </div>
             <GoToTop />

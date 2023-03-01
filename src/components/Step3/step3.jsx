@@ -87,7 +87,7 @@ const Step3 = ({ contactDetails, setContactDetails }) => {
                   value={contactDetails.rate}
                   onChange={handleChange}
                 />
-                <h3>{Math.round(contactDetails.rate)}</h3>
+                <h2>{Math.round(contactDetails.rate)}</h2>
               </div>
             </div>
           </div>
