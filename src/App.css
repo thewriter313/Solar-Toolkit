@@ -13,7 +13,11 @@
 }
 body{
   margin: 0;
-  overflow: overlay;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 p, li, tr, select, input, textarea, strong {
   font-family: var(--fontprimary);
