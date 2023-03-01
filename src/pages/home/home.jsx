@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import "./home.css";
 import "../../App.css";
-import Typewriter from "typewriter-effect";
+// import Typewriter from "typewriter-effect";
 import { Link } from "react-router-dom";
-import toolkitpic from "../../Assets/toolkitpic.png";
+import setup from "../../Assets/Setup.png";
+import toolkitpic from "../../Assets/Geometry.png";
 import GoToTop from "../../components/GoToTop";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Parallax } from "react-parallax";
-import panel from "../../Assets/SolarEnergy.jpg";
+import panel from "../../Assets/Background.png";
 
 const Home = () => {
     useEffect(() => {
@@ -17,52 +18,22 @@ const Home = () => {
 
     return (
         <div className="home-container">
+            <section>
             <Parallax strength={600} blur={{min:-5,max:5}} bgImage={panel} >
-                <div className="intro-wrapper">
-                    <div className="flexrow intro">
-                        <div className="flexrow type-slogan">
-                            <div className="flexrow typewriter">
-                                <Typewriter
-                                    options={{
-                                        loop: true,
-                                    }}
-                                    onInit={(typewriter) => {
-                                        typewriter
-                                            .changeCursor("_")
-                                            .changeDelay(50)
-                                            .changeDeleteSpeed(25)
-                                            .typeString(
-                                                "<span style='color:var(--color3);'>Welcome to </span>"
-                                            )
-                                            .typeString(
-                                                "<span style='color:var(--color2);'>Hel</span>"
-                                            )
-                                            .typeString(
-                                                "<span style='color:var(--color3);'>EOS Solar Photovoltaic System Design and Installation Toolkit! </span>"
-                                            )
-                                            .pauseFor(1000)
-                                            .changeCursor("<")
-                                            .pauseFor(1000)
-                                            .deleteAll()
-                                            .pauseFor(500)
-                                            .changeCursor("_")
-                                            .pauseFor(500)
-                                            .typeString(
-                                                "<span style='color:red;'>Developed by students from the University of Nairobi</span>"
-                                            )
-                                            .pauseFor(1000)
-                                            .changeCursor("<")
-                                            .pauseFor(1000)
-                                            .start();
-                                    }}
-                                />
-                            </div>
-                        </div>
+                <div className="flexrow intro-wrapper">
+                    <div className="flexcolumn intro">
+                        <h1>
+                            Welcome to HelEOS Solar Photovltaic System Design and Installation Toolkit!
+                        </h1>
+                        <h2>
+                            Developed by Students from the University of Nairobi
+                        </h2>
                     </div>
                 </div>
             </Parallax>
+            </section>
 
-            <div className="flexrow infobox">
+            <section className="flexrow infobox">
                 <div data-aos="fade-up" className="flexcolumn infoleft">
                     <h1>What equipment is required?</h1>
                     <p>
@@ -81,13 +52,13 @@ const Home = () => {
                 </div>
                 <img
                     data-aos="fade-left"
-                    src={toolkitpic}
-                    alt="toolkitpic"
+                    src={setup}
+                    alt="setup"
                     height={"500px"}
                 />
-            </div>
+            </section>
 
-            <div className="flexrow infobox">
+            <section className="flexrow infobox">
                 <img
                     data-aos="fade-right"
                     src={toolkitpic}
@@ -108,7 +79,7 @@ const Home = () => {
                         <button className="btn1">Start</button>
                     </Link>
                 </div>
-            </div>
+            </section>
             <GoToTop />
         </div>
     );
