@@ -1,16 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./about.css";
 import "../../App.css";
-import green from "../../Assets/goinggreen.png";
 import TeamCard from "../../components/Teamcard";
 import teamData from "../../Data/TeamData";
 import Form from "../../components/Form";
 import GoToTop from "../../components/GoToTop";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
-const about = () => {
+const About = () => {
+
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+}, []);
+
   return (
     <div className="flexcolumn aboutuspage">
-      <img className="goinggreen" src={green} alt="going green" />
+      <div  data-aos='fade-up'className=" flexcolumn wide aboutIntro">
+        <h1 data-aos='fade-up'>Let's Go Green Together</h1>
+        <h2 data-aos='fade-up'> We are HelEOS - striving to provide a user-friendly platform to promote renewal energy solutions to Kenyans</h2>
+      </div>
       <div className="mission dark flexcolumn wide">
         <h1>Who We Are</h1>
         <p>
@@ -21,7 +30,7 @@ const about = () => {
           planet.
         </p>
       </div>
-      <div className="story flexcolumn wide">
+      <div className="mission flexcolumn wide">
         <h1>Our Story</h1>
         <p>
           Inspired by the ever enlarging danger of climate change and global
@@ -55,4 +64,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;

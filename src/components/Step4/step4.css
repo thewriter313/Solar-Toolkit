@@ -2,33 +2,31 @@
     justify-content: center;
 }
 .step4container {
-    padding: 20px;
     text-align: center;
     align-items: center;
-    width: 100%;
 }
-.step4container h2 {
+.step4container h1{
     font-family: "dosis", sans-serif;
 }
 .summary {
     justify-content: center;
     align-items: center;
-}
-.summaryBox {
-    border: 1px solid var(--color5);
-    border-radius: 10px;
-    padding: 1em;
-    margin: 1em;
-    align-items: center;
-    justify-content: center;
-    font-size: large;
-    transition: 0.1s linear;
-    width: 7em;
-    min-height: 12em;
+    width: 100%;
 }
 .summaryContainer {
+    justify-content: space-between;
+    gap: 2em;
     flex-wrap: wrap;
+    width: 100%;
 }
 .computedResults {
+    justify-content: center;
+    align-items: center;
+}
+.resultCardsContainer {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2em;
     width: 100%;
+
 }

@@ -3,24 +3,35 @@
     justify-content: center;
     margin: 0 5%;
 }
-
 .stepper {
     width: 100%;
     font-family: var(--fonttertiary) !important;
     font-size: 0.8em;
 }
-
 .stepper_step {
     font-family: var(--fonttertiary) !important;
     font-weight: bold;
 }
-
 .button-class {
     justify-content: flex-end;
-    padding-bottom: 20px;    
+    padding-bottom: 20px;
 }
-.button-class button{
+.button-class button {
     display: flex;
     margin: 20px 10px;
     align-items: center;
+}
+@media screen and (max-width: 1080px) {
+    .toolkit-container > div {
+        width: 100% !important;
+    }
+    .toolkit-container {
+        margin: 0;
+    }
+    .stepper {
+        padding: 0 !important;
+    }
+    html {
+        width: 100%;
+    }
 }

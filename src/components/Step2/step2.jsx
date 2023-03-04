@@ -39,11 +39,8 @@ const Step2 = ({ qnDetails, setqnDetails }) => {
             {/* 1st Row */}
             <div className="flexrow qnrow">
                 <div className="flexcolumn qnleft">
-                    <label>Backup Days</label>
-                    <p>
-                        How long would you like your solar energy system to
-                        power your home during a blackout?
-                    </p>
+                    <label>Days without Sunshine</label>
+                    <p>How long would you like your solar energy system to power your home during a blackout?</p>
                     <div className="flexrow slidecontainer">
                         <input
                             type="range"
@@ -145,7 +142,7 @@ const Step2 = ({ qnDetails, setqnDetails }) => {
                             max={3}
                             step={0.01}
                             name="cost"
-                            className="flexrow slider"
+                            className="flexrow slider sliderdark"
                             value={qnDetails.cost}
                             onChange={handleChange}
                         />
@@ -164,7 +161,7 @@ const Step2 = ({ qnDetails, setqnDetails }) => {
                     <select
                         name="grid"
                         value={qnDetails.grid}
-                        className="gridselect"
+                        className="qnleftSelect"
                         onChange={handleChange}>
                         <option value="OffGrid">Off-Grid</option>
                         <option value="GridTied">Grid-Tied</option>

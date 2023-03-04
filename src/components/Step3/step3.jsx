@@ -18,7 +18,7 @@ const Step3 = ({ contactDetails, setContactDetails }) => {
         </h1>
       </div>
       <div className="flexrow contactBody">
-        <div className="contactImage">
+        <div className="flexrow contactImage">
           <img src={Mail} alt="emailIcon" />
         </div>
           <div className="flexcolumn contactForm">

@@ -1,47 +1,77 @@
-.aboutuspage {
-  font-family: "Gotham Book", sans-serif;
+.aboutIntro{
+  height:86vh;
+  /* background-image: url('../../Assets/Aboutbg.png'); */
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom; */
+  background-image: linear-gradient(var(--color1), var(--color3)) ;
 }
-.aboutuspage .goinggreen {
-  height: 88vh;
+
+.aboutIntro:before{
+  opacity: 0.6;
+}
+.aboutIntro h1{
+  font-family: 'Tilt warp', sans-serif;
+  font-size: 7rem !important;
+}
+
+.aboutIntro h2{
+  font-size: 2em !important;
 }
 .aboutuspage {
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 .wide {
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 40px 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0;
 }
 .aboutuspage h1 {
-  color: var(--color2);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin: 0;
-  padding: 30px;
-  font-weight: 100;
-  font-size: 40px;
+    color: var(--color2);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+    padding: 30px;
+    font-weight: 100;
+    font-size: 40px;
 }
 .dark {
-  background-color: #eeeeee;
+    background-color: #eeeeee;
 }
 .aboutuspage p {
-  width: 40%;
-  margin: 0;
-  text-align: center;
-  font-size: 20px;
-  padding: 20px;
-  line-height: 30px;
-  box-sizing: border-box;
+    width: 40%;
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    line-height: 30px;
+    box-sizing: border-box;
 }
 .teamcards {
-  display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 20px;
-  width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9em;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+    width: 80%;
 }
 .aboutform {
-  width: 40%;
+    width: 40%;
+}
+
+@media screen and (max-width: 1080px) {
+    .teamcards {
+        flex-direction: column;
+        gap: 3em;
+    }
+
+    .aboutform,
+    .mission p,
+    .mission h1 {
+        text-align: center;
+        width: 100%;
+    }
 }

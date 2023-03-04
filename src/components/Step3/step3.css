@@ -1,65 +1,93 @@
 .step3contactform {
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 .step3contactform h1,
 .step3contactform h2 {
-  font-family: "dosis", sans-serif;
-  text-transform: uppercase;
+    font-family: "dosis", sans-serif;
+    text-transform: uppercase;
 }
 .step3contactform h3 {
-  height: 10px;
+    height: 10px;
 }
 .contactHead {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 .contactBody {
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  margin: 10px;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 .contactBody .contactForm {
-  flex: 0.7;
+    flex: 0.7;
 }
 .contactImage {
-  flex: 1;
+    flex: 1;
 }
 .contactImage img {
-  width: 500px;
+    width: 500px;
 }
 .contactForm {
-  justify-content: space-around;
-  padding: 20px;
+    justify-content: space-around;
 }
 .contactField {
-  flex: 1;
-  padding: 10px 0;
+    flex: 1;
+    padding: 10px 0;
 }
 .contactField label {
-  font-size: 1.3em;
-  padding: 10px;
+    font-size: 1.3em;
+    padding: 10px;
 }
 .contactField input[type="text"],
 .contactField input[type="email"],
 .contactField input[type="tel"] {
-  border: 1px solid var(--color2);
-  border-radius: 10px;
-  padding: 10px 10px;
-  font-size: 1em;
-  width: 100%;
+    border: 1px solid var(--color2);
+    border-radius: 10px;
+    padding: 10px 0px 10px 10px;
+    font-size: 1em;
+    width: 95%;
 }
 .contactField input[type="text"]:focus,
 .contactField input[type="email"]:focus,
 .contactField input[type="tel"]:focus {
-  outline: none;
-  border: 1px solid var(--color3);
+    outline: none;
+    border: 1px solid var(--color3);
 }
 .raterange {
-  align-items: center;
-  justify-content: space-around;
+    align-items: center;
+    justify-content: space-around;
 }
 .rate {
-  width: 100%;
-  margin-right: 20px;
+    width: 100%;
+    margin-right: 20px;
+}
+@media screen and (max-width: 1080px) {
+    .contactBody {
+        flex-direction: column;
+        padding: 0 20px;
+        width: fit-content;
+        justify-content: center;
+        align-items: center;
+    }
+    .contactImage {
+        margin: 0 0 30px 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .contactImage img {
+        max-width: 60%;
+    }
+    .contactForm {
+        width: 100%;
+    }
+    .contactForm h2 {
+      text-align: center;
+      margin: 0;
+    }
+    .contactField {
+        width: 100%;
+    }
+    .contactField label {
+        font-size: 1em;
+    }
 }

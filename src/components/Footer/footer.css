@@ -1,6 +1,7 @@
 
 footer{
     color: var(--color1);
+    width: 100%;
 }
 footer h2{
     color: var(--color1);
@@ -79,4 +80,30 @@ footer ul{
 .contact p{
     text-align: center;
     line-height: 30px;
+}
+@media screen and (max-width:1080px) {
+    footer {
+        margin-top: 20px;
+    }
+    .topfooter {
+        flex-direction: column !important;
+        align-items: center;
+    }
+    .topfooter div {
+        width: 80%;
+        padding: 20px;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .menu ul {
+        width: 40%;   
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
 }
