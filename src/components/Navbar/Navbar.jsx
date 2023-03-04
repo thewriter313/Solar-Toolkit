@@ -1,16 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom'
 import logodark from '../../Assets/logodark.png'
-
+import { RiMenuFoldLine } from 'react-icons/ri'
 
 const Navbar = () => {
+
+  const [togglemenu, settoggleMenu] = useState(false)
   return (
 
     <div className="flexrow nav-container">
       <nav className="flexrow navbar">
         <Link to='/'><img src={logodark} alt='logo' width ='100px'/></Link>
-        <ul>
+        <ul className='navlinks'>
           <li><Link className='navLink' to='/'>Home</Link></li>
           <li>|</li>
           <li><Link className='navLink' to='/about'>About Us</Link></li>
@@ -19,6 +21,19 @@ const Navbar = () => {
           <li>|</li>
           <li><Link className='navLink' to='/info'>Information</Link></li>
         </ul>
+        <div className='navmenu'>
+          <button onClick={() => settoggleMenu(!togglemenu)}><RiMenuFoldLine size={40}/></button>
+          {togglemenu && (
+            <div className='dropdown' onClick={() => settoggleMenu(false)}>
+            <ul className='flexcolumn'>
+            <li><Link className='navLink' to='/'>Home</Link></li>
+            <li><Link className='navLink' to='/about'>About Us</Link></li>
+            <li><Link className='navLink' to='/toolkit'>Solar Toolkit</Link></li>
+            <li><Link className='navLink' to='/info'>Information</Link></li>
+          </ul>
+          </div>
+          )}
+        </div>
       </nav>
     </div>
 

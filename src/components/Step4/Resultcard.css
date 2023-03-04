@@ -1,35 +1,35 @@
 .resultCardContainer {
-    margin: 5px;
-    background-color: #F7F7F7;
+    background-color: var(--color2);
     border-radius: 10px;
-    cursor: pointer; 
+    width: 40%;
+    color: var(--color1);
+    flex-grow: 1;
+    padding: 20px;
 }
-.resultCardContainer h2 {
+.resultCardContainer h4 {
     margin: 0;
+    font-size: 40px;
+    display: table-caption;
+    opacity: 0.3;
 }
 .resultCardHead {
-    justify-content: space-between;
-    align-items: center;
     padding: 20px;
+    align-items: center;
+    justify-content: flex-start;
 }
 .arrowDown {
     transform: rotate(90deg);
-    transition: all 0.5s ease;
+    transition: all 1s ease;
 }
 .arrowRight {
-    transition: all 0.5s ease;
+    transition: all 1s ease;
 }
 .resultCardBody {
     justify-content: space-evenly;
     align-items: center;
-    transition: all 0.5s ease;
-    max-height: 0;
+    transition: all 1s ease;
     overflow: hidden;
-    
-}
-.bodyOpen {
-    max-height: 600px;
-    border-top: 1px solid var(--color5);
+    color: var(--color2);
 }
 .resultCardImage {
     align-items: center;
@@ -42,28 +42,39 @@
     object-fit: contain;
 }
 .resultCardText {
-    width: min-content;
+    width: 100%;
+    color: var(--color1);
+}
+.resultCardText table {
+    border-collapse: collapse;
+}
+.resultCardText td {
+    text-align: left;
+}
+.resultCardText td:first-of-type {
+    text-align: right;
+    width: 40%;
 }
 .resultCardValue {
-    margin-right: 20px;
-    flex: 1 0 40%;
     align-items: center;
-    width: fit-content;
-
+    justify-content: flex-end;
 }
-.resultCardValue select {
+.resultCardText select {
     outline: none;
     padding-right: 5px;
     margin-right: 5px;
-    background-color: #F7F7F7;
+    color: var(--color1);
+    background-color: var(--color2);
     border: 0px solid var(--color5);
     border-radius: 10px;
     width: fit-content;
-    font: 16px "Rubik", sans-serif;
-  }
+    font-size: 1.2em;
+}
 .resultCardValue p {
-    min-width: 100px;
+    min-width: 150px;
     text-align: start;
+    padding: 5px 0;
+    margin: 0;
 }
 .resultCardProperty {
     color: #999;

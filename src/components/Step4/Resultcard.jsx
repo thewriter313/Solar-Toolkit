@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Resultcard.css";
-import { MdOutlineArrowForwardIos } from "react-icons/md";
 
 const Resultcard = ({
     title,
@@ -35,24 +34,105 @@ const Resultcard = ({
     return (
         <div className="flexcolumn resultCardContainer">
             <div className="flexrow resultCardHead" onClick={toggleCard}>
-                <h2>{title}</h2>
-                <i className={isOpen ? "arrowDown" : "arrowRight"}>
-                    <MdOutlineArrowForwardIos />
-                </i>
+                <h4>{title}</h4>
+                
             </div>
-
-            <div className={ isOpen ? "flexrow resultCardBody bodyOpen" : "flexrow resultCardBody" }>
+            <div className="flexcolumn resultCardBody">
                 <div className="flexrow resultCardImage">
                     <img src={image} alt="eqmuipmentImage" />
                 </div>
                 <div className="flexcolumn resultCardText">
-                    {type && (
+                    <table>
+                        <tbody>
+                        {type && (
+                            <tr>
+                                <td className="resultCardProperty">{type}</td>
+                                <td>{typeValue}</td>
+                            </tr>)}
+                            {voltage && (
+                                <tr>
+                                    <td className="resultCardProperty">{voltage} </td>
+                                    <td>{title === "Battery" ? (
+                                    <>
+                                        <select
+                                            name="batteryVoltageValue"
+                                            value={
+                                                propertyValues.batteryVoltageValue
+                                            }
+                                            onChange={handleChange}>
+                                            <option value={12}>12</option>
+                                            <option value={24}>24</option>
+                                            <option value={48}>48</option>
+                                        </select>
+                                        <> V</>
+                                    </>
+                                    ) : (
+                                    <>{voltageValue} V</>
+                            )}</td>
+                                </tr>
+                            )}
+                            {capacity && (
+                            <tr>
+                                <td className="resultCardProperty">{capacity}</td>
+                                <td>{capacityValue} Ah</td>
+                            </tr>
+                            )}
+                            {quantity && (
+                            <tr>
+                                <td className="resultCardProperty">
+                                    {quantity}
+                                </td>
+                                <td>
+                                    {quantityValue} {title === "Battery" ? "Units" : "Units"}
+                                </td>
+                            </tr>
+                            )}
+                            {power && (
+                            <tr>
+                                <td className="resultCardProperty">{power}</td>
+                                <td>
+                                    {title === "Solar Panel" ? (
+                                    <>
+                                        <select
+                                            name="panelWattage"
+                                            value={propertyValues.panelWattage}
+                                            onChange={handleChange}>
+                                            <option value={50}>50</option>
+                                            <option value={100}>100</option>
+                                            <option value={120}>120</option>
+                                            <option value={150}>150</option>
+                                            <option value={200}>200</option>
+                                            <option value={285}>285</option>
+                                        </select>
+                                        <> Watts</>
+                                    </>
+                                    ) : (
+                                    <>{powerValue} Watts</>
+                            )}</td>
+                            </tr>
+                            )}
+                            {amps && (
+                            <tr>
+                                <td className="resultCardProperty">{amps}</td>
+                                <td>{ampsValue} Amps</td>
+                            </tr>
+                            )}
+                            {price && (
+                            <tr>
+                                <td className="resultCardProperty">{price}</td>
+                                <td>KES. 20,000</td>
+                            </tr>
+                            )}
+
+                        </tbody>
+                    </table>
+                    {/* {type && (
                         <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{type} </p>
-                            <p>{typeValue}</p>
+                            
                         </div>
-                    )}
-                    {voltage && (
+                    )} */}
+                    {/* {voltage && (
                         <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{voltage} </p>
                             {title === "Battery" ? (
@@ -73,20 +153,20 @@ const Resultcard = ({
                                 <p>{voltageValue} V</p>
                             )}
                         </div>
-                    )}
-                    {capacity && (
+                    )} */}
+                    {/* {capacity && (
                         <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{capacity} </p>
                             <p>{capacityValue} Ah</p>
                         </div>
-                    )}
-                    {quantity && (
+                    )} */}
+                    {/* {quantity && (
                         <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{quantity} </p>
                             <p>{quantityValue} pcs</p>
                         </div>
-                    )}
-                    {power && (
+                    )} */}
+                    {/* {power && (
                         <div className="flexrow resultCardValue">
                             <p className="resultCardProperty">{power} </p>
                             {title === "Solar Panel" ? (
@@ -120,7 +200,7 @@ const Resultcard = ({
                             <p className="resultCardProperty">{price} </p>
                             <p>KES. 20,000</p>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>

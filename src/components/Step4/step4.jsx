@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./step4.css";
 import GoToTop from "../GoToTop";
 import Resultcard from "./Resultcard";
+import Summarycard from "./Summarycard";
 import battery from "../../Assets/battery.png";
 import Thinfilm from "../../Assets/thinfilm.png";
 import Polycrystalline from "../../Assets/polycrystalline.png";
@@ -148,26 +149,18 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
         <div className="flexrow step4equipment">
             <div className="flexcolumn step4container">
                 <div className="flexcolumn summary">
-                    <h2>
+                    <h1>
                         <span style={{ color: "var(--color3)" }}>Summary</span>
-                    </h2>
+                    </h1>
                     <div className="flexrow summaryContainer">
-                        <div className="flexcolumn summaryBox">
-                            <h3>Total Number of Items</h3>
-                            <h4>{totalItems} items</h4>
-                        </div>
-                        <div className="flexcolumn summaryBox">
-                            <h3>Total Energy Demand</h3>
-                            <h4>{totalEnergy} Watt Hours</h4>
-                        </div>
-                        <div className="flexcolumn summaryBox">
-                            <h3>Peak Load</h3>
-                            <h4>{totalPower} Watts</h4>
-                        </div>
+                        <Summarycard title="Number of Items" value={totalItems} unit="Items"/>
+                        <Summarycard title="Energy Demand" value={totalEnergy} unit="kWh"/>
+                        <Summarycard title="Peak Power Demand" value={totalPower} unit="kW"/>
                     </div>
                 </div>
-                <div className="computedResults">
-                    <h2>Computed<span style={{ color: "var(--color3)" }}> Results</span></h2>
+                <div className="flexcolumn computedResults">
+                    <h1>Computed<span style={{ color: "var(--color3)" }}> Results</span></h1>
+                    <div className="flexrow resultCardsContainer">
                     {ResultCardData.map((data, i) => (
                         <Resultcard
                             key={i}
@@ -190,7 +183,9 @@ const Step4 = ({ appliances, items, qnDetails, contactDetails }) => {
                             setpropertyValues={setpropertyValues}
                         />
                     ))}
+                    </div>
                 </div>
+                
             </div>
             <GoToTop />
         </div>

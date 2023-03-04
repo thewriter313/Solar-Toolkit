@@ -9,7 +9,8 @@ import GoToTop from "../../components/GoToTop";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Parallax } from "react-parallax";
-import panel from "../../Assets/Background.png";
+import panel from "../../Assets/Artboard87.png";
+
 
 const Home = () => {
     useEffect(() => {
@@ -21,9 +22,9 @@ const Home = () => {
             <section>
             <Parallax strength={600} blur={{min:-5,max:5}} bgImage={panel} >
                 <div className="flexrow intro-wrapper">
-                    <div className="flexcolumn intro">
+                    <div data-aos="fade-right" data-aos-duration="1000" className="flexcolumn intro">
                         <h1>
-                            Welcome to HelEOS Solar Photovltaic System Design and Installation Toolkit!
+                            Welcome to Hel<span style={{color:'var(--color3)'}}>EOS</span> Solar Photovoltaic System Design and Installation Toolkit!
                         </h1>
                         <h2>
                             Developed by Students from the University of Nairobi
@@ -51,7 +52,7 @@ const Home = () => {
                     </Link>
                 </div>
                 <img
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                     src={setup}
                     alt="setup"
                     height={"500px"}
@@ -60,7 +61,7 @@ const Home = () => {
 
             <section className="flexrow infobox">
                 <img
-                    data-aos="fade-right"
+                    data-aos="fade-up"
                     src={toolkitpic}
                     alt="toolkitpic"
                     height={"500px"}
