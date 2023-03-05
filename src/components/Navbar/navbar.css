@@ -31,7 +31,9 @@
     width: fit-content;
 }
 .dropdown li{
-    margin: 0 !important;;
+    margin: 0 !important;
+    line-height: 1.5em;
+    font-size: 0.9em;
 }
 .dropdown ul {
     align-items: flex-end !important;
