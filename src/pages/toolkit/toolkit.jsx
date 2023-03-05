@@ -1,4 +1,4 @@
-import  React,{ useState } from "react";
+import  React,{ useEffect, useState } from "react";
 import GoToTop from "../../components/GoToTop";
 import { Stepper } from "react-form-stepper";
 import "./toolkit.css";
@@ -12,27 +12,30 @@ import phoneImg from "../../Assets/phoneImg.png";
 import microwaveimg from "../../Assets/microwaveimg.png";
 import fridgeimg from "../../Assets/fridgeimg.png";
 import laptopImg from "../../Assets/laptopImg.png";
+import router from "../../Assets/Router.png";
+import tubelight from "../../Assets/tubelight.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Toolkit = () => {
   const [step, setStep] = useState(1);
 
   const [appliances, setAppliances] = useState([
-    { id: 1, name: "Lightbulb", power: 13, hours: 5, amount: 0, img: bulb },
-    { id: 2, name: "TV", power: 150, hours: 8, amount: 0, img: oldTV },
-    { id: 3, name: "Fridge", power: 350, hours: 24, amount: 0, img: fridgeimg },
-    { id: 4, name: "Phone", power: 6, hours: 2, amount: 0, img: phoneImg },
-    {
-      id: 5,
-      name: "Microwave",
-      power: 1000,
-      hours: 0.1,
-      amount: 0,
-      img: microwaveimg,
-    },
-    { id: 6, name: "Laptop", power: 50, hours: 10, amount: 0, img: laptopImg },
+    { id: 1, name: "Lightbulb", power: 13, hours: 8, amount: 0, img: bulb },
+    { id: 2, name: "Tubelight", power: 40, hours: 8, amount: 0, img: tubelight },
+    { id: 3, name: "TV", power: 150, hours: 8, amount: 0, img: oldTV },
+    { id: 4, name: "Fridge", power: 350, hours: 24, amount: 0, img: fridgeimg },
+    { id: 5, name: "Phone", power: 6, hours: 2, amount: 0, img: phoneImg },
+    { id: 6, name: "Microwave", power: 1000, hours: 0.1,  amount: 0, img: microwaveimg},
+    { id: 7, name: "Laptop", power: 50, hours: 10, amount: 0, img: laptopImg },
+    { id: 8, name: "WiFi-Router", power: 1.9, hours: 24, amount: 0, img: router },
   ]);
 
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
+  
   const [items, setItems] = useState([]);
 
   const [contactDetails, setContactDetails] = useState({
@@ -62,9 +65,14 @@ const Toolkit = () => {
   const [preset2, setPreset2] = useState(false);
   const [preset3, setPreset3] = useState(false);
 
+  const deleteAppliance = (id) => {
+    setAppliances((appliances) =>
+        appliances.filter((appliance) => appliance.id !== id)
+    )};
+
   return (
     <div>
-      <div className="flexcolumn toolkit-container">
+      <div  className="flexcolumn toolkit-container">
         <Stepper
           steps={[
             { label: "Load Sizing" },
@@ -84,9 +92,11 @@ const Toolkit = () => {
             labelFontSize: "1.7em",
             fontWeight: "bold",
           }}
+
           className={"stepper"}
           stepClassName={"stepper_step"}
         />
+        
 
         {(() => {
           switch (step) {
@@ -104,6 +114,7 @@ const Toolkit = () => {
                     setPreset2={setPreset2}
                     preset3={preset3}
                     setPreset3={setPreset3}
+                    deleteAppliance={deleteAppliance}
                   />
                   <div className="flexrow button-class">
                     <button

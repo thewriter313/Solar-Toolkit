@@ -1,15 +1,12 @@
 .appliance-card{
-    
+    cursor: pointer;
     border: 1px solid var(--color5);
     border-radius: 0.5em;
     padding: 1em;
-    margin: 1em;
     align-items: center;
     justify-content: center;
-
-    font-size: large;
     transition: 0.1s linear;
-    min-width: 10em;
+    min-width: 12em;
 }
 
 .appliance-card button{
@@ -31,3 +28,8 @@
     color: var(--color1);
     transition: 0.1s linear;
 }
+
+.appliance-card .off{
+    display: none;
+}
+

@@ -1,23 +1,35 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import "./applianceCard.css";
 import {
   IoIosArrowUp,
   IoIosArrowDown,
   IoIosInformationCircle,
+  IoMdClose
 } from "react-icons/io";
 import "react-tippy/dist/tippy.css";
 import { Tooltip } from "react-tippy";
 
 const ApplianceCard = (props) => {
+
+  console.log(props);
+  const [closeable, setCloseable] = useState(false);
+ 
+  useEffect(()=>{
+    if (props.data.id > 9) {
+      setCloseable(true);}
+  },[props.data.id])
+
+
+
+  
   return (
     <div 
       className={props.amount > 0 ? "flexcolumn appliance-card on" : "flexcolumn appliance-card"}
     >
-      <div style={{ position: "absolute", translate: "4.5em -8em" }}>
+      <div style={{ position: "absolute", translate: "-4.7em -8em", cursor:'pointer'}}>
         <Tooltip 
           title="Ratings"
           arrow="true"
-          
           html={(
             <div style={{fontFamily:'rubik', fontSize:'0.8em', textAlign:'left'}}>
               <p style={{margin:'0'}} >Power: {props.data.power} W</p>
@@ -27,6 +39,9 @@ const ApplianceCard = (props) => {
           >
           <IoIosInformationCircle size={'1.5em'}></IoIosInformationCircle>
         </Tooltip>
+        <div className={closeable ? '':'off'} style={{ position: "absolute", translate: "10em -2em", cursor:'pointer' }} onClick={()=>props.deleteAppliance(props.data.id)}>
+        <IoMdClose size={'1.5em'}></IoMdClose>
+        </div>
       </div>
       <button onClick={() => props.increment(props.data.id)}>
         <IoIosArrowUp size={'20px'}/>

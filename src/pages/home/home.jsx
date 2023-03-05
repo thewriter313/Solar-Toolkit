@@ -10,6 +10,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { Parallax } from "react-parallax";
 import panel from "../../Assets/Artboard87.png";
+import code from "../../Assets/CaptureCode.png";
 
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
     return (
         <div className="home-container">
             <section>
-            <Parallax strength={600} blur={{min:-5,max:5}} bgImage={panel} >
+            <Parallax strength={600} blur={{min:-3,max:5}} bgImage={code} >
                 <div className="flexrow intro-wrapper">
                     <div data-aos="fade-right" data-aos-duration="1000" className="flexcolumn intro">
                         <h1>

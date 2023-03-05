@@ -1,10 +1,18 @@
 
-
 html{
     scroll-behavior: smooth;
     /* scroll-snap-type: y proximity; */
   }
-  
+
+  .home-container{
+    scroll-snap-type: y mandatory;
+  }
+
+  .home-container section{
+    scroll-snap-align: start;
+    height: 100vh;
+    position: relative;
+  }
 
 .intro-wrapper{
     height: 100vh;
@@ -16,25 +24,19 @@ html{
     margin-left: 10%;
     align-items: flex-start;
     position: absolute;
-    scroll-snap-align: start;
 }
 
 .intro h1{
     font-family: 'Tilt warp', cursive;
+    color: var(--color1);
     font-size: 5rem;
     line-height: 5rem;
 }
 .intro h2{
     font-family: 'Chakra Petch';
+    color: var(--color1);
     font-size: 2rem;
     line-height: 1.5rem;
-    color: var(--color2);
-}
-
-section{
-    scroll-snap-align: start;
-    height: 100vh;
-    position: relative;
 }
 
 .infobox {
@@ -53,6 +55,10 @@ section{
 }
 .infoleft p {
     padding: 0 20px;
+}
+
+.infoleft button{
+    margin-right: 20px;
 }
 .infobox h1{
     padding: 0 20px;
@@ -75,18 +81,12 @@ section{
     html{
         scroll-snap-type: none;
     }
-    .infobox{
-        flex-direction: column;
-        height: 160vh;
+    .home-container section{
+        height: fit-content;
     }
-    
-    .infoleft, .inforight {
-        width: 90%;
-        border-radius: 0;
-    }
-    .infobox img {
-        max-width: 80%;
-        object-fit:contain
+    .intro{
+        width: 80%;
+        
     }
     .intro h1{
         font-size: 2.5rem;
@@ -97,4 +97,20 @@ section{
         font-size: 1.5rem;
         line-height: 2rem;
     }
+    .infobox{
+        flex-direction: column;
+    }
+    
+    .infoleft, .inforight {
+        width: 90%;
+        border-radius: 0;
+    }
+    .infoleft{
+        order: 2;
+    }
+    .infobox img {
+        max-width: 80%;
+        object-fit:contain
+    }
+    
 }
