@@ -28,5 +28,17 @@
     justify-content: space-between;
     gap: 2em;
     width: 100%;
-
 }
+@media screen and (max-width: 1080px) {
+    .step4container {
+        width: 90%;
+    }
+    .summaryDetail h4 {
+        font-size: 3.5rem !important;
+    }
+    .summaryTitle h3 {
+        font-size: 1rem !important;
+    }
+}
+
+    

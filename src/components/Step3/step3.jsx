@@ -11,7 +11,8 @@ const Step3 = ({ contactDetails, setContactDetails }) => {
     setContactDetails((values) => ({ ...values, [name]: value }));
   };
   return (
-    <div className="flexcolumn step3contactform">
+    <form className="flexcolumn step3contactform">
+      
       <div className="contactHead">
         <h1>
           Get Computed <span style={{ color: "var(--color3)" }}>Results</span>
@@ -34,19 +35,34 @@ const Step3 = ({ contactDetails, setContactDetails }) => {
                 name="fullname"
                 value={contactDetails.fullname}
                 onChange={handleChange}
-                required
               />
             </div>
             <div className="flexcolumn contactField">
               <label>Address</label>
+              <div className="flexrow">
+              <input
+                options
+                type="text"
+                placeholder="Country"
+                name="country"
+                value={contactDetails.country}
+                onChange={handleChange}
+              />
               <input
                 type="text"
-                placeholder="Murang'a Rd, Nairobi, Kenya"
-                name="address"
-                value={contactDetails.address}
+                placeholder="City"
+                name="city"
+                value={contactDetails.city}
                 onChange={handleChange}
-                required
               />
+              <input
+                type="text"
+                placeholder="County"
+                name="county"
+                value={contactDetails.county}
+                onChange={handleChange}
+              />
+              </div>
             </div>
             <div className="flexcolumn contactField">
               <label>E-mail</label>
@@ -56,7 +72,6 @@ const Step3 = ({ contactDetails, setContactDetails }) => {
                 name="email"
                 value={contactDetails.email}
                 onChange={handleChange}
-                required
               />
             </div>
             <div className="flexcolumn contactField">
@@ -68,7 +83,6 @@ const Step3 = ({ contactDetails, setContactDetails }) => {
                 pattern="\+254\d{9}"
                 value={contactDetails.pnumber}
                 onChange={handleChange}
-                // required
               />
             </div>
             <div className="flexcolumn contactField">
@@ -93,7 +107,7 @@ const Step3 = ({ contactDetails, setContactDetails }) => {
           </div>
       </div>
       <GoToTop />
-    </div>
+    </form>
   );
 };
 export default Step3;
