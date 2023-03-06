@@ -40,7 +40,9 @@ const Toolkit = () => {
 
   const [contactDetails, setContactDetails] = useState({
     fullname: "",
-    address: "",
+    country: "",
+    city: "",
+    county: "",
     email: "",
     pnumber: "",
     rate: '',
