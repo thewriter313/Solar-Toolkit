@@ -143,7 +143,7 @@ const Step1 = ({
           What would you say is the size of your house?{" "}
           <Tooltip
             arrow="true"
-            position="right"
+            position="top"
             html={
               <p style={{ fontFamily: "rubik", margin: "0.1em" }}>
                 Pick an option that is closest to your house

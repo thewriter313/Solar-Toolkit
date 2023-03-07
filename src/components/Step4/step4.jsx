@@ -68,7 +68,9 @@ const Step4 = ({ appliances, qnDetails, contactDetails }) => {
     // const systemVoltage = propertyValues.batteryVoltageValue;
     const singlePanelWatt = propertyValues.panelWattage;
     const batteryCapacity = 200; // From catalogue get this value (Ah)
-    const batteryParallel = (Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100) / batteryCapacity; // Number of batteries required in parallel
+    const batteryParallel =
+        (Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100) /
+        batteryCapacity; // Number of batteries required in parallel
     const panelWattage = Math.ceil(GE / PSH / 100) * 100;
     const panelNumbers = Math.ceil(panelWattage / singlePanelWatt);
 
@@ -136,11 +138,13 @@ const Step4 = ({ appliances, qnDetails, contactDetails }) => {
             price: "Price",
         },
     ];
+    console.log(contactDetails.country);
     return (
         <div className="flexrow step4equipment">
             <div className="flexcolumn step4container">
                 <div className="flexcolumn summary">
                     <h1>
+                        Step 4:{" "}
                         <span style={{ color: "var(--color3)" }}>Summary</span>
                     </h1>
                     <div className="flexrow summaryContainer">
@@ -191,7 +195,25 @@ const Step4 = ({ appliances, qnDetails, contactDetails }) => {
                         ))}
                     </div>
                 </div>
+                <div className="flexcolumn">
+                    <h1>Contact Details</h1>
+                    <section>
+                        <div className="flexrow">
+                            <div className="flexcolumn">
+                                <p>{contactDetails.fullname}</p>
+                                <p>{contactDetails.email}</p>
+                                <p>{contactDetails.pnumber}</p>
+                            </div>
+                            <div className="flexcolumn">
+                                <p>{contactDetails.country}</p>
+                                <p>{contactDetails.city}</p>
+                                <p>{contactDetails.county}</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
+
             <GoToTop />
         </div>
     );

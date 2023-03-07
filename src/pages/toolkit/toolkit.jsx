@@ -40,7 +40,7 @@ const Toolkit = () => {
 
   const [contactDetails, setContactDetails] = useState({
     fullname: "",
-    country: "",
+    country: "Kenya",
     city: "",
     county: "",
     email: "",
@@ -90,8 +90,8 @@ const Toolkit = () => {
             inactiveTextColor: "#000",
             completedBgColor: "#00bf8c",
             completedTextColor: "#fff",
-            size: "2.8em",
-            labelFontSize: "1.7em",
+            size: "3.2em",
+            labelFontSize: "2em",
             fontWeight: "bold",
           }}
 
@@ -141,7 +141,7 @@ const Toolkit = () => {
                     <button className="btn1" onClick={() => setStep(1)}>
                       <IoIosArrowBack /> Back
                     </button>
-                    <button className="btn1" onClick={() => setStep(3)}>
+                    <button className="btn1" form="step2form" >
                       Next <IoIosArrowForward />
                     </button>
                   </div>
@@ -159,7 +159,7 @@ const Toolkit = () => {
                     <button className="btn1" onClick={() => setStep(2)}>
                       <IoIosArrowBack /> Back
                     </button>
-                    <button className="btn1" onClick={() => setStep(4)}>
+                    <button className="btn1" form="step3form">
                       Next <IoIosArrowForward />
                     </button>
                   </div>
@@ -175,7 +175,10 @@ const Toolkit = () => {
                     qnDetails={qnDetails}
                   />
                   <div className="flexrow button-class">
-                    <button className="btn1" onClick={() => setStep(3)}>
+                  <button className="btn1" onClick={() => setStep(3)}>
+                      <IoIosArrowBack /> Back
+                    </button>
+                    <button className="btn1">
                       Finish
                     </button>
                   </div>

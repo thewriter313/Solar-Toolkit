@@ -22,7 +22,7 @@ import Polycrystalline from "../../Assets/polycrystalline.png";
 
 const qnCostOptions = ["Cheapest", "Cheap", "Reliable", "Very Reliable"];
 
-const Step2 = ({ qnDetails, setqnDetails }) => {
+const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -32,9 +32,9 @@ const Step2 = ({ qnDetails, setqnDetails }) => {
     };
 
     return (
-        <div className="qnContainer">
+        <form id="step2form" className="qnContainer" onSubmit={() => setStep(3)}>
             <h1>
-                <span style={{ color: "var(--color3)" }}>Design </span>Questions
+                Step 2: <span style={{ color: "var(--color3)" }}>Design </span>Questions
             </h1>
             {/* 1st Row */}
             <div className="flexrow qnrow">
@@ -350,7 +350,7 @@ const Step2 = ({ qnDetails, setqnDetails }) => {
                 </div>
             </div>
             <GoToTop />
-        </div>
+        </form>
     );
 };
 

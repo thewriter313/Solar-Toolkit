@@ -9,7 +9,6 @@ import GoToTop from "../../components/GoToTop";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Parallax } from "react-parallax";
-import panel from "../../Assets/Artboard87.png";
 import code from "../../Assets/CaptureCode.png";
 
 

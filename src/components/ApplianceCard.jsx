@@ -10,17 +10,12 @@ import "react-tippy/dist/tippy.css";
 import { Tooltip } from "react-tippy";
 
 const ApplianceCard = (props) => {
-
-  console.log(props);
   const [closeable, setCloseable] = useState(false);
  
   useEffect(()=>{
     if (props.data.id > 9) {
       setCloseable(true);}
   },[props.data.id])
-
-
-
   
   return (
     <div 
