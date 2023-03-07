@@ -9,7 +9,7 @@
 
 .navmenu {
     display: none;
-    margin-right: 20px;
+    margin-right: 3%;
 }
 .navmenu button{
     background-color: transparent;
@@ -26,13 +26,13 @@
     padding: 0 20px;
     box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
     position: absolute;
-    right: 30px;
+    right: 3%;
     margin: 0;
     width: fit-content;
 }
 .dropdown li{
     margin: 0 !important;
-    line-height: 1.5em;
+    line-height: 2em;
     font-size: 0.9em;
 }
 .dropdown ul {
@@ -95,6 +95,6 @@
     .navbar img {
         height: 60px;
         object-fit: contain;
-        margin-left: 20px !important;
+        margin-left: 3% !important;
     }
 }

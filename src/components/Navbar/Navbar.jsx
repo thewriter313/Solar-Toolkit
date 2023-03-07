@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom'
 import logodark from '../../Assets/logodark.png'
-import { RiMenuFoldLine } from 'react-icons/ri'
+import { RiMenuFoldLine, RiCloseFill } from 'react-icons/ri'
 
 const Navbar = () => {
 
-  const [togglemenu, settoggleMenu] = useState(false)
+  const [toggleMenu, settoggleMenu] = useState(false)
   return (
 
     <div className="flexrow nav-container">
@@ -22,8 +22,8 @@ const Navbar = () => {
           <li><Link className='navLink' to='/info'>Information</Link></li>
         </ul>
         <div className='navmenu'>
-          <button onClick={() => settoggleMenu(!togglemenu)}><RiMenuFoldLine size={40}/></button>
-          {togglemenu && (
+          <button onClick={() => settoggleMenu(!toggleMenu)}>{toggleMenu ? <RiCloseFill size={40}/> : <RiMenuFoldLine size={40}/>}</button>
+          {toggleMenu && (
             <div className='dropdown' onClick={() => settoggleMenu(false)}>
             <ul className='flexcolumn'>
             <li><Link className='navLink' to='/'>Home</Link></li>

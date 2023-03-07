@@ -5,11 +5,11 @@
 }
 .stepper {
     width: 100%;
-    font-family: var(--fonttertiary) !important;
+    font-family: "Chakra Petch" !important;
     font-size: 0.8em;
 }
 .stepper_step {
-    font-family: var(--fonttertiary) !important;
+    font-family: "Chakra Petch" !important;
     font-weight: bold;
 }
 .button-class {
@@ -31,5 +31,8 @@
     .stepper {
         padding: 0 !important;
         display: none !important;
+    }
+    .button-class {
+        justify-content: center;
     }
 }

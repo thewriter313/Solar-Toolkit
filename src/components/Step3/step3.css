@@ -18,38 +18,43 @@
     align-items: center;
     width: 100%;
 }
-.contactBody .contactForm {
-    flex: 0.7;
-}
-.contactImage {
-    flex: 1;
-}
 .contactImage img {
     width: 500px;
 }
 .contactForm {
     justify-content: space-around;
+    width: 40%;
 }
 .contactField {
-    flex: 1;
     padding: 10px 0;
 }
 .contactField label {
     font-size: 1.3em;
     padding: 10px;
 }
+.contactField > div {
+    display: flex;
+}
 .contactField input[type="text"],
 .contactField input[type="email"],
-.contactField input[type="tel"] {
+.contactField input[type="tel"],
+.contactField select {
     border: 1px solid var(--color2);
     border-radius: 10px;
-    padding: 10px 0px 10px 10px;
+    padding: 10px;
     font-size: 1em;
-    width: 95%;
+    width: 100%;
+}
+.addressFields {
+    gap: 1em;
+}
+.addressFields input {
+    width: 100%;
 }
 .contactField input[type="text"]:focus,
 .contactField input[type="email"]:focus,
-.contactField input[type="tel"]:focus {
+.contactField input[type="tel"]:focus,
+.contactField select:focus {
     outline: none;
     border: 1px solid var(--color3);
 }
@@ -88,6 +93,9 @@
         width: 100%;
     }
     .contactField label {
-        font-size: 1em;
+        font-size: 1.2em;
+    }
+    .addressFields {
+        flex-wrap: wrap;
     }
 }

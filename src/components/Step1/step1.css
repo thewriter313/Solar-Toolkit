@@ -1,71 +1,76 @@
 .container-step1 h1 {
-  font-family: "dosis", sans-serif;
-  text-align: center;
-  margin-bottom: 20px;
+    font-family: "dosis", sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .section-1 {
-  border-top: 1px solid var(--color5);
-  min-height: 100px;
-  padding: 2em 0;
+    border-top: 1px solid var(--color5);
+    min-height: 100px;
+    padding: 2em 0;
 }
 
-.section-1:first-of-type{
-  border-top: none;
+.section-1:first-of-type {
+    border-top: none;
 }
 
 .appliances {
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 2em 0;
-  gap: 2em;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 2em 0;
+    gap: 2em;
 }
 
 .preset {
-  width: 90%;
-  display: flex;
-  align-self: center;
-  justify-content: space-evenly;
-  gap: 2em;
-  margin: 1em 0;
-  flex-wrap: wrap;
+    width: 90%;
+    display: flex;
+    align-self: center;
+    justify-content: space-evenly;
+    gap: 2em;
+    margin: 1em 0;
+    flex-wrap: wrap;
 }
 .preset-card {
-  background-color: var(--color1);
-  color: var(--color2);
-  border: 1px solid var(--color5);
-  justify-content: center;
-  align-items: center;
-  padding: 1em 1em;
-  cursor: pointer;
-  border-radius: 0.5em;
+    background-color: var(--color1);
+    color: var(--color2);
+    border: 1px solid var(--color5);
+    justify-content: center;
+    align-items: center;
+    padding: 1em 1em;
+    cursor: pointer;
+    border-radius: 0.5em;
 }
 
-.preset div{
-  display: flex;
-  justify-content: space-evenly;
-  flex-grow: 1;
+.preset div {
+    display: flex;
+    justify-content: space-evenly;
+    flex-grow: 1;
 }
 
 .preset-card h1 {
-  font-size: 1em;
-  font-weight: 800;
-  font-family: "Dosis";
-  padding: 1.2em;
+    font-size: 1em;
+    font-weight: 800;
+    font-family: "Dosis";
+    padding: 1.2em;
 }
 
 .preset .on {
-  background-color: var(--color2);
-  color: var(--color1);
-  border: none;
-  transform: scale(1.05);
-  transition: 0.1s linear;
+    background-color: var(--color2);
+    color: var(--color1);
+    border: none;
+    transform: scale(1.05);
+    transition: 0.1s linear;
 }
 
 .output {
-  font-size: 1em;
-  font-weight: bold;
+    font-size: 1em;
+    font-weight: bold;
 }
-
-
+@media screen and (max-width: 1080px) {
+    .section-1 h3 {
+      text-align: center;
+      margin: 0 5%;
+    }
+}
+  
