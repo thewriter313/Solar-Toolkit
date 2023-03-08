@@ -11,22 +11,13 @@ import chargeController from "../../Assets/ChargeController2.png";
 
 const Step4 = ({ appliances, qnDetails, contactDetails }) => {
     // Total Energy
-    const totalEnergy = appliances.reduce(
-        (sum, item) => sum + item.power * parseInt(item.amount) * item.hours,
-        0
-    );
+    const totalEnergy = appliances.reduce((sum, item) => sum + item.power * parseInt(item.amount) * item.hours, 0 );
 
     // Total Power
-    const totalPower = appliances.reduce(
-        (sum, item) => sum + item.power * parseInt(item.amount),
-        0
-    );
+    const totalPower = appliances.reduce((sum, item) => sum + item.power * parseInt(item.amount), 0);
 
     // Total items
-    const totalItems = appliances.reduce(
-        (sum, item) => sum + parseInt(item.amount),
-        0
-    );
+    const totalItems = appliances.reduce((sum, item) => sum + parseInt(item.amount),0);
 
     const panelImage =
         qnDetails.appeal === "yesappeal" ? Thinfilm : Polycrystalline;
@@ -138,7 +129,6 @@ const Step4 = ({ appliances, qnDetails, contactDetails }) => {
             price: "Price",
         },
     ];
-    console.log(contactDetails.country);
     return (
         <div className="flexrow step4equipment">
             <div className="flexcolumn step4container">

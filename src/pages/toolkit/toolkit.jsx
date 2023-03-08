@@ -17,6 +17,8 @@ import tubelight from "../../Assets/tubelight.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Papa from "papaparse";
+import counties from "../../Data/counties.csv";
 
 const Toolkit = () => {
   const [step, setStep] = useState(1);
@@ -59,9 +61,7 @@ const Toolkit = () => {
     appeal: "yesappeal",
   });
 
-  const totalItems =
-    items.reduce((sum, item) => sum + parseInt(item.amount), 0) +
-    appliances.reduce((sum, item) => sum + parseInt(item.amount), 0);
+  const totalItems = appliances.reduce((sum, item) => sum + parseInt(item.amount), 0);
 
   const [preset1, setPreset1] = useState(false);
   const [preset2, setPreset2] = useState(false);
@@ -71,6 +71,23 @@ const Toolkit = () => {
     setAppliances((appliances) =>
         appliances.filter((appliance) => appliance.id !== id)
     )};
+
+     //fetch data from counties csv file
+     const [countyData, setCountyData] = useState();
+
+     useEffect(() => {
+        const fetchCountyData = async () => {
+         Papa.parse(counties, {
+             download: true,
+             delimiter: ",",
+             complete:((result) => {
+                 setCountyData(result.data);
+             })
+         })
+        }
+          fetchCountyData();
+     }, []);
+ 
 
   return (
     <div>
@@ -151,6 +168,7 @@ const Toolkit = () => {
               return (
                 <div style={{ width: "70%" }}>
                   <Step3
+                  countyData={countyData}
                     setStep={setStep}
                     contactDetails={contactDetails}
                     setContactDetails={setContactDetails}
