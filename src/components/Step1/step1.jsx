@@ -10,7 +10,6 @@ import { Tooltip } from "react-tippy";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import Addcard from "../Addcard/Addcard";
 
-
 const Step1 = ({
   appliances,
   setAppliances,
@@ -22,14 +21,19 @@ const Step1 = ({
   setPreset3,
   deleteAppliance,
 }) => {
+
+  //check if inductive load
+  // const [inductiveLoad, setInductiveLoad] = React.useState(false);
+
   //increasing amount on click
   const incrementAmount = (id) => {
     setAppliances((appliances) =>
       appliances.map((appliance) =>
-        appliance.id === id
-          ? { ...appliance, amount: parseInt(appliance.amount) + 1 }
+        appliance.id === id && ((appliance.power >= 500 && appliance.amount === 0) || appliance.power < 500)
+          ? { ...appliance, amount: appliance.amount + 1 }
           : appliance
       )
+     
     );
   };
 
@@ -135,18 +139,19 @@ const Step1 = ({
 
   return (
     <div className="flexcolumn container-step1">
-      <h1>Step 1: 
-        <span style={{ color: "var(--color3)" }}> Load </span>Sizing
+      <h1>
+        STEP 1:
+        <span style={{ color: "var(--color3)" }}> LOAD </span>SIZING
       </h1>
       <div className="flexcolumn section-1">
         <h3>
           What would you say is the size of your house?{" "}
           <Tooltip
             arrow="true"
-            position="top"
+            position="right"
             html={
               <p style={{ fontFamily: "rubik", margin: "0.1em" }}>
-                Pick an option that is closest to your house
+                Pick an option that closely resembles the size of house.
               </p>
             }
           >

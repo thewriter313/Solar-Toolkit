@@ -13,7 +13,7 @@ const ApplianceCard = (props) => {
   const [closeable, setCloseable] = useState(false);
  
   useEffect(()=>{
-    if (props.data.id > 9) {
+    if (props.data.id > 13) {
       setCloseable(true);}
   },[props.data.id])
   
