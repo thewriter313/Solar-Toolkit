@@ -34,7 +34,7 @@ const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
     return (
         <form id="step2form" className="qnContainer" onSubmit={() => setStep(3)}>
             <h1>
-                Step 2: <span style={{ color: "var(--color3)" }}>Design </span>Questions
+                STEP 2: <span style={{ color: "var(--color3)" }}>DESIGN </span>QUESTIONS
             </h1>
             {/* 1st Row */}
             <div className="flexrow qnrow">

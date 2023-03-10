@@ -32,6 +32,11 @@ const Toolkit = () => {
     { id: 6, name: "Microwave", power: 1000, hours: 0.1,  amount: 0, img: microwaveimg},
     { id: 7, name: "Laptop", power: 50, hours: 10, amount: 0, img: laptopImg },
     { id: 8, name: "WiFi-Router", power: 1.9, hours: 24, amount: 0, img: router },
+    { id: 9, name: "Fan", power: 60, hours: 8, amount: 0, img: bulb},
+    { id: 10, name: "Water Pump", power: 377, hours: 3, amount: 0, img: bulb},
+    { id: 11, name: "Washing Machine", power: 1000, hours: 1, amount: 0, img: bulb},
+    { id: 12, name: "Electric Ironbox", power: 1000, hours: 0.1, amount: 0, img: bulb},
+    { id: 13, name: "Electric Stove", power: 1000, hours: 0.1, amount: 0, img: bulb},
   ]);
 
   useEffect(() => {
@@ -86,7 +91,7 @@ const Toolkit = () => {
          })
         }
           fetchCountyData();
-     }, []);
+     },[]);
  
 
   return (
@@ -109,6 +114,7 @@ const Toolkit = () => {
             completedTextColor: "#fff",
             size: "3.2em",
             labelFontSize: "2em",
+            
             fontWeight: "bold",
           }}
 
