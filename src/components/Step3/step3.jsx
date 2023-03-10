@@ -17,8 +17,7 @@ const Step3 = ({ setStep, contactDetails, setContactDetails }) => {
         <form id="step3form" className="flexcolumn step3contactform" onSubmit={()=>setStep(4)}>
             <div className="contactHead">
                 <center><h1>
-                    Step 3: Computed{" "}
-                    <span style={{ color: "var(--color3)" }}>Results</span>
+                    Step 3: Computed <span style={{ color: "var(--color3)" }}>Results</span>
                 </h1></center>
             </div>
             <div className="flexrow contactBody">
@@ -73,9 +72,9 @@ const Step3 = ({ setStep, contactDetails, setContactDetails }) => {
                                 disabled={!(contactDetails.country === 'Kenya')}
                             >
                                 <option value="Nairobi">Nairobi</option>
-                                <option value="Nairobi">Nairobi1</option>
-                                <option value="Nairobi">Nairobi2</option>
-                                <option value="Nairobi">Nairobi3</option>
+                                <option value="Nairobi1">Nairobi1</option>
+                                <option value="Nairobi2">Nairobi2</option>
+                                <option value="Nairobi3">Nairobi3</option>
                             </select>
                         </div>
                     </div>

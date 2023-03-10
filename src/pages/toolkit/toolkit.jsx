@@ -41,8 +41,8 @@ const Toolkit = () => {
   const [contactDetails, setContactDetails] = useState({
     fullname: "",
     country: "Kenya",
-    city: "",
-    county: "",
+    city: '',
+    county: 'Nairobi',
     email: "",
     pnumber: "",
     rate: '',
@@ -54,7 +54,7 @@ const Toolkit = () => {
     grid: "OffGrid",
     shade: "yesshade",
     expand: "likely",
-    space: "0",
+    space: '',
     batteryspace: "nobatteryspace",
     appeal: "yesappeal",
   });
@@ -99,7 +99,7 @@ const Toolkit = () => {
           stepClassName={"stepper_step"}
         />
         
-
+        
         {(() => {
           switch (step) {
             case 1:
@@ -159,7 +159,7 @@ const Toolkit = () => {
                     <button className="btn1" onClick={() => setStep(2)}>
                       <IoIosArrowBack /> Back
                     </button>
-                    <button className="btn1" form="step3form">
+                    <button type="submit" className="btn1" form="step3form">
                       Next <IoIosArrowForward />
                     </button>
                   </div>
@@ -170,6 +170,7 @@ const Toolkit = () => {
                 <div style={{ width: "70%" }}>
                   <Step4
                     items={items}
+                    setStep={setStep}
                     appliances={appliances}
                     contactDetails={contactDetails}
                     qnDetails={qnDetails}
@@ -178,7 +179,7 @@ const Toolkit = () => {
                   <button className="btn1" onClick={() => setStep(3)}>
                       <IoIosArrowBack /> Back
                     </button>
-                    <button className="btn1">
+                    <button className="btn1" onClick={() => setStep(3)}>
                       Finish
                     </button>
                   </div>
