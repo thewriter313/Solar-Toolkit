@@ -5,6 +5,9 @@
     text-align: center;
     align-items: center;
 }
+.step4container > div {
+    width: 100%;
+}
 .step4container h1{
     font-family: "dosis", sans-serif;
 }
@@ -29,6 +32,36 @@
     gap: 2em;
     width: 100%;
 }
+.final {
+    flex-grow: 1;
+}
+.finalDetails {
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    color: var(--color1);
+    background-color: var(--color2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: right;
+}
+.finalDetails table {
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: row;
+}
+.finalDetails td {
+    padding: 20px;
+    text-align: left;
+}
+.finalDetailsEmail{
+    word-break: break-all;
+}
+.finalDetails td:first-of-type {
+    text-align: right;
+    color: #999;
+}
+
 @media screen and (max-width: 1080px) {
     .step4container {
         width: 90%;
@@ -39,6 +72,13 @@
     .summaryTitle h3 {
         font-size: 1rem !important;
     }
+    .finalDetails {
+        justify-content: center;
+    }
+    .finalDetails table {
+        display: table;
+    }
+
 }
 
     

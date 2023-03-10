@@ -21,8 +21,7 @@ const Step3 = ({ setStep, contactDetails, setContactDetails, countyData}) => {
         <form id="step3form" className="flexcolumn step3contactform" onSubmit={()=>setStep(4)}>
             <div className="contactHead">
                 <center><h1>
-                    Step 3: Computed{" "}
-                    <span style={{ color: "var(--color3)" }}>Results</span>
+                    Step 3: Computed <span style={{ color: "var(--color3)" }}>Results</span>
                 </h1></center>
             </div>
             <div className="flexrow contactBody">

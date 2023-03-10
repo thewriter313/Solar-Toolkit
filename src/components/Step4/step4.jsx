@@ -9,7 +9,7 @@ import Polycrystalline from "../../Assets/polycrystalline.png";
 import inverter from "../../Assets/Inverter.png";
 import chargeController from "../../Assets/ChargeController2.png";
 
-const Step4 = ({ appliances, qnDetails, contactDetails }) => {
+const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
     // Total Energy
     const totalEnergy = appliances.reduce((sum, item) => sum + item.power * parseInt(item.amount) * item.hours, 0 );
 
@@ -35,9 +35,9 @@ const Step4 = ({ appliances, qnDetails, contactDetails }) => {
             ? "Lithium Ion Battery"
             : "Lead Acid Battery";
     const inverterType =
-        qnDetails.shade === "yesshade" ? "Micro Inverter" : "String Inverter";
+        qnDetails.shade === "yesshade" || qnDetails.expand === 'likely' ? "Micro Inverter" : qnDetails.cost >= 1.5 ? 'Micro Inverter' : "String Inverter";
     const chargeControllerType =
-        qnDetails.cost === 0 || qnDetails.cost === 1
+        qnDetails.cost < 1.5
             ? "Pulse Width Modulation (PWM)"
             : "Maximum Power Point Tracking (MPPT)";
 
@@ -46,40 +46,69 @@ const Step4 = ({ appliances, qnDetails, contactDetails }) => {
         panelWattage: 100,
     });
     // Property Values
-    const GE = 1.5 * totalEnergy;
-    const PSH = 4.2; //Get actual values from excel for each county
+    const GE = 1.3 * totalEnergy;
+
+    //Get actual values from excel for each county
+    const PSH = 6;
     const DOD = 0.5;
     const GP = 1.25 * totalPower;
 
     // Get from Inverter Manual
-    const systemVoltage = 24;
-    const batterySeries = Math.ceil(
-        systemVoltage / propertyValues.batteryVoltageValue
-    );
-    // const systemVoltage = propertyValues.batteryVoltageValue;
-    const singlePanelWatt = propertyValues.panelWattage;
-    const batteryCapacity = 200; // From catalogue get this value (Ah)
-    const batteryParallel =
-        (Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100) /
-        batteryCapacity; // Number of batteries required in parallel
-    const panelWattage = Math.ceil(GE / PSH / 100) * 100;
-    const panelNumbers = Math.ceil(panelWattage / singlePanelWatt);
+    const systemVoltage = 48;
+    const inverterWattage = GP;
 
-    // For number of panels in series
-    const panelSeries =
-        chargeControllerType === "Pulse Width Modulation (PWM)"
-            ? Math.ceil(systemVoltage / 8)
-            : Math.floor(systemVoltage / 10);
+    // Battery Sizing
+    const batterySeries = systemVoltage / propertyValues.batteryVoltageValue;
+    const totalbatteryAh = (totalEnergy / systemVoltage / DOD / 0.85) * qnDetails.doa;
+    const batteryCapacity = 200; // Get from Catalogue
+    const batteryParallel = Math.ceil(totalbatteryAh / batteryCapacity);
+    const batteryNumbers = Math.ceil(batteryParallel * batterySeries);
+    
+
+    // Panel Sizing
+    const panelWattage = GE / PSH;
+    const singlePanelvoltage = 24; // Get from Catologue
+    const singlePanelWatt = propertyValues.panelWattage; // Get from Catologue
+    const panelNumbers = Math.ceil(panelWattage / singlePanelWatt);
+    const panelSeries = Math.ceil(systemVoltage / singlePanelvoltage);
     const panelParallel = Math.ceil(panelNumbers / panelSeries);
     const panelNumbersUpdated = panelSeries * panelParallel;
-    const inverterWattage = Math.ceil(GP / 100) * 100;
-    const totalbatterySize =
-        Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100;
-    const batteryNumbers = batteryParallel * batterySeries;
+    console.log(panelWattage);
+    console.log(panelNumbers);
+    console.log(panelParallel);
+    console.log(panelSeries);
+    console.log(panelNumbersUpdated);
 
-    // const batteryNumbers = Math.ceil(totalbatterySize / batteryCapacity);
-    const batterySize = Math.ceil(totalbatterySize / batteryNumbers / 10) * 10;
-    const chargeControllerSize = Math.ceil(GP / systemVoltage / 10) * 10;
+    // Charge Controller Sizing
+    const panelWattageUpdated = panelNumbersUpdated * singlePanelWatt;
+    const chargeControllerSize = panelWattageUpdated / systemVoltage;
+
+    // const batterySeries = Math.ceil(systemVoltage / propertyValues.batteryVoltageValue);
+    // // const systemVoltage = propertyValues.batteryVoltageValue;
+    // const singlePanelWatt = propertyValues.panelWattage;
+    // const batteryCapacity = 200; // From catalogue get this value (Ah)
+    // // const batteryParallel = ((GE * qnDetails.doa) / (0.5 * systemVoltage)) / batteryCapacity; // Number of batteries required in parallel
+    // const panelWattage = Math.ceil(GE / PSH / 100) * 100;
+    // const panelNumbers = Math.ceil(panelWattage / singlePanelWatt);
+
+
+    // // For number of panels in series
+    // const panelSeries =
+    //     chargeControllerType === "Pulse Width Modulation (PWM)"
+    //         ? Math.ceil(systemVoltage / 8)
+    //         : Math.floor(systemVoltage / 10);
+    // const panelParallel = Math.ceil(panelNumbers / panelSeries);
+    // const panelNumbersUpdated = panelSeries * panelParallel;
+    // console.log(panelParallel);
+    // console.log(panelSeries);
+    // const inverterWattage = Math.ceil(GP / 100) * 100;
+    // const totalbatterySize =
+    //     Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100;
+    // const batteryNumbers = batteryParallel * batterySeries;
+
+    // // const batteryNumbers = Math.ceil(totalbatterySize / batteryCapacity);
+    // const batterySize = Math.ceil(totalbatterySize / batteryNumbers / 10) * 10;
+    // const chargeControllerSize = Math.ceil(GP / systemVoltage / 10) * 10;
 
     const ResultCardData = [
         {
@@ -101,7 +130,7 @@ const Step4 = ({ appliances, qnDetails, contactDetails }) => {
             voltage: "Voltage",
             voltageValue: propertyValues.batteryVoltageValue,
             capacity: "Capacity",
-            capacityValue: batterySize,
+            capacityValue: batteryCapacity,
             quantity: "Quantity",
             quantityValue: batteryNumbers,
             price: "Price",
@@ -146,12 +175,12 @@ const Step4 = ({ appliances, qnDetails, contactDetails }) => {
                         <Summarycard
                             title="Energy Demand"
                             value={Math.ceil(totalEnergy)}
-                            unit="kWh"
+                            unit="Wh"
                         />
                         <Summarycard
                             title="Peak Power Demand"
                             value={Math.ceil(totalPower)}
-                            unit="kW"
+                            unit="W"
                         />
                     </div>
                 </div>
@@ -185,22 +214,57 @@ const Step4 = ({ appliances, qnDetails, contactDetails }) => {
                         ))}
                     </div>
                 </div>
-                <div className="flexcolumn">
-                    <h1>Contact Details</h1>
-                    <section>
-                        <div className="flexrow">
-                            <div className="flexcolumn">
-                                <p>{contactDetails.fullname}</p>
-                                <p>{contactDetails.email}</p>
-                                <p>{contactDetails.pnumber}</p>
-                            </div>
-                            <div className="flexcolumn">
-                                <p>{contactDetails.country}</p>
-                                <p>{contactDetails.city}</p>
-                                <p>{contactDetails.county}</p>
-                            </div>
+                <div className="flexcolumn final">
+                    <h1>
+                        Contact{" "}
+                        <span style={{ color: "var(--color3)" }}>Details</span>
+                    </h1>
+                    <div className="flexcolumn">
+                        <div className="flexrow finalDetails">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td className="finalDetailsText">
+                                            Name
+                                        </td>
+                                        <td>{contactDetails.fullname}</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="finalDetailsText">
+                                            Address
+                                        </td>
+                                        <td>
+                                            {contactDetails.county},{" "}
+                                            {contactDetails.city},{" "}
+                                            {contactDetails.country}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td className="finalDetailsText">
+                                            E-mail
+                                        </td>
+                                        <td className="finalDetailsEmail">
+                                            {contactDetails.email}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="finalDetailsText">
+                                            Phone Number
+                                        </td>
+                                        <td>{contactDetails.pnumber}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button
+                                className="btn1"
+                                style={{ margin: "0px" }}
+                                onClick={() => setStep(3)}>
+                                Change
+                            </button>
                         </div>
-                    </section>
+                    </div>
                 </div>
             </div>
 
