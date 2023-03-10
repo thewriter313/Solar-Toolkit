@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     transition: 0.1s linear;
-    min-width: 12em;
+    min-width: 13em;
 }
 
 .appliance-card button{

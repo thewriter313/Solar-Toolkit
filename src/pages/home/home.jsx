@@ -37,10 +37,7 @@ const Home = () => {
             <section className="flexrow infobox">
                 <div data-aos="fade-up" className="flexcolumn infoleft">
                     <h1>What equipment is required?</h1>
-                    <p>
-                        <strong>
-                            Overhelmed by all the technical jargon? Fear not!
-                        </strong>{" "}
+                    <p>Overhelmed by all the technical jargon? Fear not!
                         We provide a complete guide to all the components
                         required in setup and installation of solar PV system. A
                         solar PV system consists of a solar PV array, an

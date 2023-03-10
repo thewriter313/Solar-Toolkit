@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom'
-import logodark from '../../Assets/logodark.png'
+import logodark from '../../Assets/LOGO.png'
 import { RiMenuFoldLine, RiCloseFill } from 'react-icons/ri'
 
 const Navbar = () => {
@@ -11,7 +11,7 @@ const Navbar = () => {
 
     <div className="flexrow nav-container">
       <nav className="flexrow navbar">
-        <Link to='/'><img src={logodark} alt='logo' width ='100px'/></Link>
+        <Link to='/'><img src={logodark} alt='logo' height ='80px'/></Link>
         <ul className='navlinks'>
           <li><Link className='navLink' to='/'>Home</Link></li>
           <li>|</li>

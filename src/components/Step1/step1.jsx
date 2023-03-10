@@ -27,7 +27,7 @@ const Step1 = ({
     setAppliances((appliances) =>
       appliances.map((appliance) =>
         appliance.id === id
-          ? { ...appliance, amount: appliance.amount + 1 }
+          ? { ...appliance, amount: parseInt(appliance.amount) + 1 }
           : appliance
       )
     );

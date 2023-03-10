@@ -1,11 +1,11 @@
 import React from "react";
-// import ContactForm from "./contactform";
 import "./step3.css";
 import GoToTop from "../GoToTop";
 import Mail from "../../Assets/EmailSent.png";
 import countryList from "react-select-country-list";
 
-const Step3 = ({ setStep, contactDetails, setContactDetails }) => {
+
+const Step3 = ({ setStep, contactDetails, setContactDetails, countyData}) => {
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -13,6 +13,10 @@ const Step3 = ({ setStep, contactDetails, setContactDetails }) => {
     };
 
     const options = countryList().getData();
+
+ 
+    // console.log(countyData);
+
     return (
         <form id="step3form" className="flexcolumn step3contactform" onSubmit={()=>setStep(4)}>
             <div className="contactHead">
@@ -71,10 +75,11 @@ const Step3 = ({ setStep, contactDetails, setContactDetails }) => {
                                 required
                                 disabled={!(contactDetails.country === 'Kenya')}
                             >
-                                <option value="Nairobi">Nairobi</option>
-                                <option value="Nairobi1">Nairobi1</option>
-                                <option value="Nairobi2">Nairobi2</option>
-                                <option value="Nairobi3">Nairobi3</option>
+                                 {countyData.map((option, i) => (
+                                    <option key={i} value={option[0]}>
+                                        {option[0]}
+                                    </option>
+                                ))}
                             </select>
                         </div>
                     </div>
