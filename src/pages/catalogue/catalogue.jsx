@@ -77,6 +77,7 @@ const Catalogue = () => {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
+      
       body: JSON.stringify(
         {
           "personalizations": [
