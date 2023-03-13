@@ -10,7 +10,7 @@ import Catalogue from "./pages/catalogue/catalogue";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={"https://thewriter313.github.io/"}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
