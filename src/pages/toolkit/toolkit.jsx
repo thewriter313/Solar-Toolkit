@@ -1,4 +1,4 @@
-import  React,{ useEffect, useState } from "react";
+import  React,{ Suspense, useEffect, useState } from "react";
 import GoToTop from "../../components/GoToTop";
 import { Stepper } from "react-form-stepper";
 import "./toolkit.css";
@@ -19,15 +19,18 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Papa from "papaparse";
 import counties from "../../Data/counties.csv";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Toolkit = () => {
   const [step, setStep] = useState(1);
 
   const [appliances, setAppliances] = useState([
-    { id: 1, name: "Lightbulb", power: 13, hours: 8, amount: 0, img: bulb },
-    { id: 2, name: "Tubelight", power: 40, hours: 8, amount: 0, img: tubelight },
+    { id: 1, name: "Lightbulb", power: 13, hours: 5, amount: 0, img: bulb },
+    { id: 2, name: "Tubelight", power: 40, hours: 5, amount: 0, img: tubelight },
     { id: 3, name: "TV", power: 150, hours: 8, amount: 0, img: oldTV },
-    { id: 4, name: "Fridge", power: 350, hours: 24, amount: 0, img: fridgeimg },
+    { id: 4, name: "Fridge", power: 350, hours: 15, amount: 0, img: fridgeimg },
     { id: 5, name: "Phone", power: 6, hours: 2, amount: 0, img: phoneImg },
     { id: 6, name: "Microwave", power: 1000, hours: 0.1,  amount: 0, img: microwaveimg},
     { id: 7, name: "Laptop", power: 50, hours: 10, amount: 0, img: laptopImg },
@@ -46,22 +49,21 @@ const Toolkit = () => {
   const [items, setItems] = useState([]);
 
   const [contactDetails, setContactDetails] = useState({
-    fullname: "",
-    country: "Kenya",
-    city: '',
+    fullname: '',
+    country: 'Kenya',
     county: 'Nairobi',
-    email: "",
-    pnumber: "",
+    email: '',
+    pnumber: '',
     rate: '',
   });
 
   const [qnDetails, setqnDetails] = useState({
-    doa: 3,
+    doa: 1,
     cost: 0,
     grid: "OffGrid",
     shade: "yesshade",
     expand: "likely",
-    space: '',
+    space: 10,
     batteryspace: "nobatteryspace",
     appeal: "yesappeal",
   });
@@ -73,26 +75,53 @@ const Toolkit = () => {
   const [preset3, setPreset3] = useState(false);
 
   const deleteAppliance = (id) => {
-    setAppliances((appliances) =>
-        appliances.filter((appliance) => appliance.id !== id)
-    )};
+      setAppliances((appliances) =>
+          appliances.filter((appliance) => appliance.id !== id)
+      );
+  };
 
-     //fetch data from counties csv file
-     const [countyData, setCountyData] = useState();
+  //fetch data from counties csv file
+  const [countyData, setCountyData] = useState();
 
-     useEffect(() => {
-        const fetchCountyData = async () => {
-         Papa.parse(counties, {
-             download: true,
-             delimiter: ",",
-             complete:((result) => {
-                 setCountyData(result.data);
-             })
-         })
-        }
-          fetchCountyData();
-     },[]);
- 
+  useEffect(() => {
+      const fetchCountyData = async () => {
+          Papa.parse(counties, {
+              download: true,
+              delimiter: ",",
+              complete: (result) => {
+                  setCountyData(result.data);
+              },
+          });
+      };
+      fetchCountyData();
+  }, []);
+
+  const [myDoc, setData] = useState()
+
+  function getFromChild(data) {
+    setData(data)
+  }
+
+  const sleep = async (milliseconds) => {
+    await new Promise(resolve => {
+        return setTimeout(resolve, milliseconds)
+    });
+  };
+
+  const handleFinish = async () => {
+    toast.success('Your document is Downloading', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+    await sleep(3000);
+    window.location.reload(true)
+  }
 
   return (
     <div>
@@ -121,7 +150,20 @@ const Toolkit = () => {
           className={"stepper"}
           stepClassName={"stepper_step"}
         />
-        
+        <>
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+      </>
         
         {(() => {
           switch (step) {
@@ -174,7 +216,7 @@ const Toolkit = () => {
               return (
                 <div style={{ width: "70%" }}>
                   <Step3
-                  countyData={countyData}
+                    countyData={countyData}
                     setStep={setStep}
                     contactDetails={contactDetails}
                     setContactDetails={setContactDetails}
@@ -198,14 +240,28 @@ const Toolkit = () => {
                     appliances={appliances}
                     contactDetails={contactDetails}
                     qnDetails={qnDetails}
+                    getFromChild={getFromChild}
                   />
                   <div className="flexrow button-class">
                   <button className="btn1" onClick={() => setStep(3)}>
                       <IoIosArrowBack /> Back
                     </button>
-                    <button className="btn1" onClick={() => setStep(3)}>
-                      Finish
-                    </button>
+                    {/* <button className="btn1" onClick={() => setStep(3)}>
+                      Finish<GiCheckeredFlag size={20}/>
+                    </button> */}
+                  <Suspense fallback={<div>Loading PDF...</div>}>
+                  {myDoc &&
+                    <PDFDownloadLink
+                      document={myDoc}
+                      fileName={"SHS" + new Date().getMinutes()}
+                      className='btn1'
+                      style={{ textDecoration: 'none', height:'fit-content' }}
+                      onClick={handleFinish}
+                      >
+                      {({ loading }) => loading ? ("Loading Doc...") : ("Finish" )
+                      }
+                    </PDFDownloadLink>}
+                  </Suspense>
                   </div>
                 </div>
               );

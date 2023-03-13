@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState, Suspense } from "react";
 import "./step4.css";
 import GoToTop from "../GoToTop";
 import Resultcard from "./Resultcard";
@@ -8,16 +8,26 @@ import Thinfilm from "../../Assets/thinfilm.png";
 import Polycrystalline from "../../Assets/polycrystalline.png";
 import inverter from "../../Assets/Inverter.png";
 import chargeController from "../../Assets/ChargeController2.png";
+import PDFFile from "../PDFFile";
 
-const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
+const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild }) => {
     // Total Energy
-    const totalEnergy = appliances.reduce((sum, item) => sum + item.power * parseInt(item.amount) * item.hours, 0 );
+    const totalEnergy = appliances.reduce(
+        (sum, item) => sum + item.power * parseInt(item.amount) * item.hours,
+        0
+    );
 
     // Total Power
-    const totalPower = appliances.reduce((sum, item) => sum + item.power * parseInt(item.amount), 0);
+    const totalPower = appliances.reduce(
+        (sum, item) => sum + item.power * parseInt(item.amount),
+        0
+    );
 
     // Total items
-    const totalItems = appliances.reduce((sum, item) => sum + parseInt(item.amount),0);
+    const totalItems = appliances.reduce(
+        (sum, item) => sum + parseInt(item.amount),
+        0
+    );
 
     const panelImage =
         qnDetails.appeal === "yesappeal" ? Thinfilm : Polycrystalline;
@@ -35,7 +45,11 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
             ? "Lithium Ion Battery"
             : "Lead Acid Battery";
     const inverterType =
-        qnDetails.shade === "yesshade" || qnDetails.expand === 'likely' ? "Micro Inverter" : qnDetails.cost >= 1.5 ? 'Micro Inverter' : "String Inverter";
+        qnDetails.shade === "yesshade" || qnDetails.expand === "likely"
+            ? "Micro Inverter"
+            : qnDetails.cost >= 1.5
+            ? "Micro Inverter"
+            : "String Inverter";
     const chargeControllerType =
         qnDetails.cost < 1.5
             ? "Pulse Width Modulation (PWM)"
@@ -51,64 +65,36 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
     //Get actual values from excel for each county
     const PSH = 6;
     const DOD = 0.5;
-    const GP = 1.25 * totalPower;
+    const GP = 1.3 * totalPower;
 
     // Get from Inverter Manual
-    const systemVoltage = 48;
-    const inverterWattage = GP;
+    const systemVoltage = 24;
+    const inverterWattage = Math.ceil(GP / 100) * 100;
 
     // Battery Sizing
     const batterySeries = systemVoltage / propertyValues.batteryVoltageValue;
-    const totalbatteryAh = (totalEnergy / systemVoltage / DOD / 0.85) * qnDetails.doa;
-    const batteryCapacity = 200; // Get from Catalogue
+    const batteryCapacity = 200;
+    const totalbatteryAh =
+        (totalEnergy * qnDetails.doa) / (DOD * systemVoltage * 0.85);
     const batteryParallel = Math.ceil(totalbatteryAh / batteryCapacity);
     const batteryNumbers = Math.ceil(batteryParallel * batterySeries);
-    
 
     // Panel Sizing
     const panelWattage = GE / PSH;
     const singlePanelvoltage = 24; // Get from Catologue
     const singlePanelWatt = propertyValues.panelWattage; // Get from Catologue
     const panelNumbers = Math.ceil(panelWattage / singlePanelWatt);
-    const panelSeries = Math.ceil(systemVoltage / singlePanelvoltage);
+    const panelSeries = systemVoltage / singlePanelvoltage;
     const panelParallel = Math.ceil(panelNumbers / panelSeries);
     const panelNumbersUpdated = panelSeries * panelParallel;
-    console.log(panelWattage);
-    console.log(panelNumbers);
-    console.log(panelParallel);
-    console.log(panelSeries);
-    console.log(panelNumbersUpdated);
 
     // Charge Controller Sizing
+    const shortCircuitCurrent = 9.44; // Get from Catologue
     const panelWattageUpdated = panelNumbersUpdated * singlePanelWatt;
-    const chargeControllerSize = panelWattageUpdated / systemVoltage;
-
-    // const batterySeries = Math.ceil(systemVoltage / propertyValues.batteryVoltageValue);
-    // // const systemVoltage = propertyValues.batteryVoltageValue;
-    // const singlePanelWatt = propertyValues.panelWattage;
-    // const batteryCapacity = 200; // From catalogue get this value (Ah)
-    // // const batteryParallel = ((GE * qnDetails.doa) / (0.5 * systemVoltage)) / batteryCapacity; // Number of batteries required in parallel
-    // const panelWattage = Math.ceil(GE / PSH / 100) * 100;
-    // const panelNumbers = Math.ceil(panelWattage / singlePanelWatt);
-
-
-    // // For number of panels in series
-    // const panelSeries =
-    //     chargeControllerType === "Pulse Width Modulation (PWM)"
-    //         ? Math.ceil(systemVoltage / 8)
-    //         : Math.floor(systemVoltage / 10);
-    // const panelParallel = Math.ceil(panelNumbers / panelSeries);
-    // const panelNumbersUpdated = panelSeries * panelParallel;
-    // console.log(panelParallel);
-    // console.log(panelSeries);
-    // const inverterWattage = Math.ceil(GP / 100) * 100;
-    // const totalbatterySize =
-    //     Math.ceil((GE * qnDetails.doa) / (DOD * systemVoltage) / 100) * 100;
-    // const batteryNumbers = batteryParallel * batterySeries;
-
-    // // const batteryNumbers = Math.ceil(totalbatterySize / batteryCapacity);
-    // const batterySize = Math.ceil(totalbatterySize / batteryNumbers / 10) * 10;
-    // const chargeControllerSize = Math.ceil(GP / systemVoltage / 10) * 10;
+    const chargeControllerSize =
+        chargeControllerType === "Pulse Width Modulation (PWM)"
+            ? Math.ceil(shortCircuitCurrent * panelParallel * 1.25)
+            : Math.ceil(panelWattageUpdated / systemVoltage);
 
     const ResultCardData = [
         {
@@ -118,9 +104,14 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
             typeValue: paneltype,
             power: "Power",
             powerValue: singlePanelWatt,
+            voltage: "Voltage",
+            voltageValue: singlePanelvoltage,
+            current: "Current",
+            currentValue: shortCircuitCurrent,
             quantity: "Quantity",
             quantityValue: panelNumbersUpdated,
             price: "Price",
+            priceValue: 20000,
         },
         {
             image: battery,
@@ -134,6 +125,7 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
             quantity: "Quantity",
             quantityValue: batteryNumbers,
             price: "Price",
+            priceValue: 20000,
         },
         {
             image: inverter,
@@ -145,6 +137,7 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
             power: "Power",
             powerValue: inverterWattage,
             price: "Price",
+            priceValue: 20000,
         },
         {
             image: chargeController,
@@ -156,8 +149,60 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
             amps: "Amperage",
             ampsValue: chargeControllerSize,
             price: "Price",
+            priceValue: 20000,
         },
     ];
+
+    // useEffect(()=>{
+    //     const myDoc = (
+    //         <PDFFile
+    //             contactDetails={contactDetails}
+    //             singlePanelvoltage={singlePanelvoltage}
+    //             singlePanelWatt={singlePanelWatt}
+    //             panelNumbersUpdated={panelNumbersUpdated}
+    //             batteryVoltageValue={propertyValues.batteryVoltageValue}
+    //             batteryCapacity={batteryCapacity}
+    //             batteryNumbers={batteryNumbers}
+    //             inverterWattage={inverterWattage}
+    //             systemVoltage={systemVoltage}
+    //             chargeControllerSize={chargeControllerSize}
+    //         />)
+    //     getFromChild(myDoc);
+    // },[getFromChild, contactDetails, singlePanelvoltage, singlePanelWatt, panelNumbersUpdated, propertyValues.batteryVoltageValue, batteryCapacity, batteryNumbers, inverterWattage, systemVoltage, chargeControllerSize])
+
+    const myDoc = useMemo(() => (
+        <Suspense fallback={<div>Loading PDF...</div>}>
+        <PDFFile
+          contactDetails={contactDetails}
+          singlePanelvoltage={singlePanelvoltage}
+          singlePanelWatt={singlePanelWatt}
+          panelNumbersUpdated={panelNumbersUpdated}
+          batteryVoltageValue={propertyValues.batteryVoltageValue}
+          batteryCapacity={batteryCapacity}
+          batteryNumbers={batteryNumbers}
+          inverterWattage={inverterWattage}
+          systemVoltage={systemVoltage}
+          chargeControllerSize={chargeControllerSize}
+        />
+        </Suspense>
+      ), [
+        contactDetails,
+        singlePanelvoltage,
+        singlePanelWatt,
+        panelNumbersUpdated,
+        propertyValues.batteryVoltageValue,
+        batteryCapacity,
+        batteryNumbers,
+        inverterWattage,
+        systemVoltage,
+        chargeControllerSize,
+      ]);
+      
+      useEffect(() => {
+        getFromChild(myDoc);
+      }, [myDoc, getFromChild]);
+      
+
     return (
         <div className="flexrow step4equipment">
             <div className="flexcolumn step4container">
@@ -199,11 +244,14 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
                                 typeValue={data.typeValue}
                                 voltage={data.voltage}
                                 voltageValue={data.voltageValue}
+                                current={data.current}
+                                currentValue={data.currentValue}
                                 capacity={data.capacity}
                                 capacityValue={data.capacityValue}
                                 quantity={data.quantity}
                                 quantityValue={data.quantityValue}
                                 price={data.price}
+                                priceValue={data.priceValue}
                                 power={data.power}
                                 powerValue={data.powerValue}
                                 amps={data.amps}
@@ -233,11 +281,14 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails }) => {
                                         <td className="finalDetailsText">
                                             Address
                                         </td>
-                                        <td>
-                                            {contactDetails.county},{" "}
-                                            {contactDetails.city},{" "}
-                                            {contactDetails.country}
-                                        </td>
+                                        {contactDetails.country === "Kenya" ? (
+                                            <td>
+                                                {contactDetails.county},{" "}
+                                                {contactDetails.country}
+                                            </td>
+                                        ) : (
+                                            <td>{contactDetails.country}</td>
+                                        )}
                                     </tr>
                                 </tbody>
                                 <tbody>
