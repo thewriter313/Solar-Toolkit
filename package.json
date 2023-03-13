@@ -1,7 +1,6 @@
 {
   "name": "solar-toolkit",
   "version": "0.1.0",
-  "homepage": "https://thewriter313.github.io/Solar-Toolkit",
   "private": true,
   "dependencies": {
     "@formspark/use-formspark": "^0.1.39",
