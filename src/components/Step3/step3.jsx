@@ -3,9 +3,11 @@ import "./step3.css";
 import GoToTop from "../GoToTop";
 import Mail from "../../Assets/EmailSent.png";
 import countryList from "react-select-country-list";
+import 'react-phone-number-input/style.css'
+import PhoneInput from "react-phone-number-input";
 
 
-const Step3 = ({ setStep, contactDetails, setContactDetails, countyData}) => {
+const Step3 = ({ setStep, contactDetails, setContactDetails, countyData }) => {
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -13,9 +15,6 @@ const Step3 = ({ setStep, contactDetails, setContactDetails, countyData}) => {
     };
 
     const options = countryList().getData();
-
- 
-    // console.log(countyData);
 
     return (
         <form id="step3form" className="flexcolumn step3contactform" onSubmit={()=>setStep(4)}>
@@ -60,20 +59,12 @@ const Step3 = ({ setStep, contactDetails, setContactDetails, countyData}) => {
                                     </option>
                                 ))}
                             </select>
-                            <input
-                                type="text"
-                                placeholder="City"
-                                name="city"
-                                value={contactDetails.city}
-                                required
-                                onChange={handleChange}
-                            />
                             <select
                                 name="county"
                                 value={contactDetails.county}
                                 onChange={handleChange}
                                 required
-                                disabled={!(contactDetails.country === 'Kenya')}
+                                disabled={(contactDetails.country !== 'Kenya')}
                             >
                                  {countyData.map((option, i) => (
                                     <option key={i} value={option[0]}>
@@ -99,13 +90,12 @@ const Step3 = ({ setStep, contactDetails, setContactDetails, countyData}) => {
                     <div className="flexcolumn contactField">
                         <label>Phone Number</label>
                         <div>
-                            <input
-                                type="tel"
-                                name="pnumber"
-                                placeholder="+254712345678"
-                                pattern="\+254\d{9}"
+                            <PhoneInput
+                                style={{width: '100%', paddingLeft:'10px'}}
+                                defaultCountry="KE"
+                                placeholder="Enter phone number"
                                 value={contactDetails.pnumber}
-                                onChange={handleChange}
+                                onChange={(value) => setContactDetails((values) => ({ ...values, pnumber: value }))}
                                 required
                             />
                         </div>
