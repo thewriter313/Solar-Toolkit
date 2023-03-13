@@ -25,6 +25,6 @@ export default function App() {
 }
 
 
-const container = document.getElementById('root')
+const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(<App/>);
