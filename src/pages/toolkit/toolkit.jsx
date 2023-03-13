@@ -117,7 +117,7 @@ const Toolkit = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored",
+      theme: "dark",
       });
     await sleep(3000);
     window.location.reload(true)
@@ -161,7 +161,7 @@ const Toolkit = () => {
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="colored"
+          theme="dark"
         />
       </>
         
