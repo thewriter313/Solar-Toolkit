@@ -85,6 +85,14 @@ footer ul{
     footer {
         margin-top: 20px;
     }
+    .about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about p {
+        text-align: center;
+    }
     .topfooter {
         flex-direction: column !important;
         align-items: center;

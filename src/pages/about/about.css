@@ -1,27 +1,36 @@
-.aboutIntro{
-  height:86vh;
-  /* background-image: url('../../Assets/Aboutbg.png'); */
-  /* background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom; */
-  background-image: linear-gradient(var(--color1), var(--color3)) ;
-}
-
-.aboutIntro:before{
-  opacity: 0.6;
-}
-.aboutIntro h1{
-  font-family: 'Tilt warp', sans-serif;
-  font-size: 7rem !important;
-}
-
-.aboutIntro h2{
-  font-size: 2em !important;
-}
-.aboutuspage {
+.about-section {
     justify-content: center;
     align-items: center;
-    width: 100%;
+    padding: 5% 5% 0 5%;
+}
+.about-section img {
+    max-height: 900px;
+}
+.openQuote {
+    font-size: 70px;
+    transform: rotate(180deg) translateY(50%);
+    padding-right: 20px;
+}
+.endQuote {
+    font-size: 70px;
+    align-self: flex-end;
+    padding-left: 20px;
+}
+.introHead {
+    font-family: "Raleway";
+    font-size: 20rem;
+    margin: 0;
+}
+.about-section p {
+    text-align: justify;
+}
+.about-section-left {
+    align-items: center;
+    flex: 1;
+}
+.about-section-right {
+    align-items: center;
+    flex: 1;
 }
 .wide {
     justify-content: center;
@@ -29,49 +38,34 @@
     width: 100%;
     padding: 40px 0;
 }
-.aboutuspage h1 {
-    color: var(--color2);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin: 0;
-    padding: 30px;
-    font-weight: 100;
-    font-size: 40px;
-}
-.dark {
-    background-color: #eeeeee;
-}
-.aboutuspage p {
-    width: 40%;
-    margin: 0;
-    text-align: center;
-    font-size: 20px;
-    padding: 20px;
-    line-height: 30px;
-    box-sizing: border-box;
-}
-.teamcards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9em;
-    justify-content: space-evenly;
-    padding-bottom: 20px;
-    width: 80%;
-}
 .aboutform {
     width: 40%;
 }
-
 @media screen and (max-width: 1080px) {
-    .teamcards {
+    .about-section {
         flex-direction: column;
-        gap: 3em;
     }
-
-    .aboutform,
-    .mission p,
-    .mission h1 {
+    .about-section:nth-of-type(odd) .about-section-right {
+        order: 1;
+    }
+    .about-section img {
+        max-height: 300px;
+    }
+    .about-section-right div {
+        flex-direction: column;
+    }
+    .about-section p {
         text-align: center;
-        width: 100%;
+    }
+    .introHead {
+        font-size: 10rem;
+        text-align: center;
+    }
+    .mission p {
+        text-align: center;
+        width: 80%;
+    }
+    .aboutform {
+        width: 90%;
     }
 }

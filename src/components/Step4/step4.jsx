@@ -10,7 +10,7 @@ import inverter from "../../Assets/Inverter.png";
 import chargeController from "../../Assets/ChargeController2.png";
 import PDFFile from "../PDFFile";
 
-const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild }) => {
+const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, countyData }) => {
     // Total Energy
     const totalEnergy = appliances.reduce(
         (sum, item) => sum + item.power * parseInt(item.amount) * item.hours,
@@ -29,8 +29,7 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild })
         0
     );
 
-    const panelImage =
-        qnDetails.appeal === "yesappeal" ? Thinfilm : Polycrystalline;
+    const panelImage = qnDetails.appeal === "yesappeal" ? Thinfilm : Polycrystalline;
 
     // Equipment Type
     const paneltype =
@@ -41,7 +40,7 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild })
             : "Monocrystalline";
     const batteryType =
         qnDetails.batteryspace === "nobatteryspace" &&
-        (qnDetails.cost === 2 || qnDetails.cost === 3)
+        (qnDetails.cost > 2)
             ? "Lithium Ion Battery"
             : "Lead Acid Battery";
     const inverterType =
@@ -59,11 +58,14 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild })
         batteryVoltageValue: 12,
         panelWattage: 100,
     });
+
+    // Find PSH for given County
+    const nameToFind = contactDetails.county;
+    const matchingArr = countyData.find(arr => arr[0] === nameToFind);
+    const PSH = matchingArr ? matchingArr[1] : null;
+
     // Property Values
     const GE = 1.3 * totalEnergy;
-
-    //Get actual values from excel for each county
-    const PSH = 6;
     const DOD = 0.5;
     const GP = 1.3 * totalPower;
 
@@ -152,23 +154,6 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild })
             priceValue: 20000,
         },
     ];
-
-    // useEffect(()=>{
-    //     const myDoc = (
-    //         <PDFFile
-    //             contactDetails={contactDetails}
-    //             singlePanelvoltage={singlePanelvoltage}
-    //             singlePanelWatt={singlePanelWatt}
-    //             panelNumbersUpdated={panelNumbersUpdated}
-    //             batteryVoltageValue={propertyValues.batteryVoltageValue}
-    //             batteryCapacity={batteryCapacity}
-    //             batteryNumbers={batteryNumbers}
-    //             inverterWattage={inverterWattage}
-    //             systemVoltage={systemVoltage}
-    //             chargeControllerSize={chargeControllerSize}
-    //         />)
-    //     getFromChild(myDoc);
-    // },[getFromChild, contactDetails, singlePanelvoltage, singlePanelWatt, panelNumbersUpdated, propertyValues.batteryVoltageValue, batteryCapacity, batteryNumbers, inverterWattage, systemVoltage, chargeControllerSize])
 
     const myDoc = useMemo(() => (
         <Suspense fallback={<div>Loading PDF...</div>}>
