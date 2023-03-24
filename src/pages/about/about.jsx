@@ -1,67 +1,111 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "./about.css";
-import "../../App.css";
-import TeamCard from "../../components/Teamcard";
-import teamData from "../../Data/TeamData";
 import Form from "../../components/Form";
 import GoToTop from "../../components/GoToTop";
-import Aos from "aos";
+import umair from "../../Assets/umair.png";
+// import thomas from "../../Assets/default.png";
+import areeb from "../../Assets/areeb.png";
+import AOS from "aos";
 import "aos/dist/aos.css";
+import { IoMdQuote } from "react-icons/io";
 
 const About = () => {
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
 
-  useEffect(() => {
-    Aos.init({ duration: 500 });
-}, []);
+    return (
+        <div className="about-page flexcolumn">
+            {/* First section */}
+            <div className="about-section flexrow">
+                <div
+                    data-aos="fade-up"
+                    className="about-section-right flexcolumn">
+                    <div className="flexrow">
+                        <div>
+                            <IoMdQuote className="openQuote" />
+                        </div>
+                        <div>
+                            <h1 className="introHead">Hello</h1>
+                            <p>
+                                I'm Umair A. Malik, a 23-year-old <span style={{color: "var(--color3)"}}>Mechanical
+                                Engineering</span> student at the University of Nairobi.
+                                In my final year of study, I have worked on this solar
+                                home system sizing toolkit to help homeowners
+                                determine the right <span style={{color: "var(--color3)"}}>size of solar equipment</span> for
+                                their homes. This tool is essential as it can save
+                                resources and expenses. I'm interested in promoting
+                                <span style={{color:"var(--color3)"}}> sustainable energy solutions</span> and contributing to a
+                                <span style={{color:"var(--color3)"}}> greener environment</span>.
+                        </p>
+                        </div>
+                        
+                        <div className="flexrow">
+                            <IoMdQuote
+                                className="endQuote"
+                                style={{ alignItems: "flex-end" }}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div
+                    data-aos="fade-up"
+                    className="about-section-left flexcolumn">
+                    <img src={umair} alt="areeb" />
+                </div>
+            </div>
 
-  return (
-    <div className="flexcolumn aboutuspage">
-      <div  data-aos='fade-up'className=" flexcolumn wide aboutIntro">
-        <h1 data-aos='fade-up'>Let's Go Green Together</h1>
-        <h2 data-aos='fade-up'> We are HelEOS - striving to provide a user-friendly platform to promote renewal energy solutions to Kenyans</h2>
-      </div>
-      <div className="mission dark flexcolumn wide">
-        <h1>Who We Are</h1>
-        <p>
-          Hi, fellow curious Kenyan. Glad you are here. We are HelEOS, a student
-          led group providing a simple tool for all your home solar needs. We
-          hope, together with you, to be part of the people to lead Kenya into
-          an era of renewable energy as we try to do our part to save our
-          planet.
-        </p>
-      </div>
-      <div className="mission flexcolumn wide">
-        <h1>Our Story</h1>
-        <p>
-          Inspired by the ever enlarging danger of climate change and global
-          warming, we set out to reduce our carbon footprint as students of the
-          University of Nairobi. We identified a gap in the market for a toolkit
-          that sizes solar powered homes which was previously unexplored.
-        </p>
-      </div>
-      <div className="team dark flexcolumn wide">
-        <h1>Our Team</h1>
-        <div className="teamcards">
-          {teamData.map((data,i) => (
-            <TeamCard
-              key={i}
-              image={data.image}
-              title={data.title}
-              name={data.name}
-              occupation={data.occupation}
-            />
-          ))}
+            {/* Second section */}
+            <div
+                className="about-section flexrow"
+                style={{ backgroundColor: "#000", color: "white" }}>
+                <div
+                    data-aos="fade-up"
+                    className="about-section-right flexcolumn">
+                    <img src={areeb} alt="umair" />
+                </div>
+                <div
+                    data-aos="fade-up"
+                    className="about-section-right flexcolumn">
+                    <div className="flexrow">
+                        <div>
+                            <IoMdQuote className="openQuote" />
+                        </div>
+                        <div>
+                            <h1 className="introHead">Hello</h1>
+                            <p>
+                                I'm Umair A. Malik, a 23-year-old <span style={{color: "var(--color3)"}}>Mechanical
+                                Engineering</span> student at the University of Nairobi.
+                                In my final year of study, I have worked on this solar
+                                home system sizing toolkit to help homeowners
+                                determine the right <span style={{color: "var(--color3)"}}>size of solar equipment</span> for
+                                their homes. This tool is essential as it can save
+                                resources and expenses. I'm interested in promoting
+                                <span style={{color:"var(--color3)"}}> sustainable energy solutions</span> and contributing to a
+                                <span style={{color:"var(--color3)"}}> greener environment</span>.
+                        </p>
+                        </div>
+                        
+                        <div className="flexrow">
+                            <IoMdQuote
+                                className="endQuote"
+                                style={{ alignItems: "flex-end" }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="joinus flexcolumn wide">
+                {" "}
+                <h1>Contact Us</h1>
+                <div className="aboutform">
+                    <Form />
+                </div>
+            </div>
+            <GoToTop />
         </div>
-      </div>
-      <div className="joinus flexcolumn wide">
-        <h1>Contact Us</h1>
-        <div className="aboutform">
-          <Form />
-        </div>
-      </div>
-      <GoToTop/>
-    </div>
-  );
+    );
 };
 
 export default About;

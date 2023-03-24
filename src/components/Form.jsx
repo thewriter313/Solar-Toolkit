@@ -12,14 +12,10 @@ const Form = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleNameChange = (event) => {
-    setValues({ ...values, name: event.target.value });
-  };
-  const handleEmailChange = (event) => {
-    setValues({ ...values, email: event.target.value });
-  };
-  const handleMessageChange = (event) => {
-    setValues({ ...values, message: event.target.value });
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setValues((values) => ({ ...values, [name]: value }));
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,30 +35,33 @@ const Form = () => {
           <p className="pass">Your message has been recieved. Thank you.</p>
         ) : null}
       </div>
-      <div className="formarea">
+      <div className="formarea flexcolumn">
         <label>Name:</label>
         <input
           className="input"
           type="text"
+          name="name"
           required
           value={values.name}
-          onChange={handleNameChange}
+          onChange={handleChange}
         />
         <label>Email:</label>
         <input
           className="input"
           type="email"
+          name="email"
           required
           value={values.email}
-          onChange={handleEmailChange}
+          onChange={handleChange}
         />
         <label>Message:</label>
         <textarea
           className="input"
           type="text"
+          name="message"
           required
           value={values.message}
-          onChange={handleMessageChange}
+          onChange={handleChange}
         />
         <button type="submit" className="submitbtn">
           Submit

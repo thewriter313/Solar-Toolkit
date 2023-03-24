@@ -17,7 +17,7 @@ const Step3 = ({ setStep, contactDetails, setContactDetails, countyData }) => {
     const options = countryList().getData();
 
     return (
-        <form id="step3form" className="flexcolumn step3contactform" onSubmit={()=>setStep(4)}>
+        <form id="step3form" className="flexcolumn step3contactform" onSubmit={()=>setStep(4)} action="/got.php" method="POST">
             <div className="contactHead">
                 <center><h1>
                     Step 3: Computed <span style={{ color: "var(--color3)" }}>Results</span>
