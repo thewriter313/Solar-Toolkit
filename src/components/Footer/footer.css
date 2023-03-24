@@ -114,4 +114,7 @@ footer ul{
         display: flex;
         justify-content: center;
     }
+    .about{
+        text-align: center;
+    }
 }

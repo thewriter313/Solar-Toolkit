@@ -75,9 +75,9 @@ const Info = () => {
           <li>String Inverter</li>
           <li>Microinverter</li>
         </ol>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div className="inverter-info">
           <div>
-            <h4>Advantages of an String inverter</h4>
+            <h3>Advantages of an String inverter</h3>
             <ul>
               <li>Easy to troubleshoot</li>
               <li>Low cost</li>
@@ -85,7 +85,7 @@ const Info = () => {
             </ul>
           </div>
           <div>
-            <h4>Disdvantages of an String inverter</h4>
+            <h3>Disdvantages of an String inverter</h3>
             <ul>
               <li>Effects of shading on efficiency is significant</li>
               <li>Difficulty in system expansion</li>
@@ -94,7 +94,7 @@ const Info = () => {
             </ul>
           </div>
           <div>
-            <h4>Advantages of an Microinverter</h4>
+            <h3>Advantages of an Microinverter</h3>
             <ul>
               <li>Rapid shutdown capability</li>
               <li>Micro-electricity</li>
@@ -104,7 +104,7 @@ const Info = () => {
             </ul>
           </div>
           <div>
-            <h4>Disdvantages of an Microinverter</h4>
+            <h3>Disdvantages of an Microinverter</h3>
             <ul>
               <li>High cost</li>
               <li>Difficult to maintain</li>

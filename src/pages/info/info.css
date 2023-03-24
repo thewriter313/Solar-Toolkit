@@ -25,3 +25,17 @@
 .acc-wrapper{
     margin-top: 10px;
 }
+
+.inverter-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1080px) {
+    .inverter-info{
+        flex-direction: column;
+    }
+    p{
+        text-align: center !important;
+    }
+}

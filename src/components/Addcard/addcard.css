@@ -81,7 +81,7 @@
 
 @media screen and (max-width: 1080px) {
     .addcard-popup-inner {
-        height: 80%;
+        height: 70%;
         overflow-y: auto;
         flex-direction: column;
         gap: 0;

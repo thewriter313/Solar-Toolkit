@@ -21,7 +21,7 @@ const ApplianceCard = (props) => {
     <div 
       className={props.amount > 0 ? "flexcolumn appliance-card on" : "flexcolumn appliance-card"}
     >
-      <div style={{ position: "absolute", translate: "-4.7em -8em", cursor:'pointer'}}>
+      <div style={{ position: "absolute", translate: "-5.5em -9em", cursor:'pointer'}}>
         <Tooltip 
           title="Ratings"
           arrow="true"
@@ -49,7 +49,7 @@ const ApplianceCard = (props) => {
           alignItems: "center",
         }}
       >
-          <h4 style={{ textAlign: "center", padding: "0.5em" }}>
+          <h4 style={{ textAlign: "center", padding: "0.5em", fontSize:'1.3em'}}>
             {props.name}
           </h4>
         
