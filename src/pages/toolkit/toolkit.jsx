@@ -7,13 +7,18 @@ import Step2 from "../../components/Step2/step2";
 import Step3 from "../../components/Step3/step3";
 import Step4 from "../../components/Step4/step4";
 import bulb from "../../Assets/bulb.png";
-import oldTV from "../../Assets/oldTV.png";
 import phoneImg from "../../Assets/phoneImg.png";
 import microwaveimg from "../../Assets/microwaveimg.png";
 import fridgeimg from "../../Assets/fridgeimg.png";
 import laptopImg from "../../Assets/laptopImg.png";
 import router from "../../Assets/Router.png";
 import tubelight from "../../Assets/tubelight.png";
+import washing from "../../Assets/washing.png";
+import TV from "../../Assets/TV.png";
+import pump from "../../Assets/pump.png";
+import ironbox from "../../Assets/ironbox.png";
+import cooker from "../../Assets/cooker.png";
+import fan from "../../Assets/fan.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -29,17 +34,17 @@ const Toolkit = () => {
   const [appliances, setAppliances] = useState([
     { id: 1, name: "Lightbulb", power: 13, hours: 5, amount: 0, img: bulb },
     { id: 2, name: "Tubelight", power: 40, hours: 5, amount: 0, img: tubelight },
-    { id: 3, name: "TV", power: 150, hours: 8, amount: 0, img: oldTV },
+    { id: 3, name: "TV", power: 150, hours: 8, amount: 0, img: TV },
     { id: 4, name: "Fridge", power: 350, hours: 15, amount: 0, img: fridgeimg },
     { id: 5, name: "Phone", power: 6, hours: 2, amount: 0, img: phoneImg },
     { id: 6, name: "Microwave", power: 1000, hours: 0.1,  amount: 0, img: microwaveimg},
     { id: 7, name: "Laptop", power: 50, hours: 10, amount: 0, img: laptopImg },
     { id: 8, name: "WiFi-Router", power: 1.9, hours: 24, amount: 0, img: router },
-    { id: 9, name: "Fan", power: 60, hours: 8, amount: 0, img: bulb},
-    { id: 10, name: "Water Pump", power: 377, hours: 3, amount: 0, img: bulb},
-    { id: 11, name: "Washing Machine", power: 1000, hours: 1, amount: 0, img: bulb},
-    { id: 12, name: "Electric Ironbox", power: 1000, hours: 0.1, amount: 0, img: bulb},
-    { id: 13, name: "Electric Stove", power: 1000, hours: 0.1, amount: 0, img: bulb},
+    { id: 9, name: "Fan", power: 60, hours: 8, amount: 0, img: fan},
+    { id: 10, name: "Water Pump", power: 377, hours: 2, amount: 0, img: pump},
+    { id: 11, name: "Washing Machine", power: 1000, hours: 1, amount: 0, img: washing},
+    { id: 12, name: "Electric Ironbox", power: 1000, hours: 0.1, amount: 0, img: ironbox},
+    { id: 13, name: "Electric Stove", power: 1000, hours: 0.1, amount: 0, img: cooker},
   ]);
 
   useEffect(() => {

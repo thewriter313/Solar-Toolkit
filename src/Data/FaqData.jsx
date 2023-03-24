@@ -32,7 +32,7 @@ const FaqData = [
         <ul
           style={{
             lineHeight: "25px",
-            textAlign: "justify",
+
             paddingLeft: "10px",
           }}
         >
@@ -100,7 +100,6 @@ const FaqData = [
       <ul
         style={{
           lineHeight: "25px",
-          textAlign: "justify",
           paddingLeft: "10px",
         }}
       >

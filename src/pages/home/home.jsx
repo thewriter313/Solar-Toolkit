@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./home.css";
 import "../../App.css";
-// import Typewriter from "typewriter-effect";
 import { Link } from "react-router-dom";
 import setup from "../../Assets/Setup.png";
 import toolkitpic from "../../Assets/Geometry.png";

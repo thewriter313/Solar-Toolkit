@@ -33,26 +33,25 @@
 }
 .preset-card {
     background-color: var(--color1);
+    display: flex;
+    justify-content: space-between;
     color: var(--color2);
     border: 1px solid var(--color5);
-    justify-content: center;
     align-items: center;
     padding: 1em 1em;
     cursor: pointer;
     border-radius: 0.5em;
+}
+.preset-card h4{
+    flex: 1 ;
+    text-align: right;
+    padding-right: 1em;
 }
 
 .preset div {
     display: flex;
     justify-content: space-evenly;
     flex-grow: 1;
-}
-
-.preset-card h1 {
-    font-size: 1em;
-    font-weight: 800;
-    font-family: "Dosis";
-    padding: 1.2em;
 }
 
 .preset .on {
@@ -68,12 +67,13 @@
     font-weight: bold;
 }
 @media screen and (max-width: 1080px) {
-    .section-1 h3 {
+    .section-1 h2 {
       text-align: center;
       margin: 0 5%;
     }
     .preset{
         width: 80%;
     }
+  
 }
   
