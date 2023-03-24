@@ -29,7 +29,7 @@ const Step1 = ({
   const incrementAmount = (id) => {
     setAppliances((appliances) =>
       appliances.map((appliance) =>
-        appliance.id === id && ((appliance.power >= 500 && appliance.amount === 0) || appliance.power < 500)
+        appliance.id === id && ((appliance.power >= 300 && appliance.amount === 0) || appliance.power < 300)
           ? { ...appliance, amount: appliance.amount + 1 }
           : appliance
       )
@@ -144,11 +144,12 @@ const Step1 = ({
         <span style={{ color: "var(--color3)" }}> LOAD </span>SIZING
       </h1>
       <div className="flexcolumn section-1">
-        <h3>
+        <h2>
           What would you say is the size of your house?{" "}
           <Tooltip
             arrow="true"
             position="right"
+            
             html={
               <p style={{ fontFamily: "rubik", margin: "0.1em" }}>
                 Pick an option that closely resembles the size of house.
@@ -157,7 +158,7 @@ const Step1 = ({
           >
             <IoIosInformationCircleOutline />
           </Tooltip>
-        </h3>
+        </h2>
         <div className="flexrow preset">
           <div onClick={() => handlePreset(0)}>
             <Preset
@@ -189,7 +190,7 @@ const Step1 = ({
         </div>
       </div>
       <div className="section-1">
-        <h3>What appliances do you have?</h3>
+        <h2>What appliances do you have?</h2>
         <div className="flexrow appliances">
           {appliances.map((data, i) => (
             <ApplianceCard
