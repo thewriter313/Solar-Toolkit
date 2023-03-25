@@ -4,9 +4,8 @@ import GoToTop from "../GoToTop";
 import Clouds from "../../Assets/clouds.png";
 import CloudsInv from "../../Assets/cloudsInv.png";
 import Sun from "../../Assets/sun.png";
-import Coins from "../../Assets/coins.png";
-import CoinsInv from "../../Assets/coinsInv.png";
-import Clock from "../../Assets/clock.png";
+import reliable from "../../Assets/reliable.png";
+import savings from "../../Assets/savings.png";
 import GridTied from "../../Assets/Grid-tied.png";
 import OffGrid from "../../Assets/Offgrid-System.png";
 import PlainHouse from "../../Assets/House.png";
@@ -17,7 +16,7 @@ import Large from "../../Assets/large.png";
 import Medium from "../../Assets/rural.png";
 import Small from "../../Assets/small.png";
 import Battery from "../../Assets/Battery.jpg";
-import ThinFilm from "../../Assets/thinfilm.png";
+import Monocrystalline from "../../Assets/monocrystalline.png";
 import Polycrystalline from "../../Assets/polycrystalline.png";
 import Monocrystalline from "../../Assets/monocrystalline.png";
 
@@ -35,7 +34,7 @@ const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
     return (
         <form id="step2form" className="qnContainer" onSubmit={() => setStep(3)}>
             <h1>
-                STEP 2: <span style={{ color: "var(--color3)" }}>DESIGN </span>QUESTIONS
+                Step 2: <span style={{ color: "var(--color3)" }}>Design </span>Questions
             </h1>
             {/* 1st Row */}
             <div className="flexrow qnrow">
@@ -105,27 +104,18 @@ const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
                                 opacity: `${(100 / 3) * qnDetails.cost}%`,
                                 transition: "1s",
                             }}
-                            src={Coins}
-                            className="leftcoins"
-                            alt="coins"
+                            src={reliable}
+                            className="reliable"
+                            alt="reliable"
                         />
                         <img
                             style={{
                                 opacity: `${(-100 / 3) * qnDetails.cost + 100}%`,
                                 transition: "1s",
                             }}
-                            src={Clock}
-                            alt="clock"
-                            className="clock"
-                        />
-                        <img
-                            style={{
-                                opacity: `${(100 / 3) * qnDetails.cost}%`,
-                                transition: "1s",
-                            }}
-                            src={CoinsInv}
-                            className="rightcoins"
-                            alt="coins"
+                            src={savings}
+                            alt="savings"
+                            className="savings"
                         />
                     </div>
                 </div>

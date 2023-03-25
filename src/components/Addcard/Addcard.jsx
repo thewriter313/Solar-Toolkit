@@ -4,17 +4,15 @@ import watch from "../../Assets/wristwatch.png";
 import questionMark from "../../Assets/questionmark.png";
 import {
   IoIosAddCircle,
-  // IoIosInformationCircle,
   IoMdClose,
 } from "react-icons/io";
-// import { Tooltip } from "react-tippy";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from 'react-router-dom'
 
 Aos.init({ duration: 500 });
 
-const Addcard = (appliances) => {
+const Addcard = (props) => {
   const [popUp, setPopUp] = useState(false);
   const [name, setName] = useState("");
   const [power, setPower] = useState(0);
@@ -23,9 +21,8 @@ const Addcard = (appliances) => {
 
   //adding an appliance in table
   const handleAdd = () => {
-    const applianceNumber = Number(appliances.appliances.length) + 2;
-
-    appliances.setAppliances((appliances) => {
+    const applianceNumber = Number(props.appliances.length) + 2;
+    props.setAppliances((appliances) => {
       return [
         ...appliances,
         {
@@ -33,7 +30,7 @@ const Addcard = (appliances) => {
           name: name,
           power: power,
           hours: hours,
-          amount: amount,
+          amount: parseInt(amount),
           img: questionMark,
         },
       ];
@@ -42,7 +39,6 @@ const Addcard = (appliances) => {
     setPower(0);
     setHours(0);
     setAmount(0);
-
     setPopUp(false);
   };
 
@@ -94,6 +90,7 @@ const Addcard = (appliances) => {
                   <input
                     type="number"
                     name="power"
+                    min={0}
                     value={power}
                     onChange={(e) => setPower(e.target.value)}
                     disabled={!name}
@@ -125,9 +122,9 @@ const Addcard = (appliances) => {
               <button
                 className="btn1"
                 disabled={
-                  amount === 0 || hours === 0 || power === 0 || name === "" || amount < 0 || hours < 0 || power < 0
+                  (amount === 0 || hours === 0 || power === 0 || name === "" || amount < 0 || hours < 0 || power < 0) || (power > 1000 && amount > 1) ||(power > 1000 && hours > 1)
                 }
-                onClick={() => handleAdd()}
+                onClick={() => {handleAdd(); props.added()}}
               >
                 Add
               </button>
