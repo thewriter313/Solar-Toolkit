@@ -37,7 +37,7 @@ const FaqData = [
           }}
         >
           <li>
-            <strong>Offers Safety - </strong>The conventional series string of
+            Offers Safety - The conventional series string of
             DC Solar panels has the disadvantage of creating a hightemperature
             arc when handling high DC voltage, which may lead to a fire. On the
             other hand, microinverters convert current to 240V AC, thus avoiding
@@ -45,7 +45,7 @@ const FaqData = [
           </li>
           <br />
           <li>
-            <strong>Shading - </strong>if either one of the Solar panels in a
+            Shading - if either one of the Solar panels in a
             conventional DC panel string is shaded, it affects the rest of the
             array. Shading of the panels can be caused by dust, leaves etc. On
             the other hand, if an AC Solar panel in an array is shaded, it does
@@ -54,7 +54,7 @@ const FaqData = [
           </li>
           <br />
           <li>
-            <strong>Monitoring and fault finding - </strong>Micro-Inverters
+            Monitoring and fault finding - Micro-Inverters
             found in AC Solar panels come with inbuilt monitoring ability, which
             is useful when the output derived is not at the expected level.
             Unlike a string inverter which monitors the combined output of all
@@ -63,7 +63,7 @@ const FaqData = [
           </li>
           <br />
           <li>
-            <strong>Redundancy - </strong>If any of the Solar panels in a DC
+            Redundancy - If any of the Solar panels in a DC
             string develops a problem, the whole array will fail to produce
             power until the problem is identified and fixed. However, if a
             microinverter develops a problem, the rest of the AC Solar panels
@@ -71,7 +71,7 @@ const FaqData = [
           </li>
           <br />
           <li>
-            <strong>Modularity - </strong>A string inverter can only accommodate
+            Modularity - A string inverter can only accommodate
             a certain number of Solar panels. If more panels are required in the
             future, another string inverter will be need to be purchased. As
             stated previously,since micro inverters do not use a separate string
@@ -80,7 +80,7 @@ const FaqData = [
           </li>
           <br />
           <li>
-            <strong>Orientation - </strong>Panels in the conventional string
+            Orientation - Panels in the conventional string
             inverter need to provide the same voltage simultaneously for the
             string inverter to produce AC power efficiently. String panels will
             produce the current of the least producing panel hence
@@ -104,26 +104,26 @@ const FaqData = [
         }}
       >
         <li>
-          <strong>Efficiency - </strong>Currently in the market the
+          Efficiency - Currently in the market the
           microinverters of all the panels combine does not reach the same AC
           conversion value as compared that of a string inverter.
         </li>
         <br />
         <li>
-          <strong>High initial Cost - </strong>Installing AC Solar panels makes
+          High initial Cost - Installing AC Solar panels makes
           the whole Solar system cost about 25-30% more than a Solar system in
           which only one string inverter is used{" "}
         </li>
         <br />
         <li>
-          <strong>High Replacement Cost - </strong>It is more challenging to
+          High Replacement Cost - It is more challenging to
           replace microinverters since they are located below the panels on the
           roof of the house. This is different from a string inverter that is
           inside the household.
         </li>
         <br />
         <li>
-          <strong>Risk of Damage - </strong>Since the microinverters are located
+          Risk of Damage - Since the microinverters are located
           on the roof of the house, they are commonly exposed to environmental
           elements such as rain and dust, making them more susceptible than
           string inverters located inside the house

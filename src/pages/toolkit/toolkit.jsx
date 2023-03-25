@@ -43,8 +43,8 @@ const Toolkit = () => {
     { id: 9, name: "Fan", power: 60, hours: 8, amount: 0, img: fan},
     { id: 10, name: "Water Pump", power: 377, hours: 2, amount: 0, img: pump},
     { id: 11, name: "Washing Machine", power: 1000, hours: 1, amount: 0, img: washing},
-    { id: 12, name: "Electric Ironbox", power: 1000, hours: 0.1, amount: 0, img: ironbox},
-    { id: 13, name: "Electric Stove", power: 1000, hours: 0.1, amount: 0, img: cooker},
+    { id: 12, name: "Electric Ironbox", power: 1000, hours: 1, amount: 0, img: ironbox},
+    { id: 13, name: "Electric Stove", power: 1000, hours: 1, amount: 0, img: cooker},
   ]);
 
   useEffect(() => {
@@ -187,6 +187,7 @@ const Toolkit = () => {
                     preset3={preset3}
                     setPreset3={setPreset3}
                     deleteAppliance={deleteAppliance}
+                    sleep={sleep}
                   />
                   <div className="flexrow button-class">
                     <button
