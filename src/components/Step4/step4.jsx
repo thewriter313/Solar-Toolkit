@@ -6,11 +6,12 @@ import Summarycard from "./Summarycard";
 import battery from "../../Assets/battery.png";
 import Thinfilm from "../../Assets/thinfilm.png";
 import Polycrystalline from "../../Assets/polycrystalline.png";
+import Monocrystalline from "../../Assets/monocrystalline.png";
 import inverter from "../../Assets/Inverter.png";
 import chargeController from "../../Assets/ChargeController2.png";
 import PDFFile from "../PDFFile";
 
-const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, countyData }) => {
+const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, countyData, catalogueData }) => {
     // Total Energy
     const totalEnergy = appliances.reduce(
         (sum, item) => sum + item.power * parseInt(item.amount) * item.hours,
@@ -29,30 +30,68 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
         0
     );
 
-    const panelImage = qnDetails.appeal === "yesappeal" ? Thinfilm : Polycrystalline;
+    // console.log(catalogueData);
+
+    const solarPanelsArray = catalogueData.filter(row => row[1] === 'Solar Panel');
+    const inverterArray = catalogueData.filter(row => row[1] === 'Inverter');
+    const batteryArray = catalogueData.filter(row => row[1] === 'Battery');
+    const chargeControllerArray = catalogueData.filter(row => row[1] === 'Charge Controller');
+
+
+    console.log(solarPanelsArray);
+    console.log(inverterArray);
+    console.log(batteryArray);
+    console.log(chargeControllerArray);
+
+
+    const panelImage =
+        contactDetails.country !== "Kenya"
+            ? qnDetails.appeal === "yesappeal"
+                ? Thinfilm
+                : qnDetails.appeal === "bothappeal"
+                ? Monocrystalline
+                : Polycrystalline
+            : qnDetails.appeal === "yesappeal"
+            ? Monocrystalline
+            : qnDetails.appeal === "bothappeal"
+            ? Monocrystalline
+            : Polycrystalline;
 
     // Equipment Type
     const paneltype =
-        qnDetails.appeal === "yesappeal"
-            ? "Thin Film"
-            : qnDetails.appeal === "noappeal"
-            ? "Polycrystalline"
-            : "Monocrystalline";
+        contactDetails.country !== "Kenya"
+            ? qnDetails.appeal === "yesappeal"
+                ? "Thin Film"
+                : qnDetails.appeal === "bothappeal"
+                ? "Monocrystalline"
+                : "Polycrystalline"
+            : qnDetails.appeal === "yesappeal"
+            ? "Monocrystalline"
+            : qnDetails.appeal === "bothappeal"
+            ? "Monocrystalline"
+            : "Polycrystalline";
     const batteryType =
-        qnDetails.batteryspace === "nobatteryspace" &&
-        (qnDetails.cost > 2)
-            ? "Lithium Ion Battery"
-            : "Lead Acid Battery";
+            qnDetails.batteryspace === "nobatteryspace" && qnDetails.cost > 2
+                ? "Lithium Ion Battery"
+                : "Lead Acid Battery"
     const inverterType =
-        qnDetails.shade === "yesshade" || qnDetails.expand === "likely"
+        contactDetails.country !== "Kenya"
+        ? qnDetails.shade === "yesshade" || qnDetails.expand === "likely"
             ? "Micro Inverter"
             : qnDetails.cost >= 1.5
             ? "Micro Inverter"
-            : "String Inverter";
+            : "String Inverter"
+            : qnDetails.shade === "yesshade" || qnDetails.expand === "likely"
+            ? "String Inverter"
+            : qnDetails.cost >= 1.5
+            ? "String Inverter"
+            : "String Inverter"
     const chargeControllerType =
-        qnDetails.cost < 1.5
+        contactDetails.country !== "Kenya"
+        ? qnDetails.cost < 1.5
             ? "Pulse Width Modulation (PWM)"
-            : "Maximum Power Point Tracking (MPPT)";
+            : "Maximum Power Point Tracking (MPPT)"
+            : "Maximum Power Point Tracking (MPPT)"
 
     const [propertyValues, setpropertyValues] = useState({
         batteryVoltageValue: 12,
@@ -61,7 +100,7 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
 
     // Find PSH for given County
     const nameToFind = contactDetails.county;
-    const matchingArr = countyData.find(arr => arr[0] === nameToFind);
+    const matchingArr = countyData.find((arr) => arr[0] === nameToFind);
     const PSH = matchingArr ? matchingArr[1] : null;
 
     // Property Values
@@ -155,38 +194,40 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
         },
     ];
 
-    const myDoc = useMemo(() => (
-        <Suspense fallback={<div>Loading PDF...</div>}>
-        <PDFFile
-          contactDetails={contactDetails}
-          singlePanelvoltage={singlePanelvoltage}
-          singlePanelWatt={singlePanelWatt}
-          panelNumbersUpdated={panelNumbersUpdated}
-          batteryVoltageValue={propertyValues.batteryVoltageValue}
-          batteryCapacity={batteryCapacity}
-          batteryNumbers={batteryNumbers}
-          inverterWattage={inverterWattage}
-          systemVoltage={systemVoltage}
-          chargeControllerSize={chargeControllerSize}
-        />
-        </Suspense>
-      ), [
-        contactDetails,
-        singlePanelvoltage,
-        singlePanelWatt,
-        panelNumbersUpdated,
-        propertyValues.batteryVoltageValue,
-        batteryCapacity,
-        batteryNumbers,
-        inverterWattage,
-        systemVoltage,
-        chargeControllerSize,
-      ]);
-      
-      useEffect(() => {
+    const myDoc = useMemo(
+        () => (
+            <Suspense fallback={<div>Loading PDF...</div>}>
+                <PDFFile
+                    contactDetails={contactDetails}
+                    singlePanelvoltage={singlePanelvoltage}
+                    singlePanelWatt={singlePanelWatt}
+                    panelNumbersUpdated={panelNumbersUpdated}
+                    batteryVoltageValue={propertyValues.batteryVoltageValue}
+                    batteryCapacity={batteryCapacity}
+                    batteryNumbers={batteryNumbers}
+                    inverterWattage={inverterWattage}
+                    systemVoltage={systemVoltage}
+                    chargeControllerSize={chargeControllerSize}
+                />
+            </Suspense>
+        ),
+        [
+            contactDetails,
+            singlePanelvoltage,
+            singlePanelWatt,
+            panelNumbersUpdated,
+            propertyValues.batteryVoltageValue,
+            batteryCapacity,
+            batteryNumbers,
+            inverterWattage,
+            systemVoltage,
+            chargeControllerSize,
+        ]
+    );
+
+    useEffect(() => {
         getFromChild(myDoc);
-      }, [myDoc, getFromChild]);
-      
+    }, [myDoc, getFromChild]);
 
     return (
         <div className="flexrow step4equipment">
