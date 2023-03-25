@@ -9,6 +9,7 @@ import ApplianceCard from "../ApplianceCard";
 import { Tooltip } from "react-tippy";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import Addcard from "../Addcard/Addcard";
+import { toast } from 'react-toastify';
 
 const Step1 = ({
   appliances,
@@ -20,22 +21,49 @@ const Step1 = ({
   setPreset2,
   setPreset3,
   deleteAppliance,
+  sleep,
 }) => {
-
-  //check if inductive load
-  // const [inductiveLoad, setInductiveLoad] = React.useState(false);
 
   //increasing amount on click
   const incrementAmount = (id) => {
     setAppliances((appliances) =>
       appliances.map((appliance) =>
-        appliance.id === id && ((appliance.power >= 300 && appliance.amount === 0) || appliance.power < 300)
+        appliance.id === id && ((appliance.power >= 500 && appliance.amount === 0) || appliance.power < 500)
           ? { ...appliance, amount: appliance.amount + 1 }
           : appliance
       )
+      
      
     );
+    appliances.map((appliance) =>
+      appliance.id === id && ((appliance.power >= 500 && appliance.amount === 1))
+        ? notify(<center>You can not add more than 1 inductive load</center>,'inductive'): appliance
+    )
+  
   };
+
+  const added = () => {
+    console.log('added')
+    notify('Appliance added successfully','success')
+  }
+
+  const toastStyle ={
+    toastId: '1',
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    }
+
+  const notify = async(message,type) => {
+    (type === 'inductive' ? toast.warning(message,toastStyle) : toast.success(message,toastStyle));
+    await sleep(2000);
+  }
+
+
 
   //decreasing amount on click
   const decrementAmount = (id) => {
@@ -70,7 +98,17 @@ const Step1 = ({
           ? { ...obj, amount: 1 }
           : obj.name === "WiFi-Router"
           ? { ...obj, amount: 1 }
-          : obj
+          : obj.name === "Fan"
+          ? { ...obj, amount: 1 }
+          : obj.name === "Water Pump"
+          ? { ...obj, amount: 1 }
+          : obj.name === "Washing Machine"
+          ? { ...obj, amount: 1 }
+          : obj.name === "Electric Ironbox"
+          ? { ...obj, amount: 1 }
+          : obj.name === "Electric Stove"
+          ? { ...obj, amount: 0 }
+          :obj
       );
 
       setAppliances(updatedArray);
@@ -98,7 +136,17 @@ const Step1 = ({
           ? { ...obj, amount: 3 }
           : obj.name === "WiFi-Router"
           ? { ...obj, amount: 1 }
-          : obj
+          : obj.name === "Fan"
+          ? { ...obj, amount: 2 }
+          : obj.name === "Water Pump"
+          ? { ...obj, amount: 1 }
+          : obj.name === "Washing Machine"
+          ? { ...obj, amount: 1 }
+          : obj.name === "Electric Ironbox"
+          ? { ...obj, amount: 1 }
+          : obj.name === "Electric Stove"
+          ? { ...obj, amount: 1 }
+          :obj
       );
 
       setAppliances(updatedArray);
@@ -126,7 +174,17 @@ const Step1 = ({
           ? { ...obj, amount: 0 }
           : obj.name === "WiFi-Router"
           ? { ...obj, amount: 0 }
-          : obj
+          : obj.name === "Fan"
+          ? { ...obj, amount: 0 }
+          : obj.name === "Water Pump"
+          ? { ...obj, amount: 0 }
+          : obj.name === "Washing Machine"
+          ? { ...obj, amount: 0 }
+          : obj.name === "Electric Ironbox"
+          ? { ...obj, amount: 1 }
+          : obj.name === "Electric Stove"
+          ? { ...obj, amount: 0 }
+          :obj
       );
 
       setAppliances(updatedArray);
@@ -140,8 +198,8 @@ const Step1 = ({
   return (
     <div className="flexcolumn container-step1">
       <h1>
-        STEP 1:
-        <span style={{ color: "var(--color3)" }}> LOAD </span>SIZING
+        Step 1:
+        <span style={{ color: "var(--color3)" }}> Load </span>Sizing
       </h1>
       <div className="flexcolumn section-1">
         <h2>
@@ -205,7 +263,7 @@ const Step1 = ({
               deleteAppliance={deleteAppliance}
             />
           ))}
-          <Addcard appliances={appliances} setAppliances={setAppliances} />
+          <Addcard appliances={appliances} setAppliances={setAppliances} notify={notify} added={added}/>
         </div>
       </div>
 

@@ -80,18 +80,14 @@
     width: 200px;
     opacity: 90%;
 }
-.clock {
-    width: 160px;
+.savings {
+    width: 200px;
+     transform: translateX(-100px);
     z-index: 1;
 }
-.rightcoins {
-    width: 150px;
-    opacity: 10%;
-    transform: translateX(-50px);
-    z-index: 0;
-}
-.leftcoins {
-    width: 150px;
+
+.reliable {
+    width: 200px;
     opacity: 10%;
     transform: translateX(50px);
     z-index: 0;
@@ -172,13 +168,10 @@
     .rightcoins {
         display: none;
     }
-    .leftcoins {
+    .reliable {
         transform: translateX(100px);
     }
-    .clock {
-        transform: translateX(-60px);
-    }
-
+    
     .qnrow:nth-of-type(even) {
       background-color: var(--color2);
       color: var(--color1);
