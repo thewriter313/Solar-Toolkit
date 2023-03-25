@@ -19,7 +19,6 @@ const Form = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(values);
     setValues({
       name: "",
       email: "",
