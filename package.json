@@ -1,5 +1,4 @@
 {
-  "homepage": "https://thewriter313.github.io/solar-toolkit",
   "name": "solar-toolkit",
   "version": "0.1.0",
   "private": true,
@@ -25,12 +24,9 @@
     "react-select-country-list": "^2.2.3",
     "react-tippy": "^1.4.0",
     "react-toastify": "^9.1.1",
-    "typewriter-effect": "^2.19.0",
-    "web-vitals": "^2.1.4"
+    "typewriter-effect": "^2.19.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -53,8 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^5.0.0"
   }
 }
