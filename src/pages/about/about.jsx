@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import "./about.css";
 import Form from "../../components/Form";
 import GoToTop from "../../components/GoToTop";
-// import umair from "../../Assets/umair.png";
+import umair from "../../Assets/umair.png";
 import thomas from "../../Assets/default.png";
-// import areeb from "../../Assets/areeb.png";
+import areeb from "../../Assets/areeb.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { IoMdQuote } from "react-icons/io";
@@ -51,7 +51,7 @@ const About = () => {
                 <div
                     data-aos="fade-up"
                     className="about-section-left flexcolumn">
-                    <img src={thomas} alt="areeb" />
+                    <img src={umair} alt="areeb" />
                 </div>
             </div>
 
@@ -62,7 +62,7 @@ const About = () => {
                 <div
                     data-aos="fade-up"
                     className="about-section-right flexcolumn">
-                    <img src={thomas} alt="umair" />
+                    <img src={areeb} alt="umair" />
                 </div>
                 <div
                     data-aos="fade-up"
