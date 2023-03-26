@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/solar-toolkit/static/css/main.bab1b539.css",
-    "main.js": "/solar-toolkit/static/js/main.fa96de9c.js",
+    "main.js": "/solar-toolkit/static/js/main.dcb9e537.js",
     "static/media/umair.png": "/solar-toolkit/static/media/umair.1be796a5e93140cc7b95.png",
     "static/media/Battery.jpg": "/solar-toolkit/static/media/Battery.c1be6d7e05279b764d8d.jpg",
     "static/media/areeb.png": "/solar-toolkit/static/media/areeb.8812be8208e19df2d365.png",
@@ -50,10 +50,10 @@
     "index.html": "/solar-toolkit/index.html",
     "static/media/counties.csv": "/solar-toolkit/static/media/counties.daa783e6b3a7933cfc9d.csv",
     "main.bab1b539.css.map": "/solar-toolkit/static/css/main.bab1b539.css.map",
-    "main.fa96de9c.js.map": "/solar-toolkit/static/js/main.fa96de9c.js.map"
+    "main.dcb9e537.js.map": "/solar-toolkit/static/js/main.dcb9e537.js.map"
   },
   "entrypoints": [
     "static/css/main.bab1b539.css",
-    "static/js/main.fa96de9c.js"
+    "static/js/main.dcb9e537.js"
   ]
 }
