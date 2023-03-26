@@ -18,7 +18,7 @@ import Small from "../../Assets/small.png";
 import Battery from "../../Assets/Battery.jpg";
 import Monocrystalline from "../../Assets/monocrystalline.png";
 import Polycrystalline from "../../Assets/polycrystalline.png";
-import Monocrystalline from "../../Assets/monocrystalline.png";
+import ThinFilm from "../../Assets/thinfilm.png";
 
 const qnCostOptions = ["Cheapest", "Cheap", "Reliable", "Very Reliable"];
 
