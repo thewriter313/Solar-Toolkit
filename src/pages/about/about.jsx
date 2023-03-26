@@ -74,7 +74,7 @@ const About = () => {
                         <div>
                             <h1 className="introHead">Hello</h1>
                             <p>
-                                I'm Umair A. Malik, a 23-year-old <span style={{color: "var(--color3)"}}>Mechanical
+                                I'm Areeb Ahmed, a 23-year-old <span style={{color: "var(--color3)"}}>Mechanical
                                 Engineering</span> student at the University of Nairobi.
                                 In my final year of study, I have worked on this solar
                                 home system sizing toolkit to help homeowners
