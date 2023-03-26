@@ -24,6 +24,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Papa from "papaparse";
 import counties from "../../Data/counties.csv";
+import catalogue from "../../Data/catalogue.csv"
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -99,6 +100,21 @@ const Toolkit = () => {
           });
       };
       fetchCountyData();
+  }, []);
+
+  const [catalogueData, setCatalogueData] = useState();
+
+  useEffect(() => {
+    const fetchCatalogueData = async () => {
+        Papa.parse(catalogue, {
+            download: true,
+            delimiter: ",",
+            complete: (result) => {
+                setCatalogueData(result.data);
+            },
+        });
+    };
+    fetchCatalogueData();
   }, []);
 
   const [myDoc, setData] = useState()
@@ -248,6 +264,7 @@ const Toolkit = () => {
                     qnDetails={qnDetails}
                     getFromChild={getFromChild}
                     countyData={countyData}
+                    catalogueData={catalogueData}
                   />
                   <div className="flexrow button-class">
                   <button className="btn1" onClick={() => setStep(3)}>

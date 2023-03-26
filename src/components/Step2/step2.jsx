@@ -18,6 +18,7 @@ import Small from "../../Assets/small.png";
 import Battery from "../../Assets/Battery.jpg";
 import Monocrystalline from "../../Assets/monocrystalline.png";
 import Polycrystalline from "../../Assets/polycrystalline.png";
+import ThinFilm from "../../Assets/thinfilm.png";
 
 const qnCostOptions = ["Cheapest", "Cheap", "Reliable", "Very Reliable"];
 
@@ -315,8 +316,10 @@ const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
                             className="optionImage"
                             src={
                                 `${qnDetails.appeal}` === "yesappeal"
-                                    ? Polycrystalline
-                                    : Monocrystalline
+                                    ? ThinFilm
+                                    : `${qnDetails.appeal}` === "bothappeal"
+                                    ? Monocrystalline
+                                    : Polycrystalline
                             }
                             alt="GridImage"
                         />
@@ -334,6 +337,7 @@ const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
                         className="qnleftSelect"
                         onChange={handleChange}>
                         <option value="yesappeal">Yes</option>
+                        <option value="bothappeal">Both</option>
                         <option value="noappeal">No</option>
                     </select>
                     
