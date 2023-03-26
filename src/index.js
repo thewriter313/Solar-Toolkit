@@ -10,7 +10,7 @@ import Catalogue from "./pages/catalogue/catalogue";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/Solar-Toolkit">
+    <BrowserRouter>
       <Routes>
           <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
