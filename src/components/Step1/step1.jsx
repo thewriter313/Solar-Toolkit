@@ -99,13 +99,13 @@ const Step1 = ({
           : obj.name === "WiFi-Router"
           ? { ...obj, amount: 1 }
           : obj.name === "Fan"
-          ? { ...obj, amount: 1 }
+          ? { ...obj, amount: 0 }
           : obj.name === "Water Pump"
-          ? { ...obj, amount: 1 }
+          ? { ...obj, amount: 0 }
           : obj.name === "Washing Machine"
-          ? { ...obj, amount: 1 }
+          ? { ...obj, amount: 0 }
           : obj.name === "Electric Ironbox"
-          ? { ...obj, amount: 1 }
+          ? { ...obj, amount: 0 }
           : obj.name === "Electric Stove"
           ? { ...obj, amount: 0 }
           :obj
@@ -139,13 +139,13 @@ const Step1 = ({
           : obj.name === "Fan"
           ? { ...obj, amount: 2 }
           : obj.name === "Water Pump"
-          ? { ...obj, amount: 1 }
+          ? { ...obj, amount: 0 }
           : obj.name === "Washing Machine"
-          ? { ...obj, amount: 1 }
+          ? { ...obj, amount: 0 }
           : obj.name === "Electric Ironbox"
           ? { ...obj, amount: 1 }
           : obj.name === "Electric Stove"
-          ? { ...obj, amount: 1 }
+          ? { ...obj, amount: 0 }
           :obj
       );
 
