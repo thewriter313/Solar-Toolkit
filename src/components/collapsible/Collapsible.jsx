@@ -12,10 +12,6 @@ const Collapsible = (props) => {
 
   const parentRef = useRef();
 
-  if (parentRef.current) console.log(parentRef);
-
-
-
   return (
     <div className="collapsible-body">
         <div  onClick={toggle} className='flexrow collapsible-head'>

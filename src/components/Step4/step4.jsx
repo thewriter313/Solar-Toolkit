@@ -140,7 +140,7 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
     // Charge Controller Sizing
     const shortCircuitCurrent = parseInt(selectedPanel[7]); // Get from Catologue
     
-    const panelWattageUpdated = panelNumbersUpdated * singlePanelWatt;
+    // const panelWattageUpdated = panelNumbersUpdated * singlePanelWatt;
     const chargeControllerSize =
         chargeControllerType === "Pulse Width Modulation (PWM)"
             ? Math.ceil(shortCircuitCurrent * panelParallel * 1.25)

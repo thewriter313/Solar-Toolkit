@@ -29,6 +29,7 @@ const ApplianceCard = (props) => {
             <div style={{fontFamily:'rubik', fontSize:'0.8em', textAlign:'left'}}>
               <p style={{margin:'0'}} >Power: {props.data.power} W</p>
               <p style={{margin:'0'}} >Hours Utilized Daily: {props.data.hours} hours</p>
+              <p style={{margin:'0'}} >Load Type: {props.data.loadType} load</p>
             </div>
           )}
           >
