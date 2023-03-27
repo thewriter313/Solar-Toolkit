@@ -26,20 +26,24 @@ const Step1 = ({
 
   //increasing amount on click
   const incrementAmount = (id) => {
+    const inductiveLoads = appliances.reduce((sum, item) => sum + parseInt(item.power >500 ? item.amount:0), 1)
     setAppliances((appliances) =>
       appliances.map((appliance) =>
-        appliance.id === id && ((appliance.power >= 500 && appliance.amount === 0) || appliance.power < 500)
+        appliance.id === id && (
+        (appliance.power >= 500 && appliance.amount === 0 && (inductiveLoads <= 2)) 
+        || appliance.power < 500 )
           ? { ...appliance, amount: appliance.amount + 1 }
           : appliance
       )
-      
-     
     );
     appliances.map((appliance) =>
       appliance.id === id && ((appliance.power >= 500 && appliance.amount === 1))
-        ? notify(<center>You can not add more than 1 inductive load</center>,'inductive'): appliance
+        ? notify(<center>You cannot add more than 1 for each type of inductive load</center>,'warning'): appliance
     )
-  
+    appliances.map((appliance) =>
+      appliance.id === id && ((appliance.power >= 500 && (inductiveLoads === 2) && appliance.amount === 0))
+        ? notify(<center>You cannot run more than 2 inductive loads simultaneously</center>,'warning'): appliance
+    )
   };
 
   const added = () => {
@@ -59,11 +63,9 @@ const Step1 = ({
     }
 
   const notify = async(message,type) => {
-    (type === 'inductive' ? toast.warning(message,toastStyle) : toast.success(message,toastStyle));
+    (type === 'warning' ? toast.warning(message,toastStyle) : toast.success(message,toastStyle));
     await sleep(2000);
   }
-
-
 
   //decreasing amount on click
   const decrementAmount = (id) => {
@@ -263,7 +265,7 @@ const Step1 = ({
               deleteAppliance={deleteAppliance}
             />
           ))}
-          <Addcard appliances={appliances} setAppliances={setAppliances} notify={notify} added={added}/>
+          <Addcard appliances={appliances} setAppliances={setAppliances} notify={notify} added={added} />
         </div>
       </div>
 

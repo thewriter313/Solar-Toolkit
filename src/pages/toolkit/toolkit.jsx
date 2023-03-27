@@ -43,19 +43,19 @@ const Toolkit = () => {
   const [step, setStep] = useState(1);
 
   const [appliances, setAppliances] = useState([
-    { id: 1, name: "Lightbulb", power: 13, hours: 5, amount: 0, img: bulb },
-    { id: 2, name: "Tubelight", power: 40, hours: 5, amount: 0, img: tubelight },
-    { id: 3, name: "TV", power: 150, hours: 8, amount: 0, img: TV },
-    { id: 4, name: "Fridge", power: 350, hours: 15, amount: 0, img: fridgeimg },
-    { id: 5, name: "Phone", power: 6, hours: 2, amount: 0, img: phoneImg },
-    { id: 6, name: "Microwave", power: 1000, hours: 0.1,  amount: 0, img: microwaveimg},
-    { id: 7, name: "Laptop", power: 50, hours: 10, amount: 0, img: laptopImg },
-    { id: 8, name: "WiFi-Router", power: 1.9, hours: 24, amount: 0, img: router },
-    { id: 9, name: "Fan", power: 60, hours: 8, amount: 0, img: fan},
-    { id: 10, name: "Water Pump", power: 377, hours: 2, amount: 0, img: pump},
-    { id: 11, name: "Washing Machine", power: 1000, hours: 1, amount: 0, img: washing},
-    { id: 12, name: "Electric Ironbox", power: 1000, hours: 1, amount: 0, img: ironbox},
-    { id: 13, name: "Electric Stove", power: 1000, hours: 1, amount: 0, img: cooker},
+    { id: 1, name: "Lightbulb", power: 13, hours: 5, amount: 0, img: bulb,loadType: 'Resistive'},
+    { id: 2, name: "Tubelight", power: 40, hours: 5, amount: 0, img: tubelight, loadType: 'Resistive'},
+    { id: 3, name: "TV", power: 150, hours: 8, amount: 0, img: TV, loadType: 'Resistive'},
+    { id: 4, name: "Fridge", power: 350, hours: 15, amount: 0, img: fridgeimg, loadType: 'Reactive' },
+    { id: 5, name: "Phone", power: 6, hours: 2, amount: 0, img: phoneImg, loadType: 'Resistive' },
+    { id: 6, name: "Microwave", power: 1000, hours: 0.1,  amount: 0, img: microwaveimg, loadType: 'Inductive'},
+    { id: 7, name: "Laptop", power: 50, hours: 10, amount: 0, img: laptopImg, loadType: 'Resistive'},
+    { id: 8, name: "WiFi-Router", power: 1.9, hours: 24, amount: 0, img: router, loadType: 'Resistive' },
+    { id: 9, name: "Fan", power: 60, hours: 8, amount: 0, img: fan, loadType: 'Resistive'},
+    { id: 10, name: "Water Pump", power: 377, hours: 2, amount: 0, img: pump, loadType: 'Reactive'},
+    { id: 11, name: "Washing Machine", power: 1000, hours: 1, amount: 0, img: washing, loadType: 'Inductive'},
+    { id: 12, name: "Electric Ironbox", power: 1000, hours: 0.5, amount: 0, img: ironbox, loadType: 'Inductive'},
+    { id: 13, name: "Electric Stove", power: 1000, hours: 1, amount: 0, img: cooker, loadType: 'Inductive'},
   ]);
 
   useEffect(() => {
