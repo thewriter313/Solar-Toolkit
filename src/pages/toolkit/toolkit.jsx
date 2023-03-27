@@ -12,7 +12,7 @@ import microwaveimg from "../../Assets/microwaveimg.png";
 import fridgeimg from "../../Assets/fridgeimg.png";
 import laptopImg from "../../Assets/laptopImg.png";
 import router from "../../Assets/Router.png";
-import tubelight from "../../Assets/tubelight.png";
+import tubelight from "../../Assets/tubelight.webp";
 import washing from "../../Assets/washing.png";
 import TV from "../../Assets/TV.png";
 import pump from "../../Assets/pump.png";
@@ -28,8 +28,18 @@ import catalogue from "../../Data/catalogue.csv"
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useFormspark } from "@formspark/use-formspark";
 
 const Toolkit = () => {
+
+  const [step2Submit, step2Submitting] = useFormspark({
+    formId: 'JVOsrTlL',
+  });
+
+  const [step3Submit, step3Submitting] = useFormspark({
+    formId: 'Se6EgXIK',
+  });
+
   const [step, setStep] = useState(1);
 
   const [appliances, setAppliances] = useState([
@@ -209,7 +219,7 @@ const Toolkit = () => {
                     <button
                       disabled={totalItems === 0}
                       className="btn1"
-                      onClick={() => setStep(4)}
+                      onClick={() => setStep(2)}
                     >
                       Next <IoIosArrowForward />
                     </button>
@@ -223,12 +233,13 @@ const Toolkit = () => {
                     setStep={setStep}
                     qnDetails={qnDetails}
                     setqnDetails={setqnDetails}
+                    step2Submit={step2Submit}
                   />
                   <div className="flexrow button-class">
                     <button className="btn1" onClick={() => setStep(1)}>
                       <IoIosArrowBack /> Back
                     </button>
-                    <button className="btn1" form="step2form" >
+                    <button className="btn1" form="step2form" disabled={step2Submitting}>
                       Next <IoIosArrowForward />
                     </button>
                   </div>
@@ -242,12 +253,13 @@ const Toolkit = () => {
                     setStep={setStep}
                     contactDetails={contactDetails}
                     setContactDetails={setContactDetails}
+                    step3Submit={step3Submit}
                   />
                   <div className="flexrow button-class">
                     <button className="btn1" onClick={() => setStep(2)}>
                       <IoIosArrowBack /> Back
                     </button>
-                    <button type="submit" className="btn1" form="step3form">
+                    <button type="submit" className="btn1" form="step3form" disabled={step3Submitting}>
                       Next <IoIosArrowForward />
                     </button>
                   </div>

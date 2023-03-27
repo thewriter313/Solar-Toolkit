@@ -7,17 +7,23 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from "react-phone-number-input";
 
 
-const Step3 = ({ setStep, contactDetails, setContactDetails, countyData }) => {
+const Step3 = ({ setStep, contactDetails, setContactDetails, countyData, step3Submit }) => {
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         setContactDetails((values) => ({ ...values, [name]: value }));
     };
 
+      const handleSubmit = async (event) => {
+        event.preventDefault();
+        await step3Submit({ contactDetails });
+        setStep(4);
+    }
+
     const options = countryList().getData();
 
     return (
-        <form id="step3form" className="flexcolumn step3contactform" onSubmit={()=>setStep(4)} action="/got.php" method="POST">
+        <form id="step3form" className="flexcolumn step3contactform" onSubmit={handleSubmit}>
             <div className="contactHead">
                 <center><h1>
                     Step 3: Computed <span style={{ color: "var(--color3)" }}>Results</span>

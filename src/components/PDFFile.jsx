@@ -131,7 +131,7 @@ const PDFFile = (
               <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Specification</Text></View>
               <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Unit Price (Ksh)</Text></View>
               <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Quantity</Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Total</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Total (Ksh)</Text></View>
             </View>
             <View style={styles.tableRow}>
               <View style={styles.tableCol}><Text style={styles.tableCell}>Solar Panel</Text></View>
