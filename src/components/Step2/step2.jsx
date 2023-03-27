@@ -22,7 +22,8 @@ import ThinFilm from "../../Assets/thinfilm.png";
 
 const qnCostOptions = ["Cheapest", "Cheap", "Reliable", "Very Reliable"];
 
-const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
+const Step2 = ({ setStep, qnDetails, setqnDetails, step2Submit }) => {
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -31,8 +32,14 @@ const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
         });
     };
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        await step2Submit({ qnDetails });
+        setStep(3);
+    }
+
     return (
-        <form id="step2form" className="qnContainer" onSubmit={() => setStep(3)}>
+        <form id="step2form" className="qnContainer" onSubmit={handleSubmit}>
             <h1>
                 Step 2: <span style={{ color: "var(--color3)" }}>Design </span>Questions
             </h1>

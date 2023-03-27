@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import "./form.css";
-// import { useFormspark } from "@formspark/use-formspark";
+import { useFormspark } from "@formspark/use-formspark";
 
 const Form = () => {
   // const FORM_ID = 'DY8qfjiV';
+
+  const [submit, submitting] = useFormspark({
+    formId: 'DY8qfjiV',
+  });
+
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -17,8 +22,10 @@ const Form = () => {
     const value = e.target.value;
     setValues((values) => ({ ...values, [name]: value }));
   };
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    await submit({ values });
     setValues({
       name: "",
       email: "",
@@ -62,7 +69,7 @@ const Form = () => {
           value={values.message}
           onChange={handleChange}
         />
-        <button type="submit" className="submitbtn">
+        <button type="submit" className="submitbtn" disabled={submitting}>
           Submit
         </button>
       </div>

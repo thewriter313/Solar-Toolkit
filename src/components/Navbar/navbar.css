@@ -72,6 +72,9 @@
     color: var(--color3);
     cursor: pointer;
 }
+.navLink.active{
+    color: var(--color3);
+}
 
 .navbar img {
     margin: 10px 0 10px 80px;
@@ -97,4 +100,7 @@
         object-fit: contain;
         margin-left: 3% !important;
     }
+}
+.active {
+    color: var(--color3);
 }
