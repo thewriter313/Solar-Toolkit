@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Courier',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: 15,
+    margin: 10,
     padding: 10,
   },
   heading: {
@@ -93,6 +93,10 @@ const PDFFile = (
     systemVoltage,
     inverterWattage,
     chargeControllerSize,
+    panelPrice,
+    batteryPrice,
+    inverterPrice,
+    controllerPrice,
   }) => (
   <Document>
     <Page size="A4" style={styles.page}>
@@ -125,55 +129,66 @@ const PDFFile = (
             <View style={styles.tableHead}>
               <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Items</Text></View>
               <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Specification</Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Unit Price</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Unit Price (Ksh)</Text></View>
               <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Quantity</Text></View>
               <View style={styles.tableCol}><Text style={styles.tableHeadCell}>Total</Text></View>
             </View>
             <View style={styles.tableRow}>
               <View style={styles.tableCol}><Text style={styles.tableCell}>Solar Panel</Text></View>
               <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${singlePanelvoltage + ' V, ' + singlePanelWatt + ' W'}` )}></Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableCell}>Ksh 2,000</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${panelPrice}`)}></Text></View>
               <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${panelNumbersUpdated}`)}></Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableCell}>Ksh 4,000</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${panelPrice * panelNumbersUpdated}`)}></Text></View>
             </View>
             <View style={styles.tableRow}>
               <View style={styles.tableCol}><Text style={styles.tableCell}>Battery</Text></View>
               <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${batteryVoltageValue + ' V, ' + batteryCapacity + ' Ah'}` )}></Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableCell}>Ksh 10,000</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${batteryPrice}`)}></Text></View>
               <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${batteryNumbers}`)}></Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableCell}>Ksh 10,000</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${batteryPrice * batteryNumbers}`)}></Text></View>
             </View>
             <View style={styles.tableRow}>
               <View style={styles.tableCol}><Text style={styles.tableCell}>Inverter</Text></View>
               <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${systemVoltage + ' V, ' + inverterWattage + ' W'}` )}></Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableCell}>Ksh 10,000</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${inverterPrice}`)}></Text></View>
               <View style={styles.tableCol}><Text style={styles.tableCell}>1</Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableCell}>Ksh 10,000</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${inverterPrice}`)}></Text></View>
             </View>
             <View style={styles.tableRow}>
               <View style={styles.tableCol}><Text style={styles.tableCell} hyphenation='false'>Charge Controller</Text></View>
               <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${systemVoltage + ' V, ' + chargeControllerSize + ' A'}` )}></Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableCell}>Ksh 10,000</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${controllerPrice}`)}></Text></View>
               <View style={styles.tableCol}><Text style={styles.tableCell}>1</Text></View>
-              <View style={styles.tableCol}><Text style={styles.tableCell}>Ksh 10,000</Text></View>
+              <View style={styles.tableCol}><Text style={styles.tableCell} render={()=> (`${controllerPrice}`)}></Text></View>
             </View>
         </View>
       </View>
       <View style={[styles.section, {justifyContent:'flex-end'}]}>
         <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={[styles.tableCol, {width:'50%'}]}><Text style={styles.tableHeadCell}>Sub Total</Text></View>
-            <View style={[styles.tableCol, {width:'50%'}]}><Text style={[styles.tableCell, {fontFamily: 'Courier-Bold'}]}>Ksh 300000</Text></View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={[styles.tableCol, {width:'50%'}]}><Text style={styles.tableHeadCell}>Tax 15%</Text></View>
-            <View style={[styles.tableCol, {width:'50%'}]}><Text style={[styles.tableCell, {fontFamily: 'Courier-Bold'}]}>Ksh 2000</Text></View>
-          </View>
           <View style={[styles.tableRow, {backgroundColor: '#000000', color: '#ffffff'}]}>
             <View style={[styles.tableCol, {width:'50%', borderRight:'1px solid #ffffff'}]}><Text style={styles.tableHeadCell}>Grand Total</Text></View>
-            <View style={[styles.tableCol, {width:'50%'}]}><Text style={[styles.tableCell, {fontFamily: 'Courier-Bold'}]}>Ksh 302000</Text></View>
+            <View style={[styles.tableCol, {width:'50%'}]}><Text style={[styles.tableCell, {fontFamily: 'Courier-Bold'}]} render={()=> (`Ksh ${parseInt(panelPrice * panelNumbersUpdated) + parseInt(batteryPrice * batteryNumbers) + parseInt(inverterPrice) + parseInt(controllerPrice)}`.toLocaleString())}></Text></View>
           </View>
         </View>
+      </View>
+      <View style={[styles.section, {flexDirection: 'column'}]}>
+        <View>
+          <Text style={styles.subheading}>Suppliers :</Text>
+        </View>
+        <View style={{flexDirection: "row", justifyContent: "space-between"}}>
+          <View>
+            <Text style={styles.text}>Davis and Shirtliff</Text>
+            <Text style={styles.text}>River Road, Nairobi, Kenya</Text>
+            <Text style={styles.text}>Phone: +254715439392</Text>
+          </View>
+          <View style={{alignItems: 'flex-end'}}>
+            <Text style={styles.text}>The Green Camel LTD</Text>
+            <Text style={styles.text}>Ngong Road, Applewood Adams, Nairobi, Kenya</Text>
+            <Text style={styles.text}>Phone: +254719646842</Text>
+          </View>
+        </View>
+        
+
       </View>
       <View style={styles.section}>
         <View style={{flexDirection: 'column'}}>

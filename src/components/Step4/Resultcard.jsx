@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Resultcard.css";
+import Dayliff from "../../Assets/Davis and Shirtliff.png"
+import Camel from "../../Assets/Camel.png"
+
 
 const Resultcard = ({
     title,
     image,
     type,
+    model,
+    modelValue,
+    supplier,
+    supplierValue,
     typeValue,
     voltage,
-    propertyValues,
-    setpropertyValues,
     voltageValue,
     current,
     currentValue,
@@ -22,11 +27,13 @@ const Resultcard = ({
     powerValue,
     amps,
     ampsValue,
+    propertyValues,
+    setpropertyValues,
+    solarPanelsArray,
+    batteryArray,
+    systemVoltage,
 }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleCard = () => {
-        setIsOpen(!isOpen);
-    };
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -34,9 +41,10 @@ const Resultcard = ({
             return { ...values, [name]: value };
         });
     };
+
     return (
         <div className="flexcolumn resultCardContainer">
-            <div className="flexrow resultCardHead" onClick={toggleCard}>
+            <div className="flexrow resultCardHead">
                 <h4>{title}</h4>
                 
             </div>
@@ -52,26 +60,24 @@ const Resultcard = ({
                                 <td className="resultCardProperty">{type}</td>
                                 <td>{typeValue}</td>
                             </tr>)}
+                        {model && (
+                            <tr>
+                                <td className="resultCardProperty">{model}</td>
+                                <td>{modelValue}</td>
+                            </tr>)}
+                        {supplier && (
+                            <tr>
+                                <td className="resultCardProperty">{supplier}</td>
+                                <td>{supplierValue}</td>
+                            </tr>)}
+                            {supplier && (
+                            <tr>
+                                <td colSpan="2" style={{textAlign: "center"}}><img src={supplierValue === "Davis & Shirtliff" ? Dayliff : Camel} style={{maxHeight: "50px"}} alt="Supplier" /></td>
+                            </tr>)}
                         {voltage && (
                             <tr>
                                 <td className="resultCardProperty">{voltage} </td>
-                                <td>{title === "Battery" ? (
-                                <>
-                                    <select
-                                        name="batteryVoltageValue"
-                                        value={
-                                            propertyValues.batteryVoltageValue
-                                        }
-                                        onChange={handleChange}>
-                                        <option value={12}>12</option>
-                                        <option value={24}>24</option>
-                                        <option value={48}>48</option>
-                                    </select>
-                                    <> V</>
-                                </>
-                                ) : (
-                                <>{voltageValue} V</>
-                        )}</td>
+                                <td>{voltageValue} V</td>
                             </tr>
                         )}
                         {current && (
@@ -82,7 +88,18 @@ const Resultcard = ({
                         {capacity && (
                         <tr>
                             <td className="resultCardProperty">{capacity}</td>
-                            <td>{capacityValue} Ah</td>
+                            <td>
+                                <>
+                                    <select
+                                        name="batteryCapacity"
+                                        value={propertyValues.batteryCapacity}
+                                        onChange={handleChange}>
+                                            {batteryArray.map((data, i) => (
+                                                <option key={i} value={data[8]}>{data[8]}</option>
+                                            ))}
+                                    </select>
+                                    <> Watts</>
+                                </></td>
                         </tr>
                         )}
                         {quantity && (
@@ -98,22 +115,15 @@ const Resultcard = ({
                         {power && (
                         <tr>
                             <td className="resultCardProperty">{power}</td>
-                            <td>
-                                {title === "Solar Panel" ? (
+                            <td>{title === "Solar Panel" ? (
                                 <>
                                     <select
                                         name="panelWattage"
                                         value={propertyValues.panelWattage}
                                         onChange={handleChange}>
-                                        <option value={50}>50</option>
-                                        <option value={100}>100</option>
-                                        <option value={120}>120</option>
-                                        <option value={150}>150</option>
-                                        <option value={200}>200</option>
-                                        <option value={285}>285</option>
-                                        <option value={340}>340</option>
-                                        <option value={450}>450</option>
-                                        <option value={540}>540</option>
+                                            {solarPanelsArray.map((data, i) => (
+                                                <option key={i} value={data[5]}>{data[5]}</option>
+                                            ))}
                                     </select>
                                     <> Watts</>
                                 </>

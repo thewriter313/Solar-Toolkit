@@ -209,7 +209,7 @@ const Toolkit = () => {
                     <button
                       disabled={totalItems === 0}
                       className="btn1"
-                      onClick={() => setStep(2)}
+                      onClick={() => setStep(4)}
                     >
                       Next <IoIosArrowForward />
                     </button>
