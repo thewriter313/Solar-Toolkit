@@ -126,6 +126,7 @@ const About = () => {
         </div>
         <GoToTop />
       </div>
+      </div>
     );
 };
 
