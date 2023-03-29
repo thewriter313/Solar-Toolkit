@@ -1,4 +1,3 @@
-
 footer{
     color: var(--color1);
     width: 100%;
@@ -37,6 +36,9 @@ footer ul{
 .footerlink:hover{
     color: var(--color3);
     transition: 0.3s linear;
+}
+.footerLink.active{
+    color: var(--color3);
 }
 
 .logo img{

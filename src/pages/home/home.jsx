@@ -23,7 +23,7 @@ const Home = () => {
                 <div className="flexrow intro-wrapper">
                     <div data-aos="fade-right" data-aos-duration="1000" className="flexcolumn intro">
                         <h1>
-                            Welcome to Hel<span style={{color:'var(--color3)'}}>EOS</span> Solar Photovoltaic System Design and Installation Toolkit!
+                            Welcome to Hel<span style={{color:'var(--color3)'}}>EOS</span> Solar System Design and Installation Toolkit!
                         </h1>
                         <h2>
                             Developed by Students from the University of Nairobi
@@ -33,8 +33,8 @@ const Home = () => {
             </Parallax>
             </section>
 
-            <section className="flexrow infobox">
-                <div data-aos="fade-up" className="flexcolumn infoleft">
+            <section data-aos="fade-up" className="flexrow infobox">
+                <div  className="flexcolumn infoleft">
                     <h1>What equipment is required?</h1>
                     <p>Overhelmed by all the technical jargon? Fear not!
                         We provide a complete guide to all the components
@@ -48,21 +48,19 @@ const Home = () => {
                     </Link>
                 </div>
                 <img
-                    data-aos="fade-up"
                     src={setup}
                     alt="setup"
                     height={"500px"}
                 />
             </section>
 
-            <section className="flexrow infobox">
+            <section data-aos="fade-up" className="flexrow infobox">
                 <img
-                    data-aos="fade-up"
                     src={toolkitpic}
                     alt="toolkitpic"
                     height={"500px"}
                 />
-                <div data-aos="fade-up" className="flexcolumn inforight">
+                <div className="flexcolumn inforight">
                     <h1>Easy to use Toolkit</h1>
                     <p>
                         Our toolkit design employs engineering principles

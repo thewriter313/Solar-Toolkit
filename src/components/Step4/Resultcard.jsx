@@ -3,7 +3,6 @@ import "./Resultcard.css";
 import Dayliff from "../../Assets/Davis and Shirtliff.png"
 import Camel from "../../Assets/Camel.png"
 
-
 const Resultcard = ({
     title,
     image,
@@ -18,7 +17,6 @@ const Resultcard = ({
     current,
     currentValue,
     capacity,
-    capacityValue,
     quantity,
     quantityValue,
     price,
@@ -31,7 +29,6 @@ const Resultcard = ({
     setpropertyValues,
     solarPanelsArray,
     batteryArray,
-    systemVoltage,
 }) => {
 
     const handleChange = (event) => {
@@ -46,7 +43,6 @@ const Resultcard = ({
         <div className="flexcolumn resultCardContainer">
             <div className="flexrow resultCardHead">
                 <h4>{title}</h4>
-                
             </div>
             <div className="flexcolumn resultCardBody">
                 <div className="flexrow resultCardImage">
@@ -98,7 +94,7 @@ const Resultcard = ({
                                                 <option key={i} value={data[8]}>{data[8]}</option>
                                             ))}
                                     </select>
-                                    <> Watts</>
+                                    <> Ah</>
                                 </></td>
                         </tr>
                         )}
@@ -108,7 +104,7 @@ const Resultcard = ({
                                 {quantity}
                             </td>
                             <td>
-                                {quantityValue} {title === "Battery" ? "Units" : "Units"}
+                                {quantityValue} Units
                             </td>
                         </tr>
                         )}

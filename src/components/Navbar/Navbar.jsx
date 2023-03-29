@@ -15,21 +15,21 @@ const Navbar = () => {
         <ul className='navlinks'>
           <li><NavLink className='navLink' to='/' end>Home</NavLink></li>
           <li>|</li>
+          <li><NavLink className='navLink' to='/info'>Information</NavLink></li>
+          <li>|</li>
           <li><NavLink className='navLink' to='/about'>About Us</NavLink></li>
           <li>|</li>
-          <li><NavLink className='navLink' to='/toolkit'>Solar Toolkit</NavLink></li>
-          <li>|</li>
-          <li><NavLink className='navLink' to='/info'>Information</NavLink></li>
+          <li><NavLink className='navLinkToolkit' to='/toolkit'>Solar Toolkit</NavLink></li>
         </ul>
         <div className='navmenu'>
           <button onClick={() => settoggleMenu(!toggleMenu)}>{toggleMenu ? <RiCloseFill size={40}/> : <RiMenuFoldLine size={40}/>}</button>
           {toggleMenu && (
             <div className='dropdown' onClick={() => settoggleMenu(false)}>
             <ul className='flexcolumn'>
-            <li><Link className='navLink' to='/'>Home</Link></li>
-            <li><Link className='navLink' to='/about'>About Us</Link></li>
-            <li><Link className='navLink' to='/toolkit'>Solar Toolkit</Link></li>
-            <li><Link className='navLink' to='/info'>Information</Link></li>
+            <li><NavLink className='navLink' to='/' end>Home</NavLink></li>
+            <li><NavLink className='navLink' to='/info'>Information</NavLink></li>
+            <li><NavLink className='navLink' to='/about'>About Us</NavLink></li>
+            <li><NavLink className='navLink' to='/toolkit'>Solar Toolkit</NavLink></li>
           </ul>
           </div>
           )}

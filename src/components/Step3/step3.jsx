@@ -7,7 +7,7 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from "react-phone-number-input";
 
 
-const Step3 = ({ setStep, contactDetails, setContactDetails, countyData, step3Submit }) => {
+const Step3 = ({ setStep, contactDetails, setContactDetails, countyData, /*step3Submit*/ }) => {
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -16,7 +16,7 @@ const Step3 = ({ setStep, contactDetails, setContactDetails, countyData, step3Su
 
       const handleSubmit = async (event) => {
         event.preventDefault();
-        await step3Submit({ contactDetails });
+        // await step3Submit({ contactDetails });
         setStep(4);
     }
 

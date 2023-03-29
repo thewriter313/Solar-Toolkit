@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './footer.css'
 import logolight from '../../Assets/logolight.png'
 import {BsTwitter, BsFacebook, BsInstagram} from 'react-icons/bs'
@@ -17,10 +17,10 @@ const footer = () => {
         <div className='menu'>
             <h2>MAIN MENU</h2>
             <ul>
-                <Link to='/' className='footerlink'><li>Home</li></Link>
-                <Link to='/info' className='footerlink'><li>Information</li></Link>
-                <Link to='/toolkit' className='footerlink'><li>Toolkit</li></Link>
-                <Link to='/about' className='footerlink'><li>About Us</li></Link>
+                <NavLink to='/' className='footerlink' end><li>Home</li></NavLink>
+                <NavLink to='/info' className='footerlink'><li>Information</li></NavLink>
+                <NavLink to='/about' className='footerlink'><li>About Us</li></NavLink>
+                <NavLink to='/toolkit' className='footerlink'><li>Solar Toolkit</li></NavLink>
             </ul>
         </div>
         <div className='flexcolumn contact'>
