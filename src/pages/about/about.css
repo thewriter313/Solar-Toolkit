@@ -42,6 +42,17 @@
 .aboutform {
     width: 40%;
 }
+
+@media screen and (max-width: 1500px){
+   .about-section img {
+        max-height: 500px;
+    }
+    .introHead{
+        font-size: 12rem;
+    }
+
+} 
+
 @media screen and (max-width: 1080px) {
     .about-section {
         flex-direction: column;

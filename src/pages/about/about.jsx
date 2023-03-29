@@ -14,6 +14,7 @@ const About = () => {
     }, []);
 
     return (
+    
         <div className="about-page flexcolumn">
             {/* First section */}
             <div className="about-section flexrow">
@@ -115,17 +116,16 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div className="joinus flexcolumn wide">
-                {" "}
-                <h1>Contact Us</h1>
-                <div className="aboutform">
-                    <Form />
-                </div>
-            </div>
-            <GoToTop />
+        <div className="joinus flexcolumn wide">
+          {" "}
+          <h1>Contact Us</h1>
+          <div className="aboutform">
+            <Form />
+          </div>
         </div>
+        <GoToTop />
+      </div>
     );
 };
 

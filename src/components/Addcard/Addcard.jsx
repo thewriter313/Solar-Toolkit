@@ -19,6 +19,8 @@ const Addcard = (props) => {
   const [hours, setHours] = useState(0);
   const [amount, setAmount] = useState(0);
 
+  const inductiveLoads = props.appliances.reduce((Sum, item) => Sum + parseInt(item.power > 500 ? item.amount : 0), 0)
+
   //adding an appliance in table
   const handleAdd = () => {
     const applianceNumber = Number(props.appliances.length) + 2;
@@ -32,6 +34,7 @@ const Addcard = (props) => {
           hours: hours,
           amount: parseInt(amount),
           img: questionMark,
+          loadType: power > 1000 ? "Inductive" : "Resistive",
         },
       ];
     });
@@ -122,7 +125,7 @@ const Addcard = (props) => {
               <button
                 className="btn1"
                 disabled={
-                  (amount === 0 || hours === 0 || power === 0 || name === "" || amount < 0 || hours < 0 || power < 0) || (power > 1000 && amount > 1) ||(power > 1000 && hours > 1)
+                  (amount === 0 || hours === 0 || power === 0 || name === "" || amount < 0 || hours < 0 || power < 0) || (power > 1000 && amount > 1) ||(power > 1000 && hours > 1) || (power > 500 && inductiveLoads >= 2)
                 }
                 onClick={() => {handleAdd(); props.added()}}
               >
