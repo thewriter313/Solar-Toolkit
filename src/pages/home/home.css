@@ -18,10 +18,11 @@
 }
 
 .intro h1{
-    font-family: 'Tilt warp', cursive;
+    font-family: 'Montserrat';
     color: var(--color1);
     font-size: 5rem;
     line-height: 5rem;
+    font-weight: 700;
 }
 .intro h2{
     font-family: 'Chakra Petch';

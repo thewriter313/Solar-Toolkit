@@ -69,7 +69,7 @@ const Form = () => {
           value={values.message}
           onChange={handleChange}
         />
-        <button type="submit" className="submitbtn" disabled={submitting}>
+        <button type="submit" className="btn1" disabled={submitting}>
           Submit
         </button>
       </div>

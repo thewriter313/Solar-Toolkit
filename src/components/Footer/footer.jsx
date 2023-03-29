@@ -18,9 +18,9 @@ const footer = () => {
             <h2>MAIN MENU</h2>
             <ul>
                 <NavLink to='/' className='footerlink' end><li>Home</li></NavLink>
-                <NavLink to='/toolkit' className='footerlink'><li>Solar Toolkit</li></NavLink>
-                <NavLink to='/about' className='footerlink'><li>About Us</li></NavLink>
                 <NavLink to='/info' className='footerlink'><li>Information</li></NavLink>
+                <NavLink to='/about' className='footerlink'><li>About Us</li></NavLink>
+                <NavLink to='/toolkit' className='footerlink'><li>Solar Toolkit</li></NavLink>
             </ul>
         </div>
         <div className='flexcolumn contact'>
