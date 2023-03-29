@@ -22,7 +22,7 @@ import ThinFilm from "../../Assets/thinfilm.png";
 
 const qnCostOptions = ["Cheapest", "Cheap", "Reliable", "Very Reliable"];
 
-const Step2 = ({ setStep, qnDetails, setqnDetails, step2Submit }) => {
+const Step2 = ({ setStep, qnDetails, setqnDetails, /*step2Submit */  }) => {
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -34,7 +34,7 @@ const Step2 = ({ setStep, qnDetails, setqnDetails, step2Submit }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        await step2Submit({ qnDetails });
+        // await step2Submit({ qnDetails });
         setStep(3);
     }
 

@@ -10,7 +10,7 @@ import { IoMdQuote } from "react-icons/io";
 
 const About = () => {
     useEffect(() => {
-        AOS.init({ duration: 1000 })
+        AOS.init({ duration: 1500 })
     }, []);
 
     return (
@@ -50,7 +50,7 @@ const About = () => {
                 <div
                     data-aos="fade-up"
                     className="about-section-left flexcolumn">
-                    <img src={umair} alt="areeb" />
+                    <img src={umair} alt="umair" />
                 </div>
             </div>
 
@@ -61,7 +61,7 @@ const About = () => {
                 <div
                     data-aos="fade-up"
                     className="about-section-right flexcolumn">
-                    <img src={areeb} alt="umair" />
+                    <img src={areeb} alt="areeb" />
                 </div>
                 <div
                     data-aos="fade-up"

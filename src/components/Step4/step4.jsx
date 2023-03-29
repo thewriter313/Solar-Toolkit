@@ -80,8 +80,6 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
             : "Maximum Power Point Tracking (MPPT)"
             : "Maximum Power Point Tracking (MPPT)"
 
-    
-
     // Find PSH for given County
     const nameToFind = contactDetails.county;
     const matchingArr = countyData.find((arr) => arr[0] === nameToFind);
@@ -103,20 +101,23 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
             systemVoltage <= 12
                 ? (paneltype === "Polycrystalline"
                     ? 120
-                    : 125)
+                    : paneltype === "Monocrystalline"
+                    ? 150
+                    : 150)
                 : (paneltype === "Polycrystalline"
                     ? 345
+                    : paneltype === "Monocrystalline"
+                    ? 330
                     : 330)
         // paneltype === "Polycrystalline" ? 345 : 330,
     });
     
-    const solarPanelsArray = paneltype === 'Monocrystalline' ? catalogueData.filter(row => (row[0] === 'Solar Panel') && (row[2] === 'Monocrystalline')).sort((a,b) => a[5]-b[5]).filter(row => parseInt(row[6]) <= systemVoltage) : catalogueData.filter(row => (row[0] === 'Solar Panel') && (row[2] === 'Polycrystalline')).sort((a,b) => a[5]-b[5]).filter(row => parseInt(row[6]) <= systemVoltage);
+    const solarPanelsArray = paneltype === 'Monocrystalline' ? catalogueData.filter(row => (row[0] === 'Solar Panel') && (row[2] === 'Monocrystalline')).sort((a,b) => a[5]-b[5]).filter(row => parseInt(row[6]) <= systemVoltage) : paneltype === 'Polycrystalline' ? catalogueData.filter(row => (row[0] === 'Solar Panel') && (row[2] === 'Polycrystalline')).sort((a,b) => a[5]-b[5]).filter(row => parseInt(row[6]) <= systemVoltage) : catalogueData.filter(row => (row[0] === 'Solar Panel')).sort((a,b) => a[5]-b[5]).filter(row => parseInt(row[6]) <= systemVoltage);
     const inverterArray = catalogueData.filter(row => row[0] === 'Inverter').sort((a,b) => a[5]-b[5]);
     const batteryArray = batteryType === "Lithium Ion Battery" ? catalogueData.filter(row => row[0] === 'Battery' && row[2] === "Lithium Ion Battery").sort((a,b) => a[8]-b[8]) : catalogueData.filter(row => row[0] === 'Battery' && row[2] === "Lead Acid Battery").sort((a,b) => a[8]-b[8]);
     const chargeControllerArray = catalogueData.filter(row => row[0] === 'Charge Controller').sort((a,b) => a[7]-b[7]);
 
-    const selectedInverter = inverterArray.filter((arr) => (parseInt(arr[5]) > inverterWattage) && (parseInt(arr[6]) === systemVoltage)).sort((a,b) => a[5]-b[5])[0];
-
+    const selectedInverter = inverterWattage <= 5000 ? inverterArray.filter((arr) => (parseInt(arr[5]) > inverterWattage) && (parseInt(arr[6]) === systemVoltage)).sort((a,b) => a[5]-b[5])[0] : ['Inverter', 'Unavailable', 'String Inverter', 'No known supplier','Unknown', inverterWattage.toLocaleString(), systemVoltage, '', ''];
 
     // Battery Sizing
     const batterySeries = systemVoltage / batteryVoltageValue;
@@ -138,15 +139,16 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
     
 
     // Charge Controller Sizing
-    const shortCircuitCurrent = parseInt(selectedPanel[7]); // Get from Catologue
+    const shortCircuitCurrent = parseInt(selectedPanel[7]) // Get from Catologue
     
-    const panelWattageUpdated = panelNumbersUpdated * singlePanelWatt;
+    // const panelWattageUpdated = panelNumbersUpdated * singlePanelWatt;
     const chargeControllerSize =
         chargeControllerType === "Pulse Width Modulation (PWM)"
             ? Math.ceil(shortCircuitCurrent * panelParallel * 1.25)
             : Math.ceil(shortCircuitCurrent * panelParallel * 1.25)
             // : Math.ceil(panelWattageUpdated / systemVoltage);
-    const selectedController = chargeControllerArray.filter((arr) => parseInt(arr[7]) > chargeControllerSize).sort((a,b) => a[5]-b[5])[0];
+    const selectedController = chargeControllerSize <= 80 ? chargeControllerArray.filter((arr) => parseInt(arr[7]) > chargeControllerSize).sort((a,b) => a[5]-b[5])[0] : ['Charge Controller', 'Unavailable', 'PWM', 'No known supplier', 'Unknown', '', '', chargeControllerSize];
+
 
     const panelPrice = selectedPanel[4]
     const batteryPrice = selectedBattery[4]
@@ -155,7 +157,6 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
 
     const selectedInverterRating = selectedInverter[5]
     const selectedControllerRating = selectedController[7]
-
 
     const ResultCardData = [
         {
@@ -304,6 +305,7 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
                         Computed
                         <span style={{ color: "var(--color3)" }}> Results</span>
                     </h1>
+                    <Suspense fallback={<div>Loading PDF...</div>}>
                     <div className="flexrow resultCardsContainer">
                         {ResultCardData.map((data, i) => (
                             <Resultcard
@@ -338,6 +340,7 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
                             />
                         ))}
                     </div>
+                    </Suspense>
                 </div>
                 <div className="flexcolumn final">
                     <h1>
