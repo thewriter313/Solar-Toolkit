@@ -82,7 +82,7 @@ const Toolkit = () => {
     shade: "yesshade",
     expand: "likely",
     space: 10,
-    batteryspace: "nobatteryspace",
+    batteryspace: "yesbatteryspace",
     appeal: "bothappeal",
   });
 
@@ -297,7 +297,7 @@ const Toolkit = () => {
                   {myDoc &&
                     <PDFDownloadLink
                       document={myDoc}
-                      fileName={"SHS" + new Date().getMinutes()}
+                      fileName={"HelEOS Solar Quotation" + new Date().getMinutes()}
                       className='btn1'
                       style={{ textDecoration: 'none', height:'fit-content' }}
                       onClick={handleFinish}

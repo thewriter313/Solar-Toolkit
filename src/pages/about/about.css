@@ -9,7 +9,7 @@
 }
 .openQuote {
     font-size: 70px;
-    transform: rotate(180deg) translateY(50%);
+    transform: rotate(180deg);
     padding-right: 20px;
 }
 .endQuote {
@@ -45,7 +45,7 @@
 
 @media screen and (max-width: 1500px){
    .about-section img {
-        max-height: 500px;
+        max-height: 600px;
     }
     .introHead{
         font-size: 12rem;
@@ -79,5 +79,8 @@
     }
     .aboutform {
         width: 90%;
+    }
+    .endQuote {
+        padding: 0 0 20px 0;
     }
 }

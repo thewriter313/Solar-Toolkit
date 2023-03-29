@@ -18,7 +18,7 @@
 }
 
 .intro h1{
-    font-family: 'Montserrat';
+    font-family: 'Chakra Petch', sans-serif;
     color: var(--color1);
     font-size: 5rem;
     line-height: 5rem;
@@ -53,7 +53,7 @@
 }
 .infobox h1{
     padding: 0 20px;
-    font-family: 'Tilt warp', sans-serif;
+    font-family: 'Chakra Petch', sans-serif;
     font-size: 50px;
     text-transform: capitalize;
 }

@@ -77,6 +77,7 @@ const About = () => {
                 <div
                     data-aos="fade-up"
                     className="about-section-right flexcolumn">
+                    
                     <img src={areeb} alt="areeb" />
                 </div>
                 <div
@@ -116,6 +117,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
+                </div>
 
         <div className="joinus flexcolumn wide">
           {" "}
@@ -126,7 +128,7 @@ const About = () => {
         </div>
         <GoToTop />
       </div>
-      </div>
+      
     );
 };
 
