@@ -6,18 +6,16 @@ import About from './pages/about/about'
 import Home from "./pages/home/home";
 import Toolkit from './pages/toolkit/toolkit'
 import Info from './pages/info/info'
-import Catalogue from "./pages/catalogue/catalogue";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="toolkit" element={<Toolkit />} />
           <Route path="info" element={<Info />} />
-          <Route path="catalogue" element={<Catalogue />} />
         </Route>
       </Routes>
     </BrowserRouter>

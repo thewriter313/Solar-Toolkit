@@ -4,10 +4,10 @@ import GoToTop from "../GoToTop";
 import Clouds from "../../Assets/clouds.png";
 import CloudsInv from "../../Assets/cloudsInv.png";
 import Sun from "../../Assets/sun.png";
-import reliable from "../../Assets/reliable.png";
+import reliable from "../../Assets/reliable.webp";
 import savings from "../../Assets/savings.png";
-import GridTied from "../../Assets/Grid-tied.png";
-import OffGrid from "../../Assets/Offgrid-System.png";
+import GridTied from "../../Assets/Grid-tied.webp";
+import OffGrid from "../../Assets/Offgrid-System.webp";
 import PlainHouse from "../../Assets/House.png";
 import HouseTree from "../../Assets/HousewithTrees.png";
 import Expand from "../../Assets/Expand.png";
@@ -15,14 +15,15 @@ import nonExpand from "../../Assets/Unexpand.png";
 import Large from "../../Assets/large.png";
 import Medium from "../../Assets/rural.png";
 import Small from "../../Assets/small.png";
-import Battery from "../../Assets/Battery.jpg";
+import Battery from "../../Assets/battery.png";
 import Monocrystalline from "../../Assets/monocrystalline.png";
 import Polycrystalline from "../../Assets/polycrystalline.png";
-import Monocrystalline from "../../Assets/monocrystalline.png";
+import ThinFilm from "../../Assets/thinfilm.png";
 
 const qnCostOptions = ["Cheapest", "Cheap", "Reliable", "Very Reliable"];
 
-const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
+const Step2 = ({ setStep, qnDetails, setqnDetails, /*step2Submit */  }) => {
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -31,8 +32,14 @@ const Step2 = ({ setStep, qnDetails, setqnDetails }) => {
         });
     };
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        // await step2Submit({ qnDetails });
+        setStep(3);
+    }
+
     return (
-        <form id="step2form" className="qnContainer" onSubmit={() => setStep(3)}>
+        <form id="step2form" className="qnContainer" onSubmit={handleSubmit}>
             <h1>
                 Step 2: <span style={{ color: "var(--color3)" }}>Design </span>Questions
             </h1>
