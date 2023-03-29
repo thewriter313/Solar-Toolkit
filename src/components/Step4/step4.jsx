@@ -150,7 +150,7 @@ const Step4 = ({ setStep, appliances, qnDetails, contactDetails, getFromChild, c
     const selectedController = chargeControllerSize <= 80 ? chargeControllerArray.filter((arr) => parseInt(arr[7]) > chargeControllerSize).sort((a,b) => a[5]-b[5])[0] : ['Charge Controller', 'Unavailable', 'PWM', 'No known supplier', 'Unknown', '', '', chargeControllerSize];
 
 
-    const panelPrice = selectedPanel[4]
+    const panelPrice = selectedPanel[4];
     const batteryPrice = selectedBattery[4]
     const inverterPrice = selectedInverter[4]
     const controllerPrice = selectedController[4]
