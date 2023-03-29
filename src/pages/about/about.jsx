@@ -11,7 +11,7 @@ import { IoMdQuote } from "react-icons/io";
 const About = () => {
     useEffect(() => {
         AOS.init({ duration: 1500 })
-    }, []);
+    }, [])
 
     return (
         <div className="about-page flexcolumn">
